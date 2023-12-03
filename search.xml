@@ -10,15 +10,29 @@
 <li>在本地找个目录放博客源文件，路径不要有中文</li>
 <li>在选定的目录中，打开cmd</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/40676067/1701344628003-4a10e2c8-6b0c-4bf1-a346-ac20e52dc8ac.png#averageHue=%230e0e0e&clientId=ua9dcfacd-8abc-4&from=paste&height=502&id=u2b8e5936&originHeight=502&originWidth=971&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6429&status=done&style=none&taskId=u55d95168-8835-471c-9ed5-cfb233ac63f&title=&width=971" alt="image.png"><br>6.使用npm命令安装Hexo，输入<br>:::tips<br>npm install -g hexo-cli<br>hexo init blog<br>cd blog<br>hexo g<br>:::<br>构建好的效果:<img src="https://cdn.nlark.com/yuque/0/2023/png/40676067/1701344760454-e607748c-fe8a-489f-bbca-954b44fa7cf3.png#averageHue=%23fbfaf8&clientId=ua9dcfacd-8abc-4&from=paste&height=332&id=uae6e8ba7&originHeight=332&originWidth=658&originalType=binary&ratio=1&rotation=0&showTitle=false&size=34305&status=done&style=none&taskId=u4087aee6-6777-460e-b685-5e06b6a0242&title=&width=658" alt="image.png"><br>7.cd进入这个目录，分别按顺序输入以下三条命令就可以访问127.0.0.1:4000访问blog了<br>:::tips<br>hexo new test_my_site<br>hexo g<br> hexo s<br>:::<br>8.配置ssh<br>:::tips<br>cd ~&#x2F;.ssh #检查本机已存在的ssh密钥<br>ssh-keygen -t rsa -C “自己的邮箱地址”<br>:::<br> 然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>9.key填写C:\Users\Administrator.ssh\id_rsa.pub中的内容<br>10.尝试ssh连接,测试是否成功,如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，就算成功。<br>:::tips<br>ssh -T <span class="exturl"><a class="exturl__link"   href="mailto:git@github.com" >git@github.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>:::<br>11.在选中的位置(blog目录下)打开cmd<br>:::tips<br>npm install hexo-deployer-git –save<br>git config –global user.name “github用户名，非昵称 “<br>git config –global user.email “github注册邮箱“<br>:::<br>12.准备上传代码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344628003-4a10e2c8-6b0c-4bf1-a346-ac20e52dc8ac.png" alt="image.png"><br>6.使用npm命令安装Hexo，输入</p>
+<p>npm install -g hexo-cli<br>hexo init blog<br>cd blog<br>hexo g</p>
+<p>构建好的效果:<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344760454-e607748c-fe8a-489f-bbca-954b44fa7cf3.png" alt="image.png"><br>7.cd进入这个目录，分别按顺序输入以下三条命令就可以访问127.0.0.1:4000访问blog了</p>
+<p>hexo new test_my_site<br>hexo g<br> hexo s</p>
+<p>8.配置ssh</p>
+<p>cd ~&#x2F;.ssh #检查本机已存在的ssh密钥<br>ssh-keygen -t rsa -C “自己的邮箱地址”</p>
+<p> 然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>9.key填写C:\Users\Administrator.ssh\id_rsa.pub中的内容<br>10.尝试ssh连接,测试是否成功,如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，就算成功。</p>
+<p>ssh -T <span class="exturl"><a class="exturl__link"   href="mailto:git@github.com" >git@github.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> </p>
+<p>11.在选中的位置(blog目录下)打开cmd</p>
+<p>npm install hexo-deployer-git –save<br>git config –global user.name “github用户名，非昵称 “<br>git config –global user.email “github注册邮箱“</p>
+<p>12.准备上传代码</p>
 <ul>
 <li>在github上新建一个存储库，命名为github的用户名.github.io</li>
 <li>编辑_config.yml文件，在最后改成这样（注意保持格式，缩进不对，会导致一会儿，上传不成功）</li>
 </ul>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">   type: git </span><br><span class="line">   repository: git@github.com:luozhixiaowo/luozhixiaowo.github.io.gi </span><br><span class="line">   t </span><br><span class="line">   branch: main</span><br></pre></td></tr></table></div></figure>
 
-<p>13.上传<br>:::tips<br>hexo d<br>:::</p>
+<p>13.上传</p>
+<p>hexo d</p>
 ]]></content>
+      <tags>
+        <tag>个人博客</tag>
+      </tags>
   </entry>
   <entry>
     <title>钓鱼网站链接获取</title>
