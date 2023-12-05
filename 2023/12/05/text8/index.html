@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="网络知识杂谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark">
+<meta property="og:url" content="http://example.com/2023/12/05/text8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网络知识杂谈">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png">
+<meta property="article:published_time" content="2023-12-05T09:22:56.000Z">
+<meta property="article:modified_time" content="2023-12-05T11:40:49.984Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png"><title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark | Hexo</title><link ref="canonical" href="http://example.com/2023/12/05/text8/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-12-05</span></span></div></header><div class="post-body">
+        <h1 id="简单介绍上网流程"   >
+          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
+      <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
+<p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
+<p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
+
+        <h1 id="Proxifier代理设置"   >
+          <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
+      <p>1.打开软件设置代理服务器</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png" alt="image-20231205192017805"></p>
+<p>2.对代理服务器进行配置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png" alt="image-20231205192340743"></p>
+<p>3.设置代理规则来让什么网站和软件应用走代理</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png" alt="image-20231205192513853"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png" alt="image-20231205192541219"></p>
+
+        <h1 id="VMware桥接和nat模式"   >
+          <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
+      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
+
+        <h1 id="Wireshark"   >
+          <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
+      <p>1.选择要流量监控的网络接口</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png" alt="image-20231205193234605"></p>
+<p>2.简单介绍部分意思</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png" alt="image-20231205193526589"></p>
+<p>3.输入过滤条件可以筛选需要监控的流量信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png" alt="image-20231205193657914"></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2023/12/04/text7/"><span class="paginator-prev__text">python运算符，数字和字符串</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%8A%E7%BD%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">
+          简单介绍上网流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proxifier%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">
+          Proxifier代理设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VMware%E6%A1%A5%E6%8E%A5%E5%92%8Cnat%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">
+          VMware桥接和nat模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wireshark"><span class="toc-number">4.</span> <span class="toc-text">
+          Wireshark</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Never Give you up</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">归档</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>

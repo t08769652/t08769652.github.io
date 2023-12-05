@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
+    <url>/2023/12/05/text8/</url>
+    <content><![CDATA[
+        <h1 id="简单介绍上网流程"   >
+          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
+      <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
+<p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
+<p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
+
+        <h1 id="Proxifier代理设置"   >
+          <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
+      <p>1.打开软件设置代理服务器</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png" alt="image-20231205192017805"></p>
+<p>2.对代理服务器进行配置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png" alt="image-20231205192340743"></p>
+<p>3.设置代理规则来让什么网站和软件应用走代理</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png" alt="image-20231205192513853"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png" alt="image-20231205192541219"></p>
+
+        <h1 id="VMware桥接和nat模式"   >
+          <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
+      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
+
+        <h1 id="Wireshark"   >
+          <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
+      <p>1.选择要流量监控的网络接口</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png" alt="image-20231205193234605"></p>
+<p>2.简单介绍部分意思</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png" alt="image-20231205193526589"></p>
+<p>3.输入过滤条件可以筛选需要监控的流量信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png" alt="image-20231205193657914"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>python运算符，数字和字符串</title>
     <url>/2023/12/04/text7/</url>
     <content><![CDATA[
