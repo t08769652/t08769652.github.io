@@ -361,37 +361,30 @@
 <li>HTML文档也叫做 <strong>web 页面</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231206193045700.png" alt="image-20231206193045700"></p>
-<ul>
-<li><p><strong><!DOCTYPE html></strong> 声明为 HTML5 文档</p>
-</li>
-<li><p><strong><html></strong> 元素是 HTML 页面的根元素</p>
-</li>
-<li><p><strong><head></strong> 元素包含了文档的元（meta）数据，如 <strong><meta charset="utf-8"></strong> 定义网页编码格式为 <strong>utf-8</strong>。</p>
-</li>
-<li><p><strong><title></strong> 元素描述了文档的标题</p>
-</li>
-<li><p><strong><body></strong> 元素包含了可见的页面内容</p>
-</li>
-<li><p><strong><h1></strong> 元素定义一个大标题</p>
-</li>
-<li><p><strong><p></strong> 元素定义一个段落</p>
-<p> 2.HTML 布局 - 使用<div> 元素添加布局。大多数网站会把内容安排到多个列中（就像杂志或报纸那样）。</p>
-</li>
-</ul>
+<!--<!DOCTYPE html>声明为 HTML5 文档
+
+<html>元素是 HTML 页面的根元素
+
+<!--<head> 元素包含了文档的元（meta）数据，如 <meta charset="utf-8">定义网页编码格式为 utf-8。
+
+<!--<title>元素描述了文档的标题-->
+
+<body>元素包含了可见的页面内容
+
+<!-- <h1> 元素定义一个大标题-->
+
+<!-- <p> 元素定义一个段落 -->
+
+<p>2.HTML 布局 - 使用<div> 元素添加布局。大多数网站会把内容安排到多个列中（就像杂志或报纸那样）。</p>
 <p>大多数网站可以使用 <div> 来创建多列。CSS 用于对元素进行定位，或者为页面创建背景以及色彩丰富的外观。</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092732453.png" alt="image-20231210092732453"></p>
 <p>3.HTML 样式- CSS</p>
 <p>CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</p>
-<p>   CSS 可以通过以下方式添加到HTML中:</p>
-<ul>
-<li><p>内联样式- 在HTML元素中使用”style” <strong>属性</strong></p>
-</li>
-<li><p>内部样式表 -在HTML文档头部 <head> 区域使用<style> <strong>元素</strong> 来包含CSS</p>
-</li>
-<li><p>外部引用 - 使用外部 CSS <strong>文件</strong></p>
+<p>CSS 可以通过以下方式添加到HTML中:</p>
+<p>内联样式- 在HTML元素中使用”style” <strong>属性</strong></p>
+<p>内部样式表 -在HTML文档头部 <head>区域使用<style> <strong>元素</strong> 来包含CSS</p>
+<p>外部引用 - 使用外部 CSS 文件</p>
 <p>#号引用方式为 id&#x3D;#后面的内容</p>
-</li>
-</ul>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092933818.png" alt="image-20231210092933818"></p>
 <p>.号引用方式为class&#x3D;.后面的内容</p>
 <p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231210093159235.png" alt="image-20231210093159235"></p>
