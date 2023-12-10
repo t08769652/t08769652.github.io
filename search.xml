@@ -352,14 +352,12 @@
     <url>/2023/12/06/text10/</url>
     <content><![CDATA[<p>1.什么是HTML?</p>
 <p>HTML 是用来描述网页的一种语言。</p>
-<ul>
-<li>HTML 指的是超文本标记语言: HyperText Markup Language</li>
-<li>HTML 不是一种编程语言，而是一种标记语言</li>
-<li>标记语言是一套标记标签 (markup tag)</li>
-<li>HTML 使用标记标签来描述网页</li>
-<li>HTML 文档包含了HTML 标签及文本内容</li>
-<li>HTML文档也叫做 web 页面</li>
-</ul>
+<p>HTML 指的是超文本标记语言: HyperText Markup Language</p>
+<p>HTML 不是一种编程语言，而是一种标记语言</p>
+<p>标记语言是一套标记标签 (markup tag)</p>
+<p>HTML 使用标记标签来描述网页</p>
+<p>HTML 文档包含了HTML 标签及文本内容</p>
+<p>HTML文档也叫做 web 页面</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231206193045700.png" alt="image-20231206193045700"></p>
 <!--<!DOCTYPE html>声明为 HTML5 文档
 
