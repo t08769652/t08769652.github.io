@@ -1,66 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>用Github搭建个人博客</title>
-    <url>/2023/12/01/text2/</url>
-    <content><![CDATA[<ol>
-<li>提前安装好(node.js)<span class="exturl"><a class="exturl__link"   href="https://nodejs.org/en]" >[https://nodejs.org/en]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 左边的那个</li>
-<li>提前安装好(GIt)<span class="exturl"><a class="exturl__link"   href="https://git-scm.com/downloads]" >[https://git-scm.com/downloads]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
-<li>提前注册好一个github账号</li>
-<li>在本地找个目录放博客源文件，路径不要有中文</li>
-<li>在选定的目录中，打开cmd</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344628003-4a10e2c8-6b0c-4bf1-a346-ac20e52dc8ac.png" alt="image.png"><br>6.使用npm命令安装Hexo，输入</p>
-<p>npm install -g hexo-cli<br>hexo init blog<br>cd blog<br>hexo g</p>
-<p>构建好的效果:<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344760454-e607748c-fe8a-489f-bbca-954b44fa7cf3.png" alt="image.png"><br>7.cd进入这个目录，分别按顺序输入以下三条命令就可以访问127.0.0.1:4000访问blog了</p>
-<p>hexo new test_my_site<br>hexo g<br> hexo s</p>
-<p>8.配置ssh</p>
-<p>cd ~&#x2F;.ssh #检查本机已存在的ssh密钥<br>ssh-keygen -t rsa -C “自己的邮箱地址”</p>
-<p> 然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>9.key填写C:\Users\Administrator.ssh\id_rsa.pub中的内容<br>10.尝试ssh连接,测试是否成功,如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，就算成功。</p>
-<p>ssh -T <span class="exturl"><a class="exturl__link"   href="mailto:git@github.com" >git@github.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> </p>
-<p>11.在选中的位置(blog目录下)打开cmd</p>
-<p>npm install hexo-deployer-git –save<br>git config –global user.name “github用户名，非昵称 “<br>git config –global user.email “github注册邮箱“</p>
-<p>12.准备上传代码</p>
+    <title>Python字典</title>
+    <url>/2023/12/07/text11/</url>
+    <content><![CDATA[<p>1.字典的储存方式是以键值对的形式储存的，字典的每个键值 <strong>key&#x3D;&gt;value</strong> 对用冒号 <strong>:</strong> 分割，每个对之间用逗号(<strong>,</strong>)分割，整个字典包括在花括号 <strong>{}</strong> 中 ,格式如下所示：</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="code"><pre><span class="line">d = &#123;key1 : value1, key2 : value2, key3 : value3 &#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>2.键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字。</p>
+<p>3.字典的增删改查</p>
+<p>（1）字典数据的增加</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211630654.png" alt="image-20231207211630654"></p>
+<p>注意：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211734043.png" alt="image-20231207211734043"></p>
+<p>（2）字典数据的删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211833792.png" alt="image-20231207211833792"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212314763.png" alt="image-20231207212314763"></p>
+<p>（3）字典数据的查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211945099.png" alt="image-20231207211945099"></p>
+<p>4.字典循环</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212057877.png" alt="image-20231207212057877"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212200409.png" alt="image-20231207212200409"></p>
+<p>5.字典的嵌套</p>
+<p>student &#x3D; {<br>    ‘name’: ‘kelvin’,<br>    ‘age’: 18,<br>    ‘course’: [‘数据结构’, ‘计算机网络’, ‘计算机组成原理’, ‘操作系统’]<br>}</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HTML5</title>
+    <url>/2023/12/06/text10/</url>
+    <content><![CDATA[<p>1.什么是HTML?</p>
+<p>HTML 是用来描述网页的一种语言。</p>
 <ul>
-<li>在github上新建一个存储库，命名为github的用户名.github.io</li>
-<li>编辑_config.yml文件，在最后改成这样（注意保持格式，缩进不对，会导致一会儿，上传不成功）</li>
+<li>HTML 指的是超文本标记语言: HyperText Markup Language</li>
+<li>HTML 不是一种编程语言，而是一种标记语言</li>
+<li>标记语言是一套标记标签 (markup tag)</li>
+<li>HTML 使用标记标签来描述网页</li>
+<li>HTML 文档包含了HTML 标签及文本内容</li>
+<li>HTML文档也叫做 web 页面</li>
 </ul>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">   type: git </span><br><span class="line">   repository: git@github.com:luozhixiaowo/luozhixiaowo.github.io.gi </span><br><span class="line">   t </span><br><span class="line">   branch: main</span><br></pre></td></tr></table></div></figure>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231206193045700.png" alt="image-20231206193045700"></p>
+<!--<!DOCTYPE html>声明为 HTML5 文档
 
-<p>13.上传</p>
-<p>hexo d</p>
+<html>元素是 HTML 页面的根元素
+
+<!--<head> 元素包含了文档的元（meta）数据，如 <meta charset="utf-8">定义网页编码格式为 utf-8。
+
+<!--<title>元素描述了文档的标题-->
+
+<body>元素包含了可见的页面内容
+
+<!-- <h1> 元素定义一个大标题-->
+
+<!-- <p> 元素定义一个段落 -->
+
+<p>2.HTML 布局 - 使用<div> 元素添加布局。大多数网站会把内容安排到多个列中（就像杂志或报纸那样）。</p>
+<p>大多数网站可以使用 <div> 来创建多列。CSS 用于对元素进行定位，或者为页面创建背景以及色彩丰富的外观。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092732453.png" alt="image-20231210092732453"></p>
+<p>3.HTML 样式- CSS</p>
+<p>CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</p>
+<p>CSS 可以通过以下方式添加到HTML中:</p>
+<p>内联样式- 在HTML元素中使用”style” 属性</p>
+<p>内部样式表 -在HTML文档头部 <head>区域使用<style> 元素 来包含CSS</p>
+<p>#号引用方式为 id&#x3D;#后面的内容</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092933818.png" alt="image-20231210092933818"></p>
+<p>.号引用方式为class&#x3D; .后面的内容</p>
+<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231210093159235.png" alt="image-20231210093159235"></p>
+<p>3.一些网页布局属性</p>
+<p>align＝〃center〃居中</p>
+<p>top: 0px;</p>
+<p>left: 0px;</p>
+<p>padding: 10px;</p>
+<p>margin: 0px;</p>
+<p>width:100％;</p>
+<p>background-color:#efefef;}</p>
+<p>position:static 普通流</p>
+<p>width: 450px 每450个像素就换行</p>
+<p>position:relative相对定位 top: 10px;向下移动10个像素 left: 100px 自左边距100像素开始 position:absolute绝对定位 position:fixed固定定位 一直显示在页面</p>
+<p>z - index:10;重叠元素 数字大的显示在上层</p>
+<p>float浮动元素 float: right;</p>
+<p>width: 275px;</p>
+<p>margin: 5px;外边距5像素</p>
+<p>margin:10px auto自动 居中</p>
+<p>padding: 5px;内容与边框之间的距离</p>
+<p>padding-top:20px;上内边距</p>
+<p>padding-right:30px;右内边距</p>
+<p>padding-bottom:30px;下内边距</p>
+<p>padding-left:20px;左内边距</p>
+<p>padding:1px四边统一内边距</p>
+<p>padding:1px1px上下,左右内边距</p>
+<p>padding:1px1px1px上,左右,下内边距</p>
+<p>padding:1px1px1px1px上,右,下,左内边距</p>
+<p>.clear{clear:left&#x2F;right&#x2F;both&#x2F;none}清除浮动</p>
+<p>border:1px(线1像素) solid #665544;}</p>
+<p>1.none:表示没 </p>
+<p>2.solid：表示单线 </p>
+<p>3.double：表示双线 </p>
+<p>4.groove：表示凹槽 </p>
+<p>5.redge:表示皱纹 </p>
+<p>6.dotted:点线</p>
+<p>7.dashed:虚线</p>
+<p>8.dotted 方型点框</p>
+<p>9.ridge &#x2F;outset 表示凸出</p>
+<p>overflow:auto：在必需时对象内容才会被裁切或显示 滚动条；</p>
+<p>hidden：不显示超过对象尺寸的内容；</p>
+<p>scroll：总是显示滚动条。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python列表</title>
+    <url>/2023/12/05/text9/</url>
+    <content><![CDATA[<p>1.列表的定义：能装东西的东西在python中用[]来表示一个列表。列表中的元素通过,隔开。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213010381.png" alt="image-20231205213010381"></p>
+<p>2.列表的特性：有索引也有切片，索引超过范围会报错。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213240304.png" alt="image-20231205213240304"></p>
+<p>可以for循环遍历</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213650866.png" alt="image-20231205213650866"></p>
+<p>用len可以拿到列表长度</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213624128.png" alt="image-20231205213624128"></p>
+<p>3.列表的增删改查</p>
+<p>（1）列表数据的增加</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213414406.png" alt="image-20231207213414406"></p>
+<p>（2）列表数据的删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213450826.png" alt="image-20231207213450826"></p>
+<p>循环删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213854590.png" alt="image-20231207213854590"></p>
+<p>（3）列表数据的修改</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213540791.png" alt="image-20231207213540791"></p>
+<p>（4）列表数据的查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213621271.png" alt="image-20231207213621271"></p>
+<p>4.列表的循环</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213706528.png" alt="image-20231207213706528"></p>
+<p>5.列表的其他操作</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213812395.png" alt="image-20231207213812395"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
+    <url>/2023/12/05/text8/</url>
+    <content><![CDATA[
+        <h1 id="简单介绍上网流程"   >
+          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
+      <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
+<p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
+<p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
+
+        <h1 id="Proxifier代理设置"   >
+          <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
+      <p>1.打开软件设置代理服务器</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png" alt="image-20231205192017805"></p>
+<p>2.对代理服务器进行配置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png" alt="image-20231205192340743"></p>
+<p>3.设置代理规则来让什么网站和软件应用走代理</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png" alt="image-20231205192513853"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png" alt="image-20231205192541219"></p>
+
+        <h1 id="VMware桥接和nat模式"   >
+          <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
+      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
+
+        <h1 id="Wireshark"   >
+          <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
+      <p>1.选择要流量监控的网络接口</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png" alt="image-20231205193234605"></p>
+<p>2.简单介绍部分意思</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png" alt="image-20231205193526589"></p>
+<p>3.输入过滤条件可以筛选需要监控的流量信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png" alt="image-20231205193657914"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python运算符，数字和字符串</title>
+    <url>/2023/12/04/text7/</url>
+    <content><![CDATA[
+        <h1 id="Python算术运算符"   >
+          <a href="#Python算术运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python算术运算符" class="headerlink" title="Python算术运算符"></a>Python算术运算符</h1>
+      <p>运算符 + ：加 - 两个对象相加</p>
+<p>运算符  - ：减 - 得到负数或是一个数减去另一个数</p>
+<p>运算符 * ：乘 - 两个数相乘或是返回一个被重复若干次的字符串</p>
+<p>运算符 &#x2F; ：除 - x 除以 y</p>
+<p>运算符 % ：取模 - 返回除法的余数</p>
+<p>运算符 **：幂 - 返回x的y次幂</p>
+<p>运算符 &#x2F;&#x2F; ：取整除 - 往小的方向取整数</p>
+<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204204846499.png" alt="image-20231204204846499"></p>
+
+        <h1 id="Python-数字-Number"   >
+          <a href="#Python-数字-Number" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字-Number" class="headerlink" title="Python 数字(Number)"></a>Python 数字(Number)</h1>
+      <ul>
+<li><p><strong>整型(int)</strong> - 通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 Python3 没有 Python2 的 Long 类型。布尔(bool)是整型的子类型。</p>
+</li>
+<li><p><strong>浮点型(float)</strong> - 浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 &#x3D; 2.5 x 102 &#x3D; 250）</p>
+</li>
+<li><p><strong>复数( (complex))</strong> - 复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型。</p>
+
+        <h2 id="Python-数字类型转换"   >
+          <a href="#Python-数字类型转换" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字类型转换" class="headerlink" title="Python 数字类型转换"></a>Python 数字类型转换</h2>
+      <p>有时候，我们需要对数据内置的类型进行转换，数据类型的转换，你只需要将数据类型作为函数名即可。</p>
+<ul>
+<li><strong>int(x)</strong> 将x转换为一个整数。</li>
+<li><strong>float(x)</strong> 将x转换到一个浮点数。</li>
+<li><strong>complex(x)</strong> 将x转换到一个复数，实数部分为 x，虚数部分为 0。</li>
+<li><strong>complex(x, y)</strong> 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</li>
+</ul>
+</li>
+</ul>
+
+        <h1 id="Python-字符串"   >
+          <a href="#Python-字符串" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-字符串" class="headerlink" title="Python 字符串"></a>Python 字符串</h1>
+      <p>字符串是 Python 中最常用的数据类型。我们可以使用引号( <strong>‘</strong> 或 <strong>“</strong> )来创建字符串。</p>
+<p>Python 访问子字符串，可以使用方括号 <strong>[]</strong> 来截取字符串，字符串的截取的语法格式如下：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">变量[头下标:尾下标]</span><br></pre></td></tr></table></div></figure>
+
+<p>索引值以 <strong>0</strong> 为开始值，**-1** 为从末尾的开始位置。</p>
+<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204205436471.png" alt="image-20231204205436471"></p>
+<p>Python 的字符串的一些方法：</p>
+<p>1.upper()转换字符串中的小写字母为大写</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204210946961.png" alt="image-20231204210946961"></p>
+<p>2.strip()删除字符串2端的空格或指定字符</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211039648.png" alt="image-20231204211039648"></p>
+<p>3.replace()字符串替换</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211342982.png" alt="image-20231204211342982"></p>
+<p>4.split()对字符串进行切割</p>
+<p>5.join()拼接一个列表的内容成为新的字符串</p>
+<p>6.startswith()判断字符串是否以xxx开头</p>
+<p>7.len()字符串长度内置函数</p>
+<p>8.字符串的循环和遍历<br>for C in S:<br>print(c) 字符串中的每一个字符<br>关于in:<br>1.判断xxx是否在xxxx中出现了<br>2.for循环</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识</title>
+    <url>/2023/12/04/text6/</url>
+    <content><![CDATA[
+        <h1 id="正反向shell区别"   >
+          <a href="#正反向shell区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#正反向shell区别" class="headerlink" title="正反向shell区别"></a>正反向shell区别</h1>
+      <p>1.反弹shell：</p>
+<p>木马程序运行在被控制端，被控制端主动连接控制端</p>
+<p>2.正向shell：</p>
+<p>控制端主动发起连接去连接被控制端</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191035562.png" alt="image-20231204191035562"></p>
+
+        <h1 id="安卓远控工具AhMyth的使用"   >
+          <a href="#安卓远控工具AhMyth的使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#安卓远控工具AhMyth的使用" class="headerlink" title="安卓远控工具AhMyth的使用"></a>安卓远控工具AhMyth的使用</h1>
+      <p>1.生成木马程序</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191844438.png" alt="image-20231204191844438"></p>
+<p>2.找到木马程序位置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191952309.png" alt="image-20231204191952309"></p>
+<p>3.将木马程序放入安卓手机或是模拟器当中安装并运行</p>
+<p>4.点击监听按钮并打开运行按钮</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192410210.png" alt="image-20231204192410210"></p>
+<p>5.<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192702390.png" alt="image-20231204192702390"></p>
+
+        <h1 id="部分网络常识"   >
+          <a href="#部分网络常识" class="heading-link"><i class="fas fa-link"></i></a><a href="#部分网络常识" class="headerlink" title="部分网络常识"></a>部分网络常识</h1>
+      <p>1、什么是IP地址<br>IP地址就是给每个连接在Internet上的主机分配的一个32bit地址。按照CP&#x2F;IP协议规定，IP地址用二进制来表示，每个IP地址长32bit，比特换算成字节,就是4个字节。包括主机地址和网络地址两部分。如11000000 10101000 00000001 00000110(192.168.1.6)</p>
+<p>2、什么是子网掩码<br>子网掩码(subnet masking)的功能是告知主机或路由设备，地址的哪一部分是网络号，包括子网的网络号部分，哪一部分是主机号部分。子网掩码使用与IP地址相同的编址格式，即4个8位组的32位长格式。在子网掩码中，网络部分和子网络部分对应的位全为“1”，主机部分对应的位全为“0”通过将子网掩码与IP地址进行“与”操作,可提供所给定的IP地址所属的网络号(包括子网络号)。<br>3.可用的主机IP地址</p>
+<p>去除网关地址和广播地址中间的部分就是可用的主机IP地址。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python安装与基础语法</title>
+    <url>/2023/12/03/text5/</url>
+    <content><![CDATA[
+        <h1 id="1-python安装"   >
+          <a href="#1-python安装" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-python安装" class="headerlink" title="1.python安装"></a>1.python安装</h1>
+      <p>来到<span class="exturl"><a class="exturl__link"   href="https://so.csdn.net/so/search?q=Python%E5%AE%98%E7%BD%91&spm=1001.2101.3001.7020" >Python官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>：<span class="exturl"><a class="exturl__link"   href="https://www.python.org/" >https://www.python.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Downloads&gt;Windows：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161517785.png" alt="image-20231203161517785"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161653328.png" alt="image-20231203161653328"></p>
+<p>点击链接下载python最新版本</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161844634.png" alt="image-20231203161844634"></p>
+<p>下载后点击安装：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/4fe7fb7a95f941d5d7c06079c563899e.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/f09156cac5de4301fc14f84da0654f2e.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/57ff1575cde4ddfeb9c1697b3c7eb390.png" alt="img"></p>
+<p>在本地电脑输入命令提示符：win+R</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1ab2553654d102f6a8371f8fea5b7ed9.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/fc81e83df580b7c6d7be15195f054407.png" alt="img"></p>
+
+        <h1 id="2-python基础语法"   >
+          <a href="#2-python基础语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-python基础语法" class="headerlink" title="2.python基础语法"></a>2.python基础语法</h1>
+      
+        <h2 id="标识符"   >
+          <a href="#标识符" class="heading-link"><i class="fas fa-link"></i></a><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2>
+      <ul>
+<li>第一个字符必须是字母表中字母或下划线 <strong>_</strong> 。</li>
+<li>标识符的其他的部分由字母、数字和下划线组成。</li>
+<li>标识符对大小写敏感。</li>
+</ul>
+<p>在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也是允许的了。</p>
+<hr>
+
+        <h2 id="python关键字"   >
+          <a href="#python关键字" class="heading-link"><i class="fas fa-link"></i></a><a href="#python关键字" class="headerlink" title="python关键字"></a>python关键字</h2>
+      <p>关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import keyword</span><br><span class="line">&gt;&gt;&gt; keyword.kwlist</span><br><span class="line">[&#x27;False&#x27;, &#x27;None&#x27;, &#x27;True&#x27;, &#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;nonlocal&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span><br></pre></td></tr></table></div></figure>
+
+<hr>
+
+        <h2 id="注释"   >
+          <a href="#注释" class="heading-link"><i class="fas fa-link"></i></a><a href="#注释" class="headerlink" title="注释"></a>注释</h2>
+      <p>Python中单行注释以 <strong>#</strong> 开头，实例如下：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203163259585.png" alt="image-20231203163259585"></p>
+<p>执行以上代码，输出结果为：</p>
+<p>Hello Python！</p>
 ]]></content>
       <tags>
-        <tag>个人博客</tag>
+        <tag>python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>钓鱼网站链接获取</title>
-    <url>/2023/12/01/text1/</url>
-    <content><![CDATA[<p>1.vim &#x2F;etc&#x2F;proxychains4.conf (修改socks 4-5 更改IP和端口号)<br>2.proxychains4 git clone <span class="exturl"><a class="exturl__link"   href="https://github.com/makdosx/mip22" >https://github.com/makdosx/mip22</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (下载需要的文件)<br>3.cd mip22<br>4.chmod +x  .&#x2F;* (增加执行权限)<br>5.proxychains4 bash .&#x2F;mip22.sh (执行脚本文件)<br>出现底下情况执行  proxychains4  -q bash .&#x2F;mip22.sh<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172697552-5a930f93-1f4d-42d9-9a65-ea7dfc19fe72.png" alt="image.png"><br>6.输入1<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172800528-0d644e07-094e-4222-84ca-27f41ca044b3.png" alt="image.png"><br>7.输入数字选择需要的网站<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172935240-816c59e7-9091-4b9b-b985-f25dabc75c51.png" alt="image.png"></p>
-<p>8.根据数字选择链接在内网还是外网生效<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172996565-8385b5a6-a5e8-479e-868a-9b14a01be7cf.png" alt="image.png"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>用Github部署图床</title>
-    <url>/2023/12/02/text3/</url>
-    <content><![CDATA[<p>1.下载安装Typora 链接:<span class="exturl"><a class="exturl__link"   href="https://typoraio.cn/" >https://typoraio.cn/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>2.下载安装PicGo 链接:<span class="exturl"><a class="exturl__link"   href="https://picgo.github.io/PicGo-Doc/zh/" >https://picgo.github.io/PicGo-Doc/zh/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>3.在GitHub上建立一个存放图片的仓库<br>4.打开GitHub个人账号的设置<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346883504-a688855f-91a6-4619-b16c-dc801659c7ea.png" alt="image.png"><br>5.打开开发者选项<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346931466-63a14f2d-eb0a-43f6-9427-4a8f81681492.png" alt="image.png"><br>6.生成token<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346995044-af188b21-351e-4998-b9ad-1e1aaf9339af.png" alt="image.png"><br>7.打开Pic Go图床设置Github编辑<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347133776-2525ec9b-d1fa-4199-908c-d19b773f428c.png" alt="image.png"><br>8.打开pytora验证，文件-偏好设置-图像<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347239890-3c00118f-2e10-4ce7-95cd-9378120de75f.png" alt="image.png"></p>
-]]></content>
-      <tags>
-        <tag>个人博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>引导下载木马</title>
-    <url>/2023/12/01/text/</url>
-    <content><![CDATA[<p>1.安装phpstudy并启动apache服务<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255876063-304fac1e-b8d2-4a4b-bdf0-a065e0e3c413.png" alt="image.png"><br>2.打开网站根目录<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255958294-f8f5bdce-de2b-4ffe-ac08-8a4cfc2a19d4.png" alt="image.png"><br>3.根据index.html的内容实现不同的引导下载方式</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;./flash.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;h1&gt;hello world&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></div></figure>
-
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701257269692-4e244c1d-df9d-4454-86c6-5ca123c37926.png" alt="image.png"><br>4.更换href里面的链接可以替换下载内容</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203111412598.png" alt="image-20231203111412598"></p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;a class=&quot;header_installsteam_btn_content&quot; href=&quot;http://192.168.101.130/SteamSetup.exe&quot;&gt;</span><br></pre></td></tr></table></div></figure>
-
-]]></content>
   </entry>
   <entry>
     <title>Linux文件与目录，创建新用户</title>
@@ -152,309 +395,65 @@
       </tags>
   </entry>
   <entry>
-    <title>python安装与基础语法</title>
-    <url>/2023/12/03/text5/</url>
-    <content><![CDATA[
-        <h1 id="1-python安装"   >
-          <a href="#1-python安装" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-python安装" class="headerlink" title="1.python安装"></a>1.python安装</h1>
-      <p>来到<span class="exturl"><a class="exturl__link"   href="https://so.csdn.net/so/search?q=Python%E5%AE%98%E7%BD%91&spm=1001.2101.3001.7020" >Python官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>：<span class="exturl"><a class="exturl__link"   href="https://www.python.org/" >https://www.python.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>Downloads&gt;Windows：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161517785.png" alt="image-20231203161517785"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161653328.png" alt="image-20231203161653328"></p>
-<p>点击链接下载python最新版本</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161844634.png" alt="image-20231203161844634"></p>
-<p>下载后点击安装：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/4fe7fb7a95f941d5d7c06079c563899e.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/f09156cac5de4301fc14f84da0654f2e.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/57ff1575cde4ddfeb9c1697b3c7eb390.png" alt="img"></p>
-<p>在本地电脑输入命令提示符：win+R</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1ab2553654d102f6a8371f8fea5b7ed9.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/fc81e83df580b7c6d7be15195f054407.png" alt="img"></p>
-
-        <h1 id="2-python基础语法"   >
-          <a href="#2-python基础语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-python基础语法" class="headerlink" title="2.python基础语法"></a>2.python基础语法</h1>
-      
-        <h2 id="标识符"   >
-          <a href="#标识符" class="heading-link"><i class="fas fa-link"></i></a><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2>
-      <ul>
-<li>第一个字符必须是字母表中字母或下划线 <strong>_</strong> 。</li>
-<li>标识符的其他的部分由字母、数字和下划线组成。</li>
-<li>标识符对大小写敏感。</li>
-</ul>
-<p>在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也是允许的了。</p>
-<hr>
-
-        <h2 id="python关键字"   >
-          <a href="#python关键字" class="heading-link"><i class="fas fa-link"></i></a><a href="#python关键字" class="headerlink" title="python关键字"></a>python关键字</h2>
-      <p>关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import keyword</span><br><span class="line">&gt;&gt;&gt; keyword.kwlist</span><br><span class="line">[&#x27;False&#x27;, &#x27;None&#x27;, &#x27;True&#x27;, &#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;nonlocal&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span><br></pre></td></tr></table></div></figure>
-
-<hr>
-
-        <h2 id="注释"   >
-          <a href="#注释" class="heading-link"><i class="fas fa-link"></i></a><a href="#注释" class="headerlink" title="注释"></a>注释</h2>
-      <p>Python中单行注释以 <strong>#</strong> 开头，实例如下：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203163259585.png" alt="image-20231203163259585"></p>
-<p>执行以上代码，输出结果为：</p>
-<p>Hello Python！</p>
+    <title>用Github部署图床</title>
+    <url>/2023/12/02/text3/</url>
+    <content><![CDATA[<p>1.下载安装Typora 链接:<span class="exturl"><a class="exturl__link"   href="https://typoraio.cn/" >https://typoraio.cn/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>2.下载安装PicGo 链接:<span class="exturl"><a class="exturl__link"   href="https://picgo.github.io/PicGo-Doc/zh/" >https://picgo.github.io/PicGo-Doc/zh/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>3.在GitHub上建立一个存放图片的仓库<br>4.打开GitHub个人账号的设置<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346883504-a688855f-91a6-4619-b16c-dc801659c7ea.png" alt="image.png"><br>5.打开开发者选项<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346931466-63a14f2d-eb0a-43f6-9427-4a8f81681492.png" alt="image.png"><br>6.生成token<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346995044-af188b21-351e-4998-b9ad-1e1aaf9339af.png" alt="image.png"><br>7.打开Pic Go图床设置Github编辑<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347133776-2525ec9b-d1fa-4199-908c-d19b773f428c.png" alt="image.png"><br>8.打开pytora验证，文件-偏好设置-图像<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347239890-3c00118f-2e10-4ce7-95cd-9378120de75f.png" alt="image.png"></p>
 ]]></content>
       <tags>
-        <tag>python</tag>
+        <tag>个人博客</tag>
       </tags>
   </entry>
   <entry>
-    <title>正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识</title>
-    <url>/2023/12/04/text6/</url>
-    <content><![CDATA[
-        <h1 id="正反向shell区别"   >
-          <a href="#正反向shell区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#正反向shell区别" class="headerlink" title="正反向shell区别"></a>正反向shell区别</h1>
-      <p>1.反弹shell：</p>
-<p>木马程序运行在被控制端，被控制端主动连接控制端</p>
-<p>2.正向shell：</p>
-<p>控制端主动发起连接去连接被控制端</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191035562.png" alt="image-20231204191035562"></p>
-
-        <h1 id="安卓远控工具AhMyth的使用"   >
-          <a href="#安卓远控工具AhMyth的使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#安卓远控工具AhMyth的使用" class="headerlink" title="安卓远控工具AhMyth的使用"></a>安卓远控工具AhMyth的使用</h1>
-      <p>1.生成木马程序</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191844438.png" alt="image-20231204191844438"></p>
-<p>2.找到木马程序位置</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191952309.png" alt="image-20231204191952309"></p>
-<p>3.将木马程序放入安卓手机或是模拟器当中安装并运行</p>
-<p>4.点击监听按钮并打开运行按钮</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192410210.png" alt="image-20231204192410210"></p>
-<p>5.<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192702390.png" alt="image-20231204192702390"></p>
-
-        <h1 id="部分网络常识"   >
-          <a href="#部分网络常识" class="heading-link"><i class="fas fa-link"></i></a><a href="#部分网络常识" class="headerlink" title="部分网络常识"></a>部分网络常识</h1>
-      <p>1、什么是IP地址<br>IP地址就是给每个连接在Internet上的主机分配的一个32bit地址。按照CP&#x2F;IP协议规定，IP地址用二进制来表示，每个IP地址长32bit，比特换算成字节,就是4个字节。包括主机地址和网络地址两部分。如11000000 10101000 00000001 00000110(192.168.1.6)</p>
-<p>2、什么是子网掩码<br>子网掩码(subnet masking)的功能是告知主机或路由设备，地址的哪一部分是网络号，包括子网的网络号部分，哪一部分是主机号部分。子网掩码使用与IP地址相同的编址格式，即4个8位组的32位长格式。在子网掩码中，网络部分和子网络部分对应的位全为“1”，主机部分对应的位全为“0”通过将子网掩码与IP地址进行“与”操作,可提供所给定的IP地址所属的网络号(包括子网络号)。<br>3.可用的主机IP地址</p>
-<p>去除网关地址和广播地址中间的部分就是可用的主机IP地址。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>python运算符，数字和字符串</title>
-    <url>/2023/12/04/text7/</url>
-    <content><![CDATA[
-        <h1 id="Python算术运算符"   >
-          <a href="#Python算术运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python算术运算符" class="headerlink" title="Python算术运算符"></a>Python算术运算符</h1>
-      <p>运算符 + ：加 - 两个对象相加</p>
-<p>运算符  - ：减 - 得到负数或是一个数减去另一个数</p>
-<p>运算符 * ：乘 - 两个数相乘或是返回一个被重复若干次的字符串</p>
-<p>运算符 &#x2F; ：除 - x 除以 y</p>
-<p>运算符 % ：取模 - 返回除法的余数</p>
-<p>运算符 **：幂 - 返回x的y次幂</p>
-<p>运算符 &#x2F;&#x2F; ：取整除 - 往小的方向取整数</p>
-<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204204846499.png" alt="image-20231204204846499"></p>
-
-        <h1 id="Python-数字-Number"   >
-          <a href="#Python-数字-Number" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字-Number" class="headerlink" title="Python 数字(Number)"></a>Python 数字(Number)</h1>
-      <ul>
-<li><p><strong>整型(int)</strong> - 通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 Python3 没有 Python2 的 Long 类型。布尔(bool)是整型的子类型。</p>
-</li>
-<li><p><strong>浮点型(float)</strong> - 浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 &#x3D; 2.5 x 102 &#x3D; 250）</p>
-</li>
-<li><p><strong>复数( (complex))</strong> - 复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型。</p>
-
-        <h2 id="Python-数字类型转换"   >
-          <a href="#Python-数字类型转换" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字类型转换" class="headerlink" title="Python 数字类型转换"></a>Python 数字类型转换</h2>
-      <p>有时候，我们需要对数据内置的类型进行转换，数据类型的转换，你只需要将数据类型作为函数名即可。</p>
+    <title>用Github搭建个人博客</title>
+    <url>/2023/12/01/text2/</url>
+    <content><![CDATA[<ol>
+<li>提前安装好(node.js)<span class="exturl"><a class="exturl__link"   href="https://nodejs.org/en]" >[https://nodejs.org/en]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 左边的那个</li>
+<li>提前安装好(GIt)<span class="exturl"><a class="exturl__link"   href="https://git-scm.com/downloads]" >[https://git-scm.com/downloads]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>提前注册好一个github账号</li>
+<li>在本地找个目录放博客源文件，路径不要有中文</li>
+<li>在选定的目录中，打开cmd</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344628003-4a10e2c8-6b0c-4bf1-a346-ac20e52dc8ac.png" alt="image.png"><br>6.使用npm命令安装Hexo，输入</p>
+<p>npm install -g hexo-cli<br>hexo init blog<br>cd blog<br>hexo g</p>
+<p>构建好的效果:<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344760454-e607748c-fe8a-489f-bbca-954b44fa7cf3.png" alt="image.png"><br>7.cd进入这个目录，分别按顺序输入以下三条命令就可以访问127.0.0.1:4000访问blog了</p>
+<p>hexo new test_my_site<br>hexo g<br> hexo s</p>
+<p>8.配置ssh</p>
+<p>cd ~&#x2F;.ssh #检查本机已存在的ssh密钥<br>ssh-keygen -t rsa -C “自己的邮箱地址”</p>
+<p> 然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>9.key填写C:\Users\Administrator.ssh\id_rsa.pub中的内容<br>10.尝试ssh连接,测试是否成功,如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，就算成功。</p>
+<p>ssh -T <span class="exturl"><a class="exturl__link"   href="mailto:git@github.com" >git@github.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> </p>
+<p>11.在选中的位置(blog目录下)打开cmd</p>
+<p>npm install hexo-deployer-git –save<br>git config –global user.name “github用户名，非昵称 “<br>git config –global user.email “github注册邮箱“</p>
+<p>12.准备上传代码</p>
 <ul>
-<li><strong>int(x)</strong> 将x转换为一个整数。</li>
-<li><strong>float(x)</strong> 将x转换到一个浮点数。</li>
-<li><strong>complex(x)</strong> 将x转换到一个复数，实数部分为 x，虚数部分为 0。</li>
-<li><strong>complex(x, y)</strong> 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</li>
+<li>在github上新建一个存储库，命名为github的用户名.github.io</li>
+<li>编辑_config.yml文件，在最后改成这样（注意保持格式，缩进不对，会导致一会儿，上传不成功）</li>
 </ul>
-</li>
-</ul>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">   type: git </span><br><span class="line">   repository: git@github.com:luozhixiaowo/luozhixiaowo.github.io.gi </span><br><span class="line">   t </span><br><span class="line">   branch: main</span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="Python-字符串"   >
-          <a href="#Python-字符串" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-字符串" class="headerlink" title="Python 字符串"></a>Python 字符串</h1>
-      <p>字符串是 Python 中最常用的数据类型。我们可以使用引号( <strong>‘</strong> 或 <strong>“</strong> )来创建字符串。</p>
-<p>Python 访问子字符串，可以使用方括号 <strong>[]</strong> 来截取字符串，字符串的截取的语法格式如下：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">变量[头下标:尾下标]</span><br></pre></td></tr></table></div></figure>
-
-<p>索引值以 <strong>0</strong> 为开始值，**-1** 为从末尾的开始位置。</p>
-<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204205436471.png" alt="image-20231204205436471"></p>
-<p>Python 的字符串的一些方法：</p>
-<p>1.upper()转换字符串中的小写字母为大写</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204210946961.png" alt="image-20231204210946961"></p>
-<p>2.strip()删除字符串2端的空格或指定字符</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211039648.png" alt="image-20231204211039648"></p>
-<p>3.replace()字符串替换</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211342982.png" alt="image-20231204211342982"></p>
-<p>4.split()对字符串进行切割</p>
-<p>5.join()拼接一个列表的内容成为新的字符串</p>
-<p>6.startswith()判断字符串是否以xxx开头</p>
-<p>7.len()字符串长度内置函数</p>
-<p>8.字符串的循环和遍历<br>for C in S:<br>print(c) 字符串中的每一个字符<br>关于in:<br>1.判断xxx是否在xxxx中出现了<br>2.for循环</p>
+<p>13.上传</p>
+<p>hexo d</p>
+]]></content>
+      <tags>
+        <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>钓鱼网站链接获取</title>
+    <url>/2023/12/01/text1/</url>
+    <content><![CDATA[<p>1.vim &#x2F;etc&#x2F;proxychains4.conf (修改socks 4-5 更改IP和端口号)<br>2.proxychains4 git clone <span class="exturl"><a class="exturl__link"   href="https://github.com/makdosx/mip22" >https://github.com/makdosx/mip22</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (下载需要的文件)<br>3.cd mip22<br>4.chmod +x  .&#x2F;* (增加执行权限)<br>5.proxychains4 bash .&#x2F;mip22.sh (执行脚本文件)<br>出现底下情况执行  proxychains4  -q bash .&#x2F;mip22.sh<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172697552-5a930f93-1f4d-42d9-9a65-ea7dfc19fe72.png" alt="image.png"><br>6.输入1<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172800528-0d644e07-094e-4222-84ca-27f41ca044b3.png" alt="image.png"><br>7.输入数字选择需要的网站<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172935240-816c59e7-9091-4b9b-b985-f25dabc75c51.png" alt="image.png"></p>
+<p>8.根据数字选择链接在内网还是外网生效<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172996565-8385b5a6-a5e8-479e-868a-9b14a01be7cf.png" alt="image.png"></p>
 ]]></content>
   </entry>
   <entry>
-    <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
-    <url>/2023/12/05/text8/</url>
-    <content><![CDATA[
-        <h1 id="简单介绍上网流程"   >
-          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
-      <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
-<p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
-<p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
+    <title>引导下载木马</title>
+    <url>/2023/12/01/text/</url>
+    <content><![CDATA[<p>1.安装phpstudy并启动apache服务<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255876063-304fac1e-b8d2-4a4b-bdf0-a065e0e3c413.png" alt="image.png"><br>2.打开网站根目录<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255958294-f8f5bdce-de2b-4ffe-ac08-8a4cfc2a19d4.png" alt="image.png"><br>3.根据index.html的内容实现不同的引导下载方式</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;./flash.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;h1&gt;hello world&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="Proxifier代理设置"   >
-          <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
-      <p>1.打开软件设置代理服务器</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png" alt="image-20231205192017805"></p>
-<p>2.对代理服务器进行配置</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png" alt="image-20231205192340743"></p>
-<p>3.设置代理规则来让什么网站和软件应用走代理</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png" alt="image-20231205192513853"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png" alt="image-20231205192541219"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701257269692-4e244c1d-df9d-4454-86c6-5ca123c37926.png" alt="image.png"><br>4.更换href里面的链接可以替换下载内容</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203111412598.png" alt="image-20231203111412598"></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;a class=&quot;header_installsteam_btn_content&quot; href=&quot;http://192.168.101.130/SteamSetup.exe&quot;&gt;</span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="VMware桥接和nat模式"   >
-          <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
-      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
-
-        <h1 id="Wireshark"   >
-          <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
-      <p>1.选择要流量监控的网络接口</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png" alt="image-20231205193234605"></p>
-<p>2.简单介绍部分意思</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png" alt="image-20231205193526589"></p>
-<p>3.输入过滤条件可以筛选需要监控的流量信息</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png" alt="image-20231205193657914"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python字典</title>
-    <url>/2023/12/07/text11/</url>
-    <content><![CDATA[<p>1.字典的储存方式是以键值对的形式储存的，字典的每个键值 <strong>key&#x3D;&gt;value</strong> 对用冒号 <strong>:</strong> 分割，每个对之间用逗号(<strong>,</strong>)分割，整个字典包括在花括号 <strong>{}</strong> 中 ,格式如下所示：</p>
-<figure class="highlight python"><div class="table-container"><table><tr><td class="code"><pre><span class="line">d = &#123;key1 : value1, key2 : value2, key3 : value3 &#125;</span><br></pre></td></tr></table></div></figure>
-
-<p>2.键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字。</p>
-<p>3.字典的增删改查</p>
-<p>（1）字典数据的增加</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211630654.png" alt="image-20231207211630654"></p>
-<p>注意：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211734043.png" alt="image-20231207211734043"></p>
-<p>（2）字典数据的删除</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211833792.png" alt="image-20231207211833792"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212314763.png" alt="image-20231207212314763"></p>
-<p>（3）字典数据的查询</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211945099.png" alt="image-20231207211945099"></p>
-<p>4.字典循环</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212057877.png" alt="image-20231207212057877"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212200409.png" alt="image-20231207212200409"></p>
-<p>5.字典的嵌套</p>
-<p>student &#x3D; {<br>    ‘name’: ‘kelvin’,<br>    ‘age’: 18,<br>    ‘course’: [‘数据结构’, ‘计算机网络’, ‘计算机组成原理’, ‘操作系统’]<br>}</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>HTML5</title>
-    <url>/2023/12/06/text10/</url>
-    <content><![CDATA[<p>1.什么是HTML?</p>
-<p>HTML 是用来描述网页的一种语言。</p>
-<ul>
-<li>HTML 指的是超文本标记语言: HyperText Markup Language</li>
-<li>HTML 不是一种编程语言，而是一种标记语言</li>
-<li>标记语言是一套标记标签 (markup tag)</li>
-<li>HTML 使用标记标签来描述网页</li>
-<li>HTML 文档包含了HTML 标签及文本内容</li>
-<li>HTML文档也叫做 web 页面</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231206193045700.png" alt="image-20231206193045700"></p>
-<!--<!DOCTYPE html>声明为 HTML5 文档
-
-<html>元素是 HTML 页面的根元素
-
-<!--<head> 元素包含了文档的元（meta）数据，如 <meta charset="utf-8">定义网页编码格式为 utf-8。
-
-<!--<title>元素描述了文档的标题-->
-
-<body>元素包含了可见的页面内容
-
-<!-- <h1> 元素定义一个大标题-->
-
-<!-- <p> 元素定义一个段落 -->
-
-<p>2.HTML 布局 - 使用<div> 元素添加布局。大多数网站会把内容安排到多个列中（就像杂志或报纸那样）。</p>
-<p>大多数网站可以使用 <div> 来创建多列。CSS 用于对元素进行定位，或者为页面创建背景以及色彩丰富的外观。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092732453.png" alt="image-20231210092732453"></p>
-<p>3.HTML 样式- CSS</p>
-<p>CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</p>
-<p>CSS 可以通过以下方式添加到HTML中:</p>
-<p>内联样式- 在HTML元素中使用”style” 属性</p>
-<p>内部样式表 -在HTML文档头部 <head>区域使用<style> 元素 来包含CSS</p>
-<p>外部引用 - 使用外部 CSS 文件</p>
-<p>#号引用方式为 id&#x3D;#后面的内容</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092933818.png" alt="image-20231210092933818"></p>
-<p>.号引用方式为class&#x3D; .后面的内容</p>
-<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231210093159235.png" alt="image-20231210093159235"></p>
-<p>3.一些网页布局属性</p>
-<p>align＝〃center〃居中</p>
-<p>top: 0px;</p>
-<p>left: 0px;</p>
-<p>padding: 10px;</p>
-<p>margin: 0px;</p>
-<p>width:100％;</p>
-<p>background-color:#efefef;}</p>
-<p>position:static 普通流</p>
-<p>width: 450px 每450个像素就换行</p>
-<p>position:relative相对定位 top: 10px;向下移动10个像素 left: 100px 自左边距100像素开始 position:absolute绝对定位 position:fixed固定定位 一直显示在页面</p>
-<p>z - index:10;重叠元素 数字大的显示在上层</p>
-<p>float浮动元素 float: right;</p>
-<p>width: 275px;</p>
-<p>margin: 5px;外边距5像素</p>
-<p>margin:10px auto自动 居中</p>
-<p>padding: 5px;内容与边框之间的距离</p>
-<p>padding-top:20px;上内边距</p>
-<p>padding-right:30px;右内边距</p>
-<p>padding-bottom:30px;下内边距</p>
-<p>padding-left:20px;左内边距</p>
-<p>padding:1px四边统一内边距</p>
-<p>padding:1px1px上下,左右内边距</p>
-<p>padding:1px1px1px上,左右,下内边距</p>
-<p>padding:1px1px1px1px上,右,下,左内边距</p>
-<p>.clear{clear:left&#x2F;right&#x2F;both&#x2F;none}清除浮动</p>
-<p>border:1px(线1像素) solid #665544;}</p>
-<p>1.none:表示没 </p>
-<p>2.solid：表示单线 </p>
-<p>3.double：表示双线 </p>
-<p>4.groove：表示凹槽 </p>
-<p>5.redge:表示皱纹 </p>
-<p>6.dotted:点线</p>
-<p>7.dashed:虚线</p>
-<p>8.dotted 方型点框</p>
-<p>9.ridge &#x2F;outset 表示凸出</p>
-<p>overflow:auto：在必需时对象内容才会被裁切或显示 滚动条；</p>
-<p>hidden：不显示超过对象尺寸的内容；</p>
-<p>scroll：总是显示滚动条。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>python列表</title>
-    <url>/2023/12/05/text9/</url>
-    <content><![CDATA[<p>1.列表的定义：能装东西的东西在python中用[]来表示一个列表。列表中的元素通过,隔开。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213010381.png" alt="image-20231205213010381"></p>
-<p>2.列表的特性：有索引也有切片，索引超过范围会报错。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213240304.png" alt="image-20231205213240304"></p>
-<p>可以for循环遍历</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213650866.png" alt="image-20231205213650866"></p>
-<p>用len可以拿到列表长度</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213624128.png" alt="image-20231205213624128"></p>
-<p>3.列表的增删改查</p>
-<p>（1）列表数据的增加</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213414406.png" alt="image-20231207213414406"></p>
-<p>（2）列表数据的删除</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213450826.png" alt="image-20231207213450826"></p>
-<p>循环删除</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213854590.png" alt="image-20231207213854590"></p>
-<p>（3）列表数据的修改</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213540791.png" alt="image-20231207213540791"></p>
-<p>（4）列表数据的查询</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213621271.png" alt="image-20231207213621271"></p>
-<p>4.列表的循环</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213706528.png" alt="image-20231207213706528"></p>
-<p>5.列表的其他操作</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213812395.png" alt="image-20231207213812395"></p>
 ]]></content>
   </entry>
 </search>
