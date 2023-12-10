@@ -9,18 +9,22 @@
 <p>2.键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字。</p>
 <p>3.字典的增删改查</p>
 <p>（1）字典数据的增加</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211630654.png" alt="image-20231207211630654"></p>
-<p>注意：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211734043.png" alt="image-20231207211734043"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210163425519.png" alt="image-20231210163425519"></p>
 <p>（2）字典数据的删除</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211833792.png" alt="image-20231207211833792"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212314763.png" alt="image-20231207212314763"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210163802158.png" alt="image-20231210163802158"></p>
+<p>循环列表删除内容</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210170315706.png" alt="image-20231210170315706"></p>
 <p>（3）字典数据的查询</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211945099.png" alt="image-20231207211945099"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210170506990.png" alt="image-20231210170506990"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210170556795.png" alt="image-20231210170556795"></p>
 <p>4.字典循环</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212057877.png" alt="image-20231207212057877"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212200409.png" alt="image-20231207212200409"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210171241491.png" alt="image-20231210171241491"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210171449485.png" alt="image-20231210171449485"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210171828192.png" alt="image-20231210171828192"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210172043438.png" alt="image-20231210172043438"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210172438749.png" alt="image-20231210172438749"></p>
 <p>5.字典的嵌套</p>
-<p>student &#x3D; {<br>    ‘name’: ‘kelvin’,<br>    ‘age’: 18,<br>    ‘course’: [‘数据结构’, ‘计算机网络’, ‘计算机组成原理’, ‘操作系统’]<br>}</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210172646960.png" alt="image-20231210172646960"></p>
 ]]></content>
   </entry>
   <entry>
@@ -29,60 +33,410 @@
     <content><![CDATA[
         <h3 id="1-文档结构"   >
           <a href="#1-文档结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-文档结构" class="headerlink" title="1. 文档结构"></a>1. 文档结构</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">htmlCopy code&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- 内容在这里 --&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></div></figure>
+      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">html&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- 内容在这里 --&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></div></figure>
 
 
         <h3 id="2-常见标签"   >
           <a href="#2-常见标签" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-常见标签" class="headerlink" title="2. 常见标签"></a>2. 常见标签</h3>
       <ul>
-<li><code>&lt;div&gt;</code>：用于组织内容。</li>
-<li><code>&lt;p&gt;</code>：段落。</li>
-<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>：标题。</li>
-<li><code>&lt;a&gt;</code>：超链接。</li>
-<li><code>&lt;img&gt;</code>：图像。</li>
-<li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>：无序列表、有序列表、列表项。</li>
+<li><p><code>&lt;div&gt;</code>：用于组织内容。</p>
+</li>
+<li><p><code>&lt;p&gt;</code>：段落。</p>
+</li>
+<li><p><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>：标题。</p>
+</li>
+<li><p><code>&lt;a&gt;</code>：超链接。</p>
+</li>
+<li><p><code>&lt;img&gt;</code>：图像。</p>
+</li>
+<li><p><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>：无序列表、有序列表、列表项。</p>
+</li>
+<li><pre></pre>预处理
+
+<p><b>加粗</p>
+<p><i>斜体</p>
+<p><sup>上标如指数</p>
+<p><sub>下标</p>
+<p><br />换行</p>
+<hr />水平线
+
+<p><strong>加粗</p>
+<p><em>强调表现为斜体</p>
+<blockquote>标记表现为缩进，将<p></p>包围在内
+
+<p><q>标记两侧引号，IE不支持</p>
+<abbr>
+
+<p><cite>引用表现为斜体，html5不可用于人名</p>
+<p><dfn>定义</p>
+<address>地址
+
+<p><ins>文字带有下划线</p>
+<p><del>文字带有删除线</p>
+<p><s>文字中下方有横线穿过</p>
+<h1>----<h6>标题由大到小
+
+<p>列表</p>
+<p><o1>有序列表，中间每段用&lt;1i&gt;&lt;&#x2F;1i&gt;</p>
+<p><u1>无序列表，中间每段用&lt;1i&gt;&lt;&#x2F;1i&gt;</p>
+<p><d1>定义列表，首尾用<d1>，标题用<dt>，解释说明用<dd></p>
+<p>链接</p>
+<p>网页链接文本</p>
+<p>&lt;a href＝”<span class="exturl"><a class="exturl__link"   href="http://www.baidu.com" >百度">http://www.baidu.com&quot;&gt;百度</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></a></p>
+<p>email链接</p>
+<p>&lt;a href ＝”mailto:<span class="exturl"><a class="exturl__link"   href="mailto:&#49;&#x32;&#x31;&#x30;&#x33;&#57;&#x36;&#49;&#52;&#50;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;" >&#49;&#x32;&#x31;&#x30;&#x33;&#57;&#x36;&#49;&#52;&#50;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>&gt;孙邮箱</a></p>
+<p>在新窗口中打开链接target</p>
+<p>&lt;a href&#x3D;”<span class="exturl"><a class="exturl__link"   href="http://www.baidu.com" target＝"_blank">百度">http://www.baidu.com&quot;target＝&quot;_blank&quot;&gt;百度</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></a></p>
+<p>链接到其他页面的某个地方</p>
+<a href ="http : / www .baidu.com/#标记符号">
+
+<p>图像</p>
+<p><img>没有结束标签，向页面添加图片。</p>
+<p>src 图片地址 </p>
+<p>alt 图片说明</p>
+<p>title 图片简略说明</p>
+<p>height以像素为单位时指定图片高度</p>
+<p>width以像素为单位时指定图片宽度</p>
+<img src= "" alt="" width="600" height="" /></li>
 </ul>
 
         <h3 id="3-表单"   >
           <a href="#3-表单" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-表单" class="headerlink" title="3. 表单"></a>3. 表单</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">htmlCopy code&lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;label for=&quot;username&quot;&gt;用户名：&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required&gt;</span><br><span class="line"></span><br><span class="line">    &lt;label for=&quot;password&quot;&gt;密码：&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></div></figure>
+      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">html&lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;label for=&quot;username&quot;&gt;用户名：&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required&gt;</span><br><span class="line"></span><br><span class="line">    &lt;label for=&quot;password&quot;&gt;密码：&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></div></figure>
 
+<p>form&#x3D;action&#x3D; &gt;&lt;&#x2F;&gt;表单结构</p>
+<p>action&#x3D;”提交地址”</p>
+<p>method&#x3D;”提交方式post”</p>
+<p>id</p>
+<p><input>表单控件</p>
+<p>type&#x3D;”text”单行文本框</p>
+<p>name&#x3D;”username”</p>
+<p>密码框</p>
+<p>maxlength限制在文本中输入的最大字符长度</p>
+<p>size&#x3D;”5”老表单中显示字符数</p>
+<p>type&#x3D;”password”输入的字符被掩饰</p>
+<textarea></>多行文本框默认显示的内容
 
-        <h3 id="4-多媒体"   >
-          <a href="#4-多媒体" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-多媒体" class="headerlink" title="4. 多媒体"></a>4. 多媒体</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">htmlCopy code&lt;audio controls&gt;</span><br><span class="line">    &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mp3&quot;&gt;</span><br><span class="line">    Your browser does not support the audio tag.</span><br><span class="line">&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">    Your browser does not support the video tag.</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></div></figure>
+单选按钮
 
+type="radio"让用户从一系列选项选一个
 
-        <h2 id="CSS笔记："   >
-          <a href="#CSS笔记：" class="heading-link"><i class="fas fa-link"></i></a><a href="#CSS笔记：" class="headerlink" title="CSS笔记："></a>CSS笔记：</h2>
-      
-        <h3 id="1-选择器"   >
-          <a href="#1-选择器" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-选择器" class="headerlink" title="1. 选择器"></a>1. 选择器</h3>
-      <ul>
-<li>类选择器：<code>.classname</code></li>
-<li>ID选择器：<code>#id</code></li>
-<li>元素选择器：<code>element</code></li>
-<li>后代选择器：<code>ancestor descendant</code></li>
-<li>直接子元素选择器：<code>parent &gt; child</code></li>
-<li>伪类选择器：<code>:hover</code>, <code>:nth-child(n)</code></li>
-</ul>
+value=""选项的内容
 
-        <h3 id="2-样式规则"   >
-          <a href="#2-样式规则" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-样式规则" class="headerlink" title="2. 样式规则"></a>2. 样式规则</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">cssCopy code/* 基本样式规则 */</span><br><span class="line">body &#123;</span><br><span class="line">    font-family: &#x27;Arial&#x27;, sans-serif;</span><br><span class="line">    background-color: #f4f4f4;</span><br><span class="line">    color: #333;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 盒模型 */</span><br><span class="line">.container &#123;</span><br><span class="line">    width: 80%;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">    padding: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 文本样式 */</span><br><span class="line">h1 &#123;</span><br><span class="line">    font-size: 2em;</span><br><span class="line">    color: #0077cc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 背景和边框 */</span><br><span class="line">.box &#123;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 布局 */</span><br><span class="line">.flex-container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 响应式设计 */</span><br><span class="line">@media screen and (max-width: 600px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+checked="checked"默认选中
 
+name="genre"一个问题值
 
-        <h3 id="3-盒模型"   >
-          <a href="#3-盒模型" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-盒模型" class="headerlink" title="3. 盒模型"></a>3. 盒模型</h3>
-      <ul>
-<li>内边距：<code>padding</code></li>
-<li>边框：<code>border</code></li>
-<li>外边距：<code>margin</code></li>
-</ul>
+多选按钮
 
-        <h3 id="4-Flex布局"   >
-          <a href="#4-Flex布局" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-Flex布局" class="headerlink" title="4. Flex布局"></a>4. Flex布局</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">cssCopy code.container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+type="checkbox"
+
+name
+
+value
+
+checked
+
+下拉列表框
+
+<form action="">
+
+<select name="devices">
+
+<option value="ipod">ipod</>
+
+<option value="ipod">ipod</>
+
+</>
+
+</>
+
+多选框
+
+size显示多个多选框
+
+multiple允许用户选择多个选项
+
+<input type="file">文件上传域
+
+<input type="submit" name="" value="">提交按钮
+
+<input type="image" src="图片路径" width=" " height="">图像按钮
+
+<form><button><input="hidden"></></>
+
+required="名称"多个文本行添加该名称 表单验证
+
+type="date" 日期控件
+
+type="email" 电子邮件控件
+
+type="url" URL输入控件
+
+type="search placeholder="默认显示"" 搜索输入控件
+
+flash，视频，音频
+
+<video src="xx.mp4" poster="显示的图片" width 
+
+height="" preload="auto(自动播放)/none(电机播放)" loop结束后重新播放>
+
+<audio src="音频路径" conteols是否显现播放器 autoplay自动播放>
+
+<audio controls autoplay><source src=""><source src=""><source src=""><p></p></audio>
+
+css
+
+font-family字体选用
+
+font-size: 像素/百分数(100％为16px)/EM值 字体大小
+
+font-weight:bold粗体
+
+font-style:italic(斜体)/oblique(倾斜
+
+text-transform:uppercase(大写)/lowercase(小写)/capitalize(每个单词首字母大写)
+
+text-decoration:none(删除装饰线)/overline(底部增加一条实线)/line-through(穿过文字的一条实线)/blink(字体闪烁)
+
+line-height:1.4em 行间距
+
+letter-spacing:0.2em字母间距
+
+word-spacing:1em单词间距
+
+text-align:left(左对齐)/right(右对齐)/center(居中)/justify(两段对齐)
+
+vertical-align:baseline
+
+sub
+
+super
+
+top
+
+text-top
+
+middle
+
+bottom
+
+text-bottom
+
+text-indent:20px向右缩进20像素
+
+text-shadow:-1px -1px #666666 投影
+
+选择器:first-letter{}首字母
+
+选择器:first-line{}首行文本
+
+选择器:link{} 为未被访问的链接设置样式
+
+选择器:visited{} 为被访问过的链接设置样式
+
+选择器:hover{} 鼠标停在按钮上改变属性
+
+选择器:active{} 鼠标点击按钮后改变属性
+
+选择器:focus{} 拥有焦点时改变属性
+
+width:300px 盒子宽
+
+height:400px 盒子高
+
+min-width:450px 盒子最小自适宽
+
+max-width:650pz 盒子最大自适宽
+
+overflow:scroll 内容超出盒子(溢出)添加滚动滑块
+
+hidden 内容溢出的部分隐藏
+
+border- -width:2px
+
+top/ /right/bottom/left 上/四周/右/下/左
+
+thin薄/medium中等/thick厚
+
+border-style: solid /////边框样式
+
+border-color: 边框颜色
+
+border:3px dotted #666
+
+padding:2px 内边距
+
+margin:2px 外距
+
+margin:20px auto 居中
+
+visibility:hidden(隐藏元素) /visible(显示元素)
+
+-moz(火狐)/webkit(谷歌/safari浏览器)/ms(IE)/o(Opera浏览器)-border-image:url("图片地址")
+
+11 11 11 11 stretch伸展图片/repeat重复图片/round自适重复照片 border-image边框图像
+
+box-shadow: 盒子的投影
+
+border-radius:10px 圆角边框
+
+10px 40px 椭圆形边框
+
+list-style-image:url() 项目图像
+
+list-style-position: outside 标记位于文本左侧
+
+inside 标记位于文本内部
+
+border-spacing:5px 15px 单元格距离
+
+border-collapse:collapse 单元格合并
+
+font-size文本大小
+
+background-color 输入框背景颜色
+
+:focus 输入时
+
+background-image:url("")背景图像
+
+cursor:move 光标样式
+
+crosshair
+
+default
+
+pointer
+
+move
+
+text 
+
+wait
+
+help
+
+url("")
+
+<header></header>页眉
+
+<footer></footer>页脚
+
+<nav><u1><li></li><li></li><li></li></u1></nav>导航
+
+<article><figure><img src="" alt=""></figure><hgroup></hgroup></article>文章
+
+<aside></aside>附属信息
+
+<section></>部分
+
+<hgroup></group>标题组
+
+<figure><img src alt><figcaption></></figure>图像
+
+<div></> 分节元素
+
+<a href><article><figure><img ></figure></acticle></a>为块元素添加链接
+
+### 4. 多媒体
+
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">html&lt;audio controls&gt;</span><br><span class="line">    &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mp3&quot;&gt;</span><br><span class="line">    Your browser does not support the audio tag.</span><br><span class="line">&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">    Your browser does not support the video tag.</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></div></figure>
+
+## CSS笔记：
+
+### 1. 选择器
+
+- 类选择器：`.classname`
+- ID选择器：`#id`
+- 元素选择器：`element`
+- 后代选择器：`ancestor descendant`
+- 直接子元素选择器：`parent > child`
+- 伪类选择器：`:hover`, `:nth-child(n)`
+
+### 2. 样式规则
+
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">css/* 基本样式规则 */</span><br><span class="line">body &#123;</span><br><span class="line">    font-family: &#x27;Arial&#x27;, sans-serif;</span><br><span class="line">    background-color: #f4f4f4;</span><br><span class="line">    color: #333;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 盒模型 */</span><br><span class="line">.container &#123;</span><br><span class="line">    width: 80%;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">    padding: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 文本样式 */</span><br><span class="line">h1 &#123;</span><br><span class="line">    font-size: 2em;</span><br><span class="line">    color: #0077cc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 背景和边框 */</span><br><span class="line">.box &#123;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 布局 */</span><br><span class="line">.flex-container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 响应式设计 */</span><br><span class="line">@media screen and (max-width: 600px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+### 3. 盒模型
+
+- 内边距：`padding`
+
+- 边框：`border`
+
+- 外边距：`margin`
+
+- position:relative相对定位
+
+  top: 10px;向下移动10个像素
+
+  left: 100px 自左边距100像素开始
+
+  position:absolute绝对定位
+
+  position:fixed固定定位 一直显示在页面
+
+### 4. Flex布局
+
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">css.container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+z - index:10;重叠元素 数字大的显示在上层
+
+float浮动元素 float: right;
+
+width: 275px;
+
+margin: 5px;外边距5像素
+
+margin:10px auto自动 居中
+
+padding: 5px;内容与边框之间的距离
+
+padding-top:20px;上内边距
+
+padding-right:30px;右内边距
+
+padding-bottom:30px;下内边距
+
+padding-left:20px;左内边距
+
+padding:1px四边统一内边距
+
+padding:1px1px上下,左右内边距
+
+padding:1px1px1px上,左右,下内边距
+
+padding:1px1px1px1px上,右,下,左内边距
+
+.clear{clear:left/right/both/none}清除浮动
+
+border:1px(线1像素) solid #665544;}
+
+1.none:表示没 
+
+2.solid：表示单线 
+
+3.double：表示双线 
+
+4.groove：表示凹槽 
+
+5.redge:表示皱纹 
+
+6.dotted:点线
+
+7.dashed:虚线
+
+8.dotted 方型点框
+
+9.ridge /outset 表示凸出
+
+overflow:auto：在必需时对象内容才会被裁切或显示 滚动条；
+
+hidden：不显示超过对象尺寸的内容；
+
+scroll：总是显示滚动条。
+
+ 
 ]]></content>
   </entry>
   <entry>
