@@ -353,12 +353,12 @@
     <content><![CDATA[<p>1.什么是HTML?</p>
 <p>HTML 是用来描述网页的一种语言。</p>
 <ul>
-<li>HTML 指的是超文本标记语言: <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</li>
-<li>HTML 不是一种编程语言，而是一种<strong>标记</strong>语言</li>
-<li>标记语言是一套<strong>标记标签</strong> (markup tag)</li>
-<li>HTML 使用标记标签来<strong>描述</strong>网页</li>
-<li>HTML 文档包含了HTML <strong>标签</strong>及<strong>文本</strong>内容</li>
-<li>HTML文档也叫做 <strong>web 页面</strong></li>
+<li>HTML 指的是超文本标记语言: HyperText Markup Language</li>
+<li>HTML 不是一种编程语言，而是一种标记语言</li>
+<li>标记语言是一套标记标签 (markup tag)</li>
+<li>HTML 使用标记标签来描述网页</li>
+<li>HTML 文档包含了HTML 标签及文本内容</li>
+<li>HTML文档也叫做 web 页面</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231206193045700.png" alt="image-20231206193045700"></p>
 <!--<!DOCTYPE html>声明为 HTML5 文档
@@ -381,13 +381,52 @@
 <p>3.HTML 样式- CSS</p>
 <p>CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</p>
 <p>CSS 可以通过以下方式添加到HTML中:</p>
-<p>内联样式- 在HTML元素中使用”style” <strong>属性</strong></p>
-<p>内部样式表 -在HTML文档头部 <head>区域使用<style> <strong>元素</strong> 来包含CSS</p>
+<p>内联样式- 在HTML元素中使用”style” 属性</p>
+<p>内部样式表 -在HTML文档头部 <head>区域使用<style> 元素 来包含CSS</p>
 <p>外部引用 - 使用外部 CSS 文件</p>
 <p>#号引用方式为 id&#x3D;#后面的内容</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092933818.png" alt="image-20231210092933818"></p>
-<p>.号引用方式为class&#x3D;.后面的内容</p>
+<p>.号引用方式为class&#x3D; .后面的内容</p>
 <p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231210093159235.png" alt="image-20231210093159235"></p>
+<p>3.一些网页布局属性</p>
+<p>align＝〃center〃居中</p>
+<p>top: 0px;</p>
+<p>left: 0px;</p>
+<p>padding: 10px;</p>
+<p>margin: 0px;</p>
+<p>width:100％;</p>
+<p>background-color:#efefef;}</p>
+<p>position:static 普通流</p>
+<p>width: 450px 每450个像素就换行</p>
+<p>position:relative相对定位 top: 10px;向下移动10个像素 left: 100px 自左边距100像素开始 position:absolute绝对定位 position:fixed固定定位 一直显示在页面</p>
+<p>z - index:10;重叠元素 数字大的显示在上层</p>
+<p>float浮动元素 float: right;</p>
+<p>width: 275px;</p>
+<p>margin: 5px;外边距5像素</p>
+<p>margin:10px auto自动 居中</p>
+<p>padding: 5px;内容与边框之间的距离</p>
+<p>padding-top:20px;上内边距</p>
+<p>padding-right:30px;右内边距</p>
+<p>padding-bottom:30px;下内边距</p>
+<p>padding-left:20px;左内边距</p>
+<p>padding:1px四边统一内边距</p>
+<p>padding:1px1px上下,左右内边距</p>
+<p>padding:1px1px1px上,左右,下内边距</p>
+<p>padding:1px1px1px1px上,右,下,左内边距</p>
+<p>.clear{clear:left&#x2F;right&#x2F;both&#x2F;none}清除浮动</p>
+<p>border:1px(线1像素) solid #665544;}</p>
+<p>1.none:表示没 </p>
+<p>2.solid：表示单线 </p>
+<p>3.double：表示双线 </p>
+<p>4.groove：表示凹槽 </p>
+<p>5.redge:表示皱纹 </p>
+<p>6.dotted:点线</p>
+<p>7.dashed:虚线</p>
+<p>8.dotted 方型点框</p>
+<p>9.ridge &#x2F;outset 表示凸出</p>
+<p>overflow:auto：在必需时对象内容才会被裁切或显示 滚动条；</p>
+<p>hidden：不显示超过对象尺寸的内容；</p>
+<p>scroll：总是显示滚动条。</p>
 ]]></content>
   </entry>
   <entry>
