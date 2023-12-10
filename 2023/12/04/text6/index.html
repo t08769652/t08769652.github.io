@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192410210.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192702390.png">
 <meta property="article:published_time" content="2023-12-04T11:04:31.000Z">
-<meta property="article:modified_time" content="2023-12-04T11:31:45.149Z">
+<meta property="article:modified_time" content="2023-12-10T06:52:01.513Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191035562.png"><title>正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识 | Hexo</title><link ref="canonical" href="http://example.com/2023/12/04/text6/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
@@ -38,7 +38,7 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-12-04</span></span></div></header><div class="post-body">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-12-10</span></span></div></header><div class="post-body">
         <h1 id="正反向shell区别"   >
           <a href="#正反向shell区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#正反向shell区别" class="headerlink" title="正反向shell区别"></a>正反向shell区别</h1>
       <p>1.反弹shell：</p>
@@ -63,6 +63,102 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
       <p>1、什么是IP地址<br>IP地址就是给每个连接在Internet上的主机分配的一个32bit地址。按照CP&#x2F;IP协议规定，IP地址用二进制来表示，每个IP地址长32bit，比特换算成字节,就是4个字节。包括主机地址和网络地址两部分。如11000000 10101000 00000001 00000110(192.168.1.6)</p>
 <p>2、什么是子网掩码<br>子网掩码(subnet masking)的功能是告知主机或路由设备，地址的哪一部分是网络号，包括子网的网络号部分，哪一部分是主机号部分。子网掩码使用与IP地址相同的编址格式，即4个8位组的32位长格式。在子网掩码中，网络部分和子网络部分对应的位全为“1”，主机部分对应的位全为“0”通过将子网掩码与IP地址进行“与”操作,可提供所给定的IP地址所属的网络号(包括子网络号)。<br>3.可用的主机IP地址</p>
 <p>去除网关地址和广播地址中间的部分就是可用的主机IP地址。</p>
+<p>4.七层网络模型</p>
+<ul>
+<li><strong>物理层</strong>：</li>
+</ul>
+<p>解决两个硬件之间怎么通信的问题，常见的物理媒介有光纤、电缆、中继器等。它主要定义物理设备标准，如网线的接口类型、光纤的接口类型、各种传输介质的传输速率等。</p>
+<p>它的主要作用是传输比特流（就是由1、0转化为电流强弱来进行传输，到达目的地后在转化为1、0，也就是我们常说的数模转换与模数转换）。这一层的数据叫做比特。</p>
+<ul>
+<li><strong>数据链路层：</strong></li>
+</ul>
+<p>在计算机网络中由于各种干扰的存在，物理链路是不可靠的。该层的主要功能就是：通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路。</p>
+<p>它的具体工作是接收来自物理层的位流形式的数据，并封装成帧，传送到上一层；同样，也将来自上层的数据帧，拆装为位流形式的数据转发到物理层。这一层的数据叫做帧。</p>
+<ul>
+<li><strong>网络层：</strong></li>
+</ul>
+<p>计算机网络中如果有多台计算机，怎么找到要发的那台？如果中间有多个节点，怎么选择路径？这就是路由要做的事。</p>
+<p>该层的主要任务就是：通过路由选择算法，为报文（该层的数据单位，由上一层数据打包而来）通过通信子网选择最适当的路径。这一层定义的是IP地址，通过IP地址寻址，所以产生了IP协议。</p>
+<ul>
+<li><strong>传输层：</strong></li>
+</ul>
+<p>当发送大量数据时，很可能会出现丢包的情况，另一台电脑要告诉是否完整接收到全部的包。如果缺了，就告诉丢了哪些包，然后再发一次，直至全部接收为止。</p>
+<p>简单来说，传输层的主要功能就是：监控数据传输服务的质量，保证报文的正确传输。</p>
+<ul>
+<li><strong>会话层：</strong></li>
+</ul>
+<p>虽然已经可以实现给正确的计算机，发送正确的封装过后的信息了。但我们总不可能每次都要调用传输层协议去打包，然后再调用IP协议去找路由，所以我们要建立一个自动收发包，自动寻址的功能。于是会话层出现了：它的作用就是建立和管理应用程序之间的通信。</p>
+<ul>
+<li><strong>表示层：</strong></li>
+</ul>
+<p>表示层负责数据格式的转换，将应用处理的信息转换为适合网络传输的格式，或者将来自下一层的数据转换为上层能处理的格式。</p>
+<ul>
+<li><strong>应用层：</strong></li>
+</ul>
+<p>应用层是计算机用户，以及各种应用程序和网络之间的接口，其功能是直接向用户提供服务，完成用户希望在网络上完成的各种工作。前端同学对应用层肯定是最熟悉的。</p>
+<p>5.常见协议端口号</p>
+<ol>
+<li><strong>HTTP (Hypertext Transfer Protocol)</strong><ul>
+<li>默认端口：80</li>
+<li>描述：用于在Web浏览器和Web服务器之间传输超文本的协议。</li>
+</ul>
+</li>
+<li><strong>HTTPS (Hypertext Transfer Protocol Secure)</strong><ul>
+<li>默认端口：443</li>
+<li>描述：与HTTP类似，但通过TLS&#x2F;SSL加密传输数据，用于安全的Web通信。</li>
+</ul>
+</li>
+<li><strong>FTP (File Transfer Protocol)</strong><ul>
+<li>默认端口：21</li>
+<li>描述：用于在网络上传输文件的标准协议。</li>
+</ul>
+</li>
+<li><strong>SSH (Secure Shell)</strong><ul>
+<li>默认端口：22</li>
+<li>描述：用于通过加密的方式在网络上安全地访问和管理远程计算机。</li>
+</ul>
+</li>
+<li><strong>SMTP (Simple Mail Transfer Protocol)</strong><ul>
+<li>默认端口：25</li>
+<li>描述：用于在网络上传输电子邮件的协议。</li>
+</ul>
+</li>
+<li><strong>POP3 (Post Office Protocol version 3)</strong><ul>
+<li>默认端口：110</li>
+<li>描述：用于从邮件服务器接收电子邮件的协议。</li>
+</ul>
+</li>
+<li><strong>IMAP (Internet Message Access Protocol)</strong><ul>
+<li>默认端口：143</li>
+<li>描述：允许邮件客户端从邮件服务器获取电子邮件的协议。</li>
+</ul>
+</li>
+<li><strong>DNS (Domain Name System)</strong><ul>
+<li>默认端口：53</li>
+<li>描述：将域名转换为IP地址，实现域名解析的协议。</li>
+</ul>
+</li>
+<li><strong>DHCP (Dynamic Host Configuration Protocol)</strong><ul>
+<li>默认端口：67和68</li>
+<li>描述：用于自动分配IP地址和其他网络配置信息给计算机的协议。</li>
+</ul>
+</li>
+<li><strong>SNMP (Simple Network Management Protocol)</strong><ul>
+<li>默认端口：161和162</li>
+<li>描述：用于网络设备之间的管理和监控。</li>
+</ul>
+</li>
+<li><strong>RDP (Remote Desktop Protocol)</strong><ul>
+<li>默认端口：3389</li>
+<li>描述：用于在远程计算机之间进行图形化桌面会话。</li>
+</ul>
+</li>
+<li><strong>NTP (Network Time Protocol)</strong><ul>
+<li>默认端口：123</li>
+<li>描述：用于同步计算机时钟的协议。</li>
+</ul>
+</li>
+</ol>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/12/04/text7/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">python运算符，数字和字符串</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/12/03/text5/"><span class="paginator-prev__text">python安装与基础语法</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%8F%8D%E5%90%91shell%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">
           正反向shell区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E8%BF%9C%E6%8E%A7%E5%B7%A5%E5%85%B7AhMyth%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">
           安卓远控工具AhMyth的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E7%BD%91%E7%BB%9C%E5%B8%B8%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">
