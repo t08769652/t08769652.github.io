@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python字典</title>
+    <url>/2023/12/07/text11/</url>
+    <content><![CDATA[<p>1.字典的储存方式是以键值对的形式储存的，字典的每个键值 <strong>key&#x3D;&gt;value</strong> 对用冒号 <strong>:</strong> 分割，每个对之间用逗号(<strong>,</strong>)分割，整个字典包括在花括号 <strong>{}</strong> 中 ,格式如下所示：</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="code"><pre><span class="line">d = &#123;key1 : value1, key2 : value2, key3 : value3 &#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>2.键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字。</p>
+<p>3.字典的增删改查</p>
+<p>（1）字典数据的增加</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211630654.png" alt="image-20231207211630654"></p>
+<p>注意：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211734043.png" alt="image-20231207211734043"></p>
+<p>（2）字典数据的删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211833792.png" alt="image-20231207211833792"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212314763.png" alt="image-20231207212314763"></p>
+<p>（3）字典数据的查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207211945099.png" alt="image-20231207211945099"></p>
+<p>4.字典循环</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212057877.png" alt="image-20231207212057877"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207212200409.png" alt="image-20231207212200409"></p>
+<p>5.字典的嵌套</p>
+<p>student &#x3D; {<br>    ‘name’: ‘kelvin’,<br>    ‘age’: 18,<br>    ‘course’: [‘数据结构’, ‘计算机网络’, ‘计算机组成原理’, ‘操作系统’]<br>}</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HTML5</title>
+    <url>/2023/12/06/text10/</url>
+    <content><![CDATA[<p>1.什么是HTML?</p>
+<p>HTML 是用来描述网页的一种语言。</p>
+<ul>
+<li>HTML 指的是超文本标记语言: <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</li>
+<li>HTML 不是一种编程语言，而是一种<strong>标记</strong>语言</li>
+<li>标记语言是一套<strong>标记标签</strong> (markup tag)</li>
+<li>HTML 使用标记标签来<strong>描述</strong>网页</li>
+<li>HTML 文档包含了HTML <strong>标签</strong>及<strong>文本</strong>内容</li>
+<li>HTML文档也叫做 <strong>web 页面</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231206193045700.png" alt="image-20231206193045700"></p>
+<ul>
+<li><p><strong><!DOCTYPE html></strong> 声明为 HTML5 文档</p>
+</li>
+<li><p><strong><html></strong> 元素是 HTML 页面的根元素</p>
+</li>
+<li><p><strong><head></strong> 元素包含了文档的元（meta）数据，如 <strong><meta charset="utf-8"></strong> 定义网页编码格式为 <strong>utf-8</strong>。</p>
+</li>
+<li><p><strong><title></strong> 元素描述了文档的标题</p>
+</li>
+<li><p><strong><body></strong> 元素包含了可见的页面内容</p>
+</li>
+<li><p><strong><h1></strong> 元素定义一个大标题</p>
+</li>
+<li><p><strong><p></strong> 元素定义一个段落</p>
+<p> 2.HTML 布局 - 使用<div> 元素添加布局。大多数网站会把内容安排到多个列中（就像杂志或报纸那样）。</p>
+</li>
+</ul>
+<p>大多数网站可以使用 <div> 来创建多列。CSS 用于对元素进行定位，或者为页面创建背景以及色彩丰富的外观。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092732453.png" alt="image-20231210092732453"></p>
+<p>3.HTML 样式- CSS</p>
+<p>CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</p>
+<p>   CSS 可以通过以下方式添加到HTML中:</p>
+<ul>
+<li><p>内联样式- 在HTML元素中使用”style” <strong>属性</strong></p>
+</li>
+<li><p>内部样式表 -在HTML文档头部 <head> 区域使用<style> <strong>元素</strong> 来包含CSS</p>
+</li>
+<li><p>外部引用 - 使用外部 CSS <strong>文件</strong></p>
+<p>#号引用方式为 id&#x3D;#后面的内容</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210092933818.png" alt="image-20231210092933818"></p>
+<p>.号引用方式为class&#x3D;.后面的内容</p>
+<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231210093159235.png" alt="image-20231210093159235"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python列表</title>
+    <url>/2023/12/05/text9/</url>
+    <content><![CDATA[<p>1.列表的定义：能装东西的东西在python中用[]来表示一个列表。列表中的元素通过,隔开。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213010381.png" alt="image-20231205213010381"></p>
+<p>2.列表的特性：有索引也有切片，索引超过范围会报错。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213240304.png" alt="image-20231205213240304"></p>
+<p>可以for循环遍历</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213650866.png" alt="image-20231205213650866"></p>
+<p>用len可以拿到列表长度</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205213624128.png" alt="image-20231205213624128"></p>
+<p>3.列表的增删改查</p>
+<p>（1）列表数据的增加</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213414406.png" alt="image-20231207213414406"></p>
+<p>（2）列表数据的删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213450826.png" alt="image-20231207213450826"></p>
+<p>循环删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213854590.png" alt="image-20231207213854590"></p>
+<p>（3）列表数据的修改</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213540791.png" alt="image-20231207213540791"></p>
+<p>（4）列表数据的查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213621271.png" alt="image-20231207213621271"></p>
+<p>4.列表的循环</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213706528.png" alt="image-20231207213706528"></p>
+<p>5.列表的其他操作</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231207213812395.png" alt="image-20231207213812395"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
     <url>/2023/12/05/text8/</url>
     <content><![CDATA[
