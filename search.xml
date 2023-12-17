@@ -1,6 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PHP</title>
+    <url>/2023/12/12/text15/</url>
+    <content><![CDATA[
+        <h1 id="1-PHP简介"   >
+          <a href="#1-PHP简介" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-PHP简介" class="headerlink" title="1.PHP简介"></a>1.PHP简介</h1>
+      <p>  PHP （全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言,是服务器端脚本语言。PHP 脚本在服务器上执行。</p>
+<ul>
+<li><p>PHP 文件可包含文本、HTML、JavaScript代码和 PHP 代码</p>
+</li>
+<li><p>PHP 代码在服务器上执行，结果以纯 HTML 形式返回给浏览器</p>
+</li>
+<li><p>PHP 文件的默认文件扩展名是 <strong>.php</strong>。</p>
+</li>
+<li><p>PHP 可以生成动态页面内容</p>
+</li>
+<li><p>PHP 可以创建、打开、读取、写入、关闭服务器上的文件</p>
+</li>
+<li><p>PHP 可以收集表单数据</p>
+</li>
+<li><p>PHP 可以发送和接收 cookies</p>
+</li>
+<li><p>PHP 可以添加、删除、修改您的数据库中的数据</p>
+</li>
+<li><p>PHP 可以限制用户访问您的网站上的一些页面</p>
+</li>
+<li><p>PHP 可以加密数据</p>
+</li>
+</ul>
+
+        <h6 id="基本的-PHP-语法"   >
+          <a href="#基本的-PHP-语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h6>
+      <p>PHP 脚本可以放在文档中的任何位置。</p>
+<p>PHP 脚本以 <strong><?php** 开始，以 **?></strong> 结束：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// PHP 代码</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></div></figure>
+
+<p>在 PHP 中，只有一个字符串运算符并置运算符 (.) 用于把两个字符串值连接起来。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091106682.png" alt="image-20231217091106682"></p>
+
+        <h6 id="PHP-赋值运算符"   >
+          <a href="#PHP-赋值运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#PHP-赋值运算符" class="headerlink" title="PHP 赋值运算符"></a>PHP 赋值运算符</h6>
+      <p>x &#x3D; y左操作数被设置为右侧表达式的值</p>
+
+        <h1 id="2-用PHP实现数据交互"   >
+          <a href="#2-用PHP实现数据交互" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-用PHP实现数据交互" class="headerlink" title="2.用PHP实现数据交互"></a>2.用PHP实现数据交互</h1>
+      <p>1.打开php study 开启MySQL和apache服务</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091152861.png" alt="image-20231217091152861"></p>
+<p>2.打开网站根目录新建index.php和link.php 文件</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203313873.png" alt="image-20231212203313873"></p>
+<p>3.index.php代码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203456760.png" alt="image-20231212203456760"></p>
+<p>4.link.php代码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203528339.png" alt="image-20231212203528339"></p>
+<p>5.新建MySQL连接并新建查询</p>
+<p>打开Navicat Premium <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203801570.png" alt="image-20231212203801570"></p>
+<p>新建数据库</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212204749503.png" alt="image-20231212204749503"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212204910199.png" alt="image-20231212204910199"></p>
+<p>新建查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205001763.png" alt="image-20231212205001763"></p>
+<p>输入以下代码：</p>
+<p>&#x2F;*<br> Navicat Premium Data Transfer</p>
+<p> Source Server         : 1<br> Source Server Type    : MySQL<br> Source Server Version : 50741<br> Source Host           : localhost:3306<br> Source Schema         : security</p>
+<p> Target Server Type    : MySQL<br> Target Server Version : 50741<br> File Encoding         : 65001</p>
+<p> Date: 12&#x2F;12&#x2F;2023 15:44:36<br>*&#x2F;</p>
+<p>SET NAMES utf8mb4;<br>SET FOREIGN_KEY_CHECKS &#x3D; 0;</p>
+<hr>
+<p>– Table structure for emails</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>emails</code>;<br>CREATE TABLE <code>emails</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>email_id</code> varchar(30) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 9 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Records of emails</p>
+<hr>
+<p>INSERT INTO <code>emails</code> VALUES (1, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#x6d;&#x62;&#x40;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#99;&#x6f;&#109;" >&#68;&#x75;&#x6d;&#x62;&#x40;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#99;&#x6f;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (2, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#65;&#110;&#x67;&#x65;&#x6c;&#64;&#105;&#x6c;&#111;&#x76;&#x65;&#117;&#x2e;&#99;&#x6f;&#109;" >&#65;&#110;&#x67;&#x65;&#x6c;&#64;&#105;&#x6c;&#111;&#x76;&#x65;&#117;&#x2e;&#99;&#x6f;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (3, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x44;&#117;&#x6d;&#109;&#x79;&#64;&#x64;&#104;&#97;&#x6b;&#107;&#x61;&#x6e;&#46;&#x6c;&#x6f;&#99;&#x61;&#108;" >&#x44;&#117;&#x6d;&#109;&#x79;&#64;&#x64;&#104;&#97;&#x6b;&#107;&#x61;&#x6e;&#46;&#x6c;&#x6f;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (4, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#101;&#99;&#117;&#114;&#101;&#64;&#100;&#104;&#x61;&#107;&#107;&#x61;&#110;&#46;&#108;&#x6f;&#99;&#97;&#108;" >&#x73;&#101;&#99;&#117;&#114;&#101;&#64;&#100;&#104;&#x61;&#107;&#107;&#x61;&#110;&#46;&#108;&#x6f;&#99;&#97;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (5, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#x74;&#x75;&#112;&#105;&#100;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#99;&#x61;&#x6c;" >&#x73;&#x74;&#x75;&#112;&#105;&#100;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#99;&#x61;&#x6c;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (6, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#117;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#x40;&#x64;&#104;&#97;&#107;&#107;&#x61;&#110;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;" >&#115;&#117;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#x40;&#x64;&#104;&#97;&#107;&#107;&#x61;&#110;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (7, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x62;&#97;&#x74;&#109;&#97;&#110;&#64;&#100;&#x68;&#97;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#x63;&#x61;&#x6c;" >&#x62;&#97;&#x74;&#109;&#97;&#110;&#64;&#100;&#x68;&#97;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#x63;&#x61;&#x6c;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (8, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x61;&#x64;&#109;&#105;&#x6e;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#97;&#110;&#46;&#99;&#111;&#x6d;" >&#x61;&#x64;&#109;&#105;&#x6e;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#97;&#110;&#46;&#99;&#111;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);</p>
+<hr>
+<p>– Table structure for referers</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>referers</code>;<br>CREATE TABLE <code>referers</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>referer</code> varchar(256) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>ip_address</code> varchar(35) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 1 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Table structure for uagents</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>uagents</code>;<br>CREATE TABLE <code>uagents</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>uagent</code> varchar(256) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>ip_address</code> varchar(35) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>username</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 1 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Table structure for users</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>users</code>;<br>CREATE TABLE <code>users</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>username</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>password</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 15 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Records of users</p>
+<hr>
+<p>INSERT INTO <code>users</code> VALUES (1, ‘Dumb’, ‘Dumb’);<br>INSERT INTO <code>users</code> VALUES (2, ‘Angelina’, ‘I-kill-you’);<br>INSERT INTO <code>users</code> VALUES (3, ‘Dummy’, ‘p@ssword’);<br>INSERT INTO <code>users</code> VALUES (4, ‘secure’, ‘crappy’);<br>INSERT INTO <code>users</code> VALUES (5, ‘stupid’, ‘stupidity’);<br>INSERT INTO <code>users</code> VALUES (6, ‘superman’, ‘genious’);<br>INSERT INTO <code>users</code> VALUES (7, ‘batman’, ‘mob!le’);<br>INSERT INTO <code>users</code> VALUES (8, ‘admin’, ‘admin’);<br>INSERT INTO <code>users</code> VALUES (9, ‘admin1’, ‘admin1’);<br>INSERT INTO <code>users</code> VALUES (10, ‘admin2’, ‘admin2’);<br>INSERT INTO <code>users</code> VALUES (11, ‘admin3’, ‘admin3’);<br>INSERT INTO <code>users</code> VALUES (12, ‘dhakkan’, ‘dumbo’);<br>INSERT INTO <code>users</code> VALUES (14, ‘admin4’, ‘admin4’);</p>
+<p>SET FOREIGN_KEY_CHECKS &#x3D; 1;</p>
+<p>并运行</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205054877.png" alt="image-20231212205054877"></p>
+<p>成功会有几个数据表</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205148156.png" alt="image-20231212205148156"></p>
+<p>6.在PHP study打开网站</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205319779.png" alt="image-20231212205319779"></p>
+<p>运行效果，输入表里面有点用户内容会跳转页面并有你输入是用户名，密码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205455630.png" alt="image-20231212205455630"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205514607.png" alt="image-20231212205514607"></p>
+<p>7.新建一个zhuye.php文件实现主页注销登录功能代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213193715262.png" alt="image-20231213193715262"></p>
+<p>8.重新进行登录成功后进入运行效果如下，点击注销会立马返回登录页面</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213193809697.png" alt="image-20231213193809697"></p>
+<p>9.增加实现一个评论区页面功能，新建一个comment.php页面代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194244959.png" alt="image-20231213194244959"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194308902.png" alt="image-20231213194308902"></p>
+<p>10.进入127.0.0.1&#x2F;comment.php页面成功实现评论功能效果</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194516122.png" alt="image-20231213194516122"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194539713.png" alt="image-20231213194539713"></p>
+<p>11.增加实现一个上传文件功能的页面，新建一个upload.php页面代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194834994.png" alt="image-20231213194834994"></p>
+<p>12.进入127.0.0.1&#x2F;upload.php页面成功实现上传文件功能效果</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195106958.png" alt="image-20231213195106958"></p>
+<p>13.将评论区功能和上传文件功能都集成给主页，需要给zhuye.php增加代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195421451.png" alt="image-20231213195421451"></p>
+<p>14.成功给登录成功后主页增加实现评论和上传文件功能</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195701712.png" alt="image-20231213195701712"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Vue3</title>
+    <url>/2023/12/11/text13/</url>
+    <content><![CDATA[
+        <h3 id="1-安装-Node-js-和-npm"   >
+          <a href="#1-安装-Node-js-和-npm" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-安装-Node-js-和-npm" class="headerlink" title="1. 安装 Node.js 和 npm"></a>1. 安装 Node.js 和 npm</h3>
+      <p>Vue 3 需要使用 Node.js 和 npm（Node 包管理器）进行开发。你可以从 <span class="exturl"><a class="exturl__link"   href="https://nodejs.org/" >Node.js 官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 下载并安装 Node.js，它自带了 npm。</p>
+
+        <h3 id="2-创建Vue3项目"   >
+          <a href="#2-创建Vue3项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-创建Vue3项目" class="headerlink" title="2. 创建Vue3项目"></a>2. 创建Vue3项目</h3>
+      <p>打开cmd输入：npm create vue@latest</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203303662.png" alt="image-20231211203303662"></p>
+<p>在这个过程中，你会被要求选择一些配置选项，也可以全部否。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203505764.png" alt="image-20231211203505764"></p>
+
+        <h3 id="3-运行-Vue-3-项目"   >
+          <a href="#3-运行-Vue-3-项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-运行-Vue-3-项目" class="headerlink" title="3. 运行 Vue 3 项目"></a>3. 运行 Vue 3 项目</h3>
+      <p>进入项目目录：cd my-vue3-project</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203648100.png" alt="image-20231211203648100"></p>
+<p>安装element-plus服务：npm install element-plus –save<br>                                          npm install -D unplugin-vue-components unplugin-auto-import</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204258171.png" alt="image-20231211204258171"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204357218.png" alt="image-20231211204357218"></p>
+<p>然后运行项目：npm run dev</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204442485.png" alt="image-20231211204442485"></p>
+<p>这将启动一个开发服务器，并在浏览器中打开项目。你会看到一个页面，表示 Vue 3 项目已经成功运行。<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204521686.png" alt="image-20231211204521686"></p>
+
+        <h3 id="4-项目结构"   >
+          <a href="#4-项目结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-项目结构" class="headerlink" title="4. 项目结构"></a>4. 项目结构</h3>
+      <p>Vue 3 项目的主要目录结构：</p>
+<ul>
+<li><code>src</code>: 包含项目的源代码</li>
+<li><code>public</code>: 静态资源文件，不经过 Webpack 处理</li>
+<li><code>node_modules</code>: 存放项目依赖的 npm 模块</li>
+<li><code>public/index.html</code>: 项目的入口 HTML 文件</li>
+<li><code>src/main.js</code>: 项目的入口 JavaScript 文件</li>
+<li><code>src/App.vue</code>: 根组件文件</li>
+<li><code>src/components</code>: 存放 Vue 组件的目录</li>
+<li><code>src/assets</code>: 存放静态资源如图片、样式文件等</li>
+<li><code>src/views</code>: 存放视图组件的目录</li>
+</ul>
+
+        <h3 id="5-在main-js中导入内容"   >
+          <a href="#5-在main-js中导入内容" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-在main-js中导入内容" class="headerlink" title="5.在main.js中导入内容"></a>5.在main.js中导入内容</h3>
+      <p>import { createApp } from ‘vue’<br>import App from ‘.&#x2F;App.vue’<br>import ElementPlus from ‘element-plus’;<br>import ‘element-plus&#x2F;dist&#x2F;index.css’</p>
+<p>createApp(App).mount(‘#app’)</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210145215.png" alt="image-20231211210145215"></p>
+
+        <h3 id="6-vue简单编辑使用"   >
+          <a href="#6-vue简单编辑使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-vue简单编辑使用" class="headerlink" title="6.vue简单编辑使用"></a>6.vue简单编辑使用</h3>
+      <p>vue页面主要组成</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210448817.png" alt="image-20231211210448817"></p>
+<p>可以从<span class="exturl"><a class="exturl__link"   href="https://element-plus.org/zh-CN/component/%E4%B8%8B%E8%BD%BD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6" >https://element-plus.org/zh-CN/component/下载使用组件</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>结合Container 布局容器，menu菜单侧栏，buttto按钮，switch开关等等可以写出下面</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092600009.png" alt="image-20231217092600009"></p>
+<p>对应内容都要放到想要的容器布局里面</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092751646.png" alt="image-20231217092751646"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Python字典</title>
     <url>/2023/12/07/text11/</url>
     <content><![CDATA[<p>1.字典的储存方式是以键值对的形式储存的，字典的每个键值 <strong>key&#x3D;&gt;value</strong> 对用冒号 <strong>:</strong> 分割，每个对之间用逗号(<strong>,</strong>)分割，整个字典包括在花括号 <strong>{}</strong> 中 ,格式如下所示：</p>
@@ -39,43 +217,39 @@
         <h3 id="2-常见标签"   >
           <a href="#2-常见标签" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-常见标签" class="headerlink" title="2. 常见标签"></a>2. 常见标签</h3>
       <ul>
-<li><div>：用于组织内容。
+<li><p>&lt;<div>：用于组织内容。</p>
 </li>
-<li><p>：段落。
+<li><p>&lt;<p>：段落。</p>
 </li>
-<li><h1> to <h6>：标题。
+<li><p>&lt;<h1> to <h6>：标题。</p>
 </li>
-<li><p><a>：超链接。</p>
+<li><p>&lt;<a>：超链接。</p>
 </li>
 <li><p><img>：图像。</p>
 </li>
-<li><ul>, <ol>, <li>：无序列表、有序列表、列表项。
+<li><p>&lt;<ul>, <ol>, <li>：无序列表、有序列表、列表项。</p>
 </li>
-<li><pre></pre>预处理
-
+<li><p>&lt;<pre></pre>预处理</p>
 <p><b>加粗</p>
 <p><i>斜体</p>
 <p><sup>上标如指数</p>
 <p><sub>下标</p>
 <p><br />换行</p>
-<hr />水平线
-
+<p>&lt;<hr />水平线</p>
 <p><strong>加粗</p>
 <p><em>强调表现为斜体</p>
-<blockquote>标记表现为缩进，将<p></p>包围在内
-
+<p>&lt;<blockquote>标记表现为缩进，将<p></p>包围在内</p>
 <p><q>标记两侧引号，IE不支持</p>
 <abbr>
 
 <p><cite>引用表现为斜体，html5不可用于人名</p>
 <p><dfn>定义</p>
 <address>地址
+<ins>文字带有下划线
 
-<p><ins>文字带有下划线</p>
 <p><del>文字带有删除线</p>
 <p><s>文字中下方有横线穿过</p>
-<h1>----<h6>标题由大到小
-
+<p>&lt;<h1>—-<h6>标题由大到小</p>
 <p>列表</p>
 <p><o1>有序列表，中间每段用&lt;1i&gt;&lt;&#x2F;1i&gt;</p>
 <p><u1>无序列表，中间每段用&lt;1i&gt;&lt;&#x2F;1i&gt;</p>
@@ -84,7 +258,7 @@
 <p>网页链接文本</p>
 <p>&lt;a href＝”<span class="exturl"><a class="exturl__link"   href="http://www.baidu.com" >百度">http://www.baidu.com&quot;&gt;百度</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></a></p>
 <p>email链接</p>
-<p>&lt;a href ＝”mailto:<span class="exturl"><a class="exturl__link"   href="mailto:&#49;&#50;&#x31;&#x30;&#51;&#57;&#x36;&#x31;&#x34;&#x32;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;" >&#49;&#50;&#x31;&#x30;&#51;&#57;&#x36;&#x31;&#x34;&#x32;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>&gt;孙邮箱</a></p>
+<p>&lt;a href ＝”mailto:<span class="exturl"><a class="exturl__link"   href="mailto:&#x31;&#50;&#49;&#x30;&#51;&#57;&#x36;&#x31;&#52;&#x32;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;" >&#x31;&#50;&#49;&#x30;&#51;&#57;&#x36;&#x31;&#52;&#x32;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>&gt;孙邮箱</a></p>
 <p>在新窗口中打开链接target</p>
 <p>&lt;a href&#x3D;”<span class="exturl"><a class="exturl__link"   href="http://www.baidu.com" target＝"_blank">百度">http://www.baidu.com&quot;target＝&quot;_blank&quot;&gt;百度</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></a></p>
 <p>链接到其他页面的某个地方</p>
@@ -115,328 +289,195 @@
 <p>maxlength限制在文本中输入的最大字符长度</p>
 <p>size&#x3D;”5”老表单中显示字符数</p>
 <p>type&#x3D;”password”输入的字符被掩饰</p>
-<textarea></>多行文本框默认显示的内容
-
-单选按钮
-
-type="radio"让用户从一系列选项选一个
-
-value=""选项的内容
-
-checked="checked"默认选中
-
-name="genre"一个问题值
-
-多选按钮
-
-type="checkbox"
-
-name
-
-value
-
-checked
-
-下拉列表框
-
+<p>&lt;<textarea>&lt;&#x2F;&gt;多行文本框默认显示的内容</p>
+<p>单选按钮</p>
+<p>type&#x3D;”radio”让用户从一系列选项选一个</p>
+<p>value&#x3D;””选项的内容</p>
+<p>checked&#x3D;”checked”默认选中</p>
+<p>name&#x3D;”genre”一个问题值</p>
+<p>多选按钮</p>
+<p>type&#x3D;”checkbox”</p>
+<p>name</p>
+<p>value</p>
+<p>checked</p>
+<p>下拉列表框</p>
 <form action="">
-
-<select name="devices">
-
-<option value="ipod">ipod</>
+&lt;<select name="devices">
 
 <option value="ipod">ipod</>
 
-</>
-
-</>
-
-多选框
-
-size显示多个多选框
-
-multiple允许用户选择多个选项
-
-<input type="file">文件上传域
-
-<input type="submit" name="" value="">提交按钮
-
-<input type="image" src="图片路径" width=" " height="">图像按钮
-
-<form><button><input="hidden"></></>
-
-required="名称"多个文本行添加该名称 表单验证
-
-type="date" 日期控件
-
-type="email" 电子邮件控件
-
-type="url" URL输入控件
-
-type="search placeholder="默认显示"" 搜索输入控件
-
-flash，视频，音频
-
-<video src="xx.mp4" poster="显示的图片" width 
-
-height="" preload="auto(自动播放)/none(电机播放)" loop结束后重新播放>
-
-<audio src="音频路径" conteols是否显现播放器 autoplay自动播放>
-
-<audio controls autoplay><source src=""><source src=""><source src=""><p></p></audio>
-
-css
-
-font-family字体选用
-
-font-size: 像素/百分数(100％为16px)/EM值 字体大小
-
-font-weight:bold粗体
-
-font-style:italic(斜体)/oblique(倾斜
-
-text-transform:uppercase(大写)/lowercase(小写)/capitalize(每个单词首字母大写)
-
-text-decoration:none(删除装饰线)/overline(底部增加一条实线)/line-through(穿过文字的一条实线)/blink(字体闪烁)
-
-line-height:1.4em 行间距
-
-letter-spacing:0.2em字母间距
-
-word-spacing:1em单词间距
-
-text-align:left(左对齐)/right(右对齐)/center(居中)/justify(两段对齐)
-
-vertical-align:baseline
-
-sub
-
-super
-
-top
-
-text-top
-
-middle
-
-bottom
-
-text-bottom
-
-text-indent:20px向右缩进20像素
-
-text-shadow:-1px -1px #666666 投影
-
-选择器:first-letter{}首字母
-
-选择器:first-line{}首行文本
-
-选择器:link{} 为未被访问的链接设置样式
-
-选择器:visited{} 为被访问过的链接设置样式
-
-选择器:hover{} 鼠标停在按钮上改变属性
-
-选择器:active{} 鼠标点击按钮后改变属性
-
-选择器:focus{} 拥有焦点时改变属性
-
-width:300px 盒子宽
-
-height:400px 盒子高
-
-min-width:450px 盒子最小自适宽
-
-max-width:650pz 盒子最大自适宽
-
-overflow:scroll 内容超出盒子(溢出)添加滚动滑块
-
-hidden 内容溢出的部分隐藏
-
-border- -width:2px
-
-top/ /right/bottom/left 上/四周/右/下/左
-
-thin薄/medium中等/thick厚
-
-border-style: solid /////边框样式
-
-border-color: 边框颜色
-
-border:3px dotted #666
-
-padding:2px 内边距
-
-margin:2px 外距
-
-margin:20px auto 居中
-
-visibility:hidden(隐藏元素) /visible(显示元素)
-
--moz(火狐)/webkit(谷歌/safari浏览器)/ms(IE)/o(Opera浏览器)-border-image:url("图片地址")
-
-11 11 11 11 stretch伸展图片/repeat重复图片/round自适重复照片 border-image边框图像
-
-box-shadow: 盒子的投影
-
-border-radius:10px 圆角边框
-
-10px 40px 椭圆形边框
-
-list-style-image:url() 项目图像
-
-list-style-position: outside 标记位于文本左侧
-
-inside 标记位于文本内部
-
-border-spacing:5px 15px 单元格距离
-
-border-collapse:collapse 单元格合并
-
-font-size文本大小
-
-background-color 输入框背景颜色
-
-:focus 输入时
-
-background-image:url("")背景图像
-
-cursor:move 光标样式
-
-crosshair
-
-default
-
-pointer
-
-move
-
-text 
-
-wait
-
-help
-
-url("")
-
-<header></header>页眉
-
-<footer></footer>页脚
-
-<nav><u1><li></li><li></li><li></li></u1></nav>导航
-
-<article><figure><img src="" alt=""></figure><hgroup></hgroup></article>文章
-
-<aside></aside>附属信息
-
-<section></>部分
-
-<hgroup></group>标题组
-
-<figure><img src alt><figcaption></></figure>图像
-
-<div></> 分节元素
-
-<article><figure><img ></figure></acticle>为块元素添加链接
-
-### 4. 多媒体
-
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">html&lt;audio controls&gt;</span><br><span class="line">    &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mp3&quot;&gt;</span><br><span class="line">    Your browser does not support the audio tag.</span><br><span class="line">&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">    Your browser does not support the video tag.</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></div></figure>
-
-## CSS笔记：
-
-### 1. 选择器
-
-- 类选择器：.classname
-- ID选择器：#id
-- 元素选择器：element
-- 后代选择器：ancestor descendant
-- 直接子元素选择器：parent > child
-- 伪类选择器：:hover, :nth-child(n)
-
-### 2. 样式规则
-
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">css/* 基本样式规则 */</span><br><span class="line">body &#123;</span><br><span class="line">    font-family: &#x27;Arial&#x27;, sans-serif;</span><br><span class="line">    background-color: #f4f4f4;</span><br><span class="line">    color: #333;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 盒模型 */</span><br><span class="line">.container &#123;</span><br><span class="line">    width: 80%;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">    padding: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 文本样式 */</span><br><span class="line">h1 &#123;</span><br><span class="line">    font-size: 2em;</span><br><span class="line">    color: #0077cc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 背景和边框 */</span><br><span class="line">.box &#123;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 布局 */</span><br><span class="line">.flex-container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 响应式设计 */</span><br><span class="line">@media screen and (max-width: 600px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
-
-### 3. 盒模型
-
-- 内边距：padding
-
-- 边框：border
-
-- 外边距：margin
-
-- position:relative相对定位
-
-  top: 10px;向下移动10个像素
-
-  left: 100px 自左边距100像素开始
-
-  position:absolute绝对定位
-
-  position:fixed固定定位 一直显示在页面
-
-### 4. Flex布局
-
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">css.container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
-
-z - index:10;重叠元素 数字大的显示在上层
-
-float浮动元素 float: right;
-
-width: 275px;
-
-margin: 5px;外边距5像素
-
-margin:10px auto自动 居中
-
-padding: 5px;内容与边框之间的距离
-
-padding-top:20px;上内边距
-
-padding-right:30px;右内边距
-
-padding-bottom:30px;下内边距
-
-padding-left:20px;左内边距
-
-padding:1px四边统一内边距
-
-padding:1px1px上下,左右内边距
-
-padding:1px1px1px上,左右,下内边距
-
-padding:1px1px1px1px上,右,下,左内边距
-
-.clear{clear:left/right/both/none}清除浮动
-
-border:1px(线1像素) solid #665544;}
-
-1.none:表示没 
-
-2.solid：表示单线 
-
-3.double：表示双线 
-
-4.groove：表示凹槽 
-
-5.redge:表示皱纹 
-
-6.dotted:点线
-
-7.dashed:虚线
-
-8.dotted 方型点框
-
-9.ridge /outset 表示凸出
-
-overflow:auto：在必需时对象内容才会被裁切或显示 滚动条；
-
-hidden：不显示超过对象尺寸的内容；
-
-scroll：总是显示滚动条。
-
- 
+<option value="ipod">ipod</>
+
+<p>&lt;&#x2F;&gt;</p>
+<p>&lt;&#x2F;&gt;</p>
+<p>多选框</p>
+<p>size显示多个多选框</p>
+<p>multiple允许用户选择多个选项</p>
+<p><input type="file">文件上传域</p>
+<p><input type="submit" name="" value="">提交按钮</p>
+<p><input type="image" src="图片路径" width=" " height="">图像按钮</p>
+<p>&lt;<form><button>&lt;input&#x3D;”hidden”&gt;&lt;&#x2F;&gt;&lt;&#x2F;&gt;</p>
+<p>required&#x3D;”名称”多个文本行添加该名称 表单验证</p>
+<p>type&#x3D;”date” 日期控件</p>
+<p>type&#x3D;”email” 电子邮件控件</p>
+<p>type&#x3D;”url” URL输入控件</p>
+<p>type&#x3D;”search placeholder&#x3D;”默认显示”” 搜索输入控件</p>
+<p>flash，视频，音频</p>
+<p>&lt;&lt;video src&#x3D;”xx.mp4” poster&#x3D;”显示的图片” width </p>
+<p>height&#x3D;”” preload&#x3D;”auto(自动播放)&#x2F;none(电机播放)” loop结束后重新播放&gt;</p>
+<p>&lt;&lt;audio src&#x3D;”音频路径” conteols是否显现播放器 autoplay自动播放&gt;</p>
+<p>&lt;<audio controls autoplay><source src=""><source src=""><source src=""><p></p></audio></p>
+<p>css</p>
+<p>font-family字体选用</p>
+<p>font-size: 像素&#x2F;百分数(100％为16px)&#x2F;EM值 字体大小</p>
+<p>font-weight:bold粗体</p>
+<p>font-style:italic(斜体)&#x2F;oblique(倾斜</p>
+<p>text-transform:uppercase(大写)&#x2F;lowercase(小写)&#x2F;capitalize(每个单词首字母大写)</p>
+<p>text-decoration:none(删除装饰线)&#x2F;overline(底部增加一条实线)&#x2F;line-through(穿过文字的一条实线)&#x2F;blink(字体闪烁)</p>
+<p>line-height:1.4em 行间距</p>
+<p>letter-spacing:0.2em字母间距</p>
+<p>word-spacing:1em单词间距</p>
+<p>text-align:left(左对齐)&#x2F;right(右对齐)&#x2F;center(居中)&#x2F;justify(两段对齐)</p>
+<p>vertical-align:baseline</p>
+<p>sub</p>
+<p>super</p>
+<p>top</p>
+<p>text-top</p>
+<p>middle</p>
+<p>bottom</p>
+<p>text-bottom</p>
+<p>text-indent:20px向右缩进20像素</p>
+<p>text-shadow:-1px -1px #666666 投影</p>
+<p>选择器:first-letter{}首字母</p>
+<p>选择器:first-line{}首行文本</p>
+<p>选择器:link{} 为未被访问的链接设置样式</p>
+<p>选择器:visited{} 为被访问过的链接设置样式</p>
+<p>选择器:hover{} 鼠标停在按钮上改变属性</p>
+<p>选择器:active{} 鼠标点击按钮后改变属性</p>
+<p>选择器:focus{} 拥有焦点时改变属性</p>
+<p>width:300px 盒子宽</p>
+<p>height:400px 盒子高</p>
+<p>min-width:450px 盒子最小自适宽</p>
+<p>max-width:650pz 盒子最大自适宽</p>
+<p>overflow:scroll 内容超出盒子(溢出)添加滚动滑块</p>
+<p>hidden 内容溢出的部分隐藏</p>
+<p>border- -width:2px</p>
+<p>top&#x2F; &#x2F;right&#x2F;bottom&#x2F;left 上&#x2F;四周&#x2F;右&#x2F;下&#x2F;左</p>
+<p>thin薄&#x2F;medium中等&#x2F;thick厚</p>
+<p>border-style: solid &#x2F;&#x2F;&#x2F;&#x2F;&#x2F;边框样式</p>
+<p>border-color: 边框颜色</p>
+<p>border:3px dotted #666</p>
+<p>padding:2px 内边距</p>
+<p>margin:2px 外距</p>
+<p>margin:20px auto 居中</p>
+<p>visibility:hidden(隐藏元素) &#x2F;visible(显示元素)</p>
+<p>-moz(火狐)&#x2F;webkit(谷歌&#x2F;safari浏览器)&#x2F;ms(IE)&#x2F;o(Opera浏览器)-border-image:url(“图片地址”)</p>
+<p>11 11 11 11 stretch伸展图片&#x2F;repeat重复图片&#x2F;round自适重复照片 border-image边框图像</p>
+<p>box-shadow: 盒子的投影</p>
+<p>border-radius:10px 圆角边框</p>
+<p>10px 40px 椭圆形边框</p>
+<p>list-style-image:url() 项目图像</p>
+<p>list-style-position: outside 标记位于文本左侧</p>
+<p>inside 标记位于文本内部</p>
+<p>border-spacing:5px 15px 单元格距离</p>
+<p>border-collapse:collapse 单元格合并</p>
+<p>font-size文本大小</p>
+<p>background-color 输入框背景颜色</p>
+<p>:focus 输入时</p>
+<p>background-image:url(“”)背景图像</p>
+<p>cursor:move 光标样式</p>
+<p>crosshair</p>
+<p>default</p>
+<p>pointer</p>
+<p>move</p>
+<p>text </p>
+<p>wait</p>
+<p>help</p>
+<p>url(“”)</p>
+<p>&lt;<header></header>页眉</p>
+<p>&lt;<footer></footer>页脚</p>
+<p>&lt;<nav><u1><li></li><li></li><li></li></u1></nav>导航</p>
+<p>&lt;<article><figure><img src="" alt=""></figure><hgroup></hgroup></article>文章</p>
+<p>&lt;<aside></aside>附属信息</p>
+<p>&lt;<section>&lt;&#x2F;&gt;部分</p>
+<p><hgroup></group>标题组</p>
+<p>&lt;<figure><img src alt><figcaption>&lt;&#x2F;&gt;</figure>图像</p>
+<p>&lt;<div>&lt;&#x2F;&gt; 分节元素</p>
+<p>&lt;<article><figure><img ></figure></acticle>为块元素添加链接</p>
+
+        <h3 id="4-多媒体"   >
+          <a href="#4-多媒体" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-多媒体" class="headerlink" title="4. 多媒体"></a>4. 多媒体</h3>
+      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">html&lt;audio controls&gt;</span><br><span class="line">    &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mp3&quot;&gt;</span><br><span class="line">    Your browser does not support the audio tag.</span><br><span class="line">&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">    Your browser does not support the video tag.</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="CSS笔记："   >
+          <a href="#CSS笔记：" class="heading-link"><i class="fas fa-link"></i></a><a href="#CSS笔记：" class="headerlink" title="CSS笔记："></a>CSS笔记：</h2>
+      
+        <h3 id="1-选择器"   >
+          <a href="#1-选择器" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-选择器" class="headerlink" title="1. 选择器"></a>1. 选择器</h3>
+      <ul>
+<li>类选择器：.classname</li>
+<li>ID选择器：#id</li>
+<li>元素选择器：element</li>
+<li>后代选择器：ancestor descendant</li>
+<li>直接子元素选择器：parent &gt; child</li>
+<li>伪类选择器：:hover, :nth-child(n)</li>
+</ul>
+
+        <h3 id="2-样式规则"   >
+          <a href="#2-样式规则" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-样式规则" class="headerlink" title="2. 样式规则"></a>2. 样式规则</h3>
+      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">css/* 基本样式规则 */</span><br><span class="line">body &#123;</span><br><span class="line">    font-family: &#x27;Arial&#x27;, sans-serif;</span><br><span class="line">    background-color: #f4f4f4;</span><br><span class="line">    color: #333;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 盒模型 */</span><br><span class="line">.container &#123;</span><br><span class="line">    width: 80%;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">    padding: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 文本样式 */</span><br><span class="line">h1 &#123;</span><br><span class="line">    font-size: 2em;</span><br><span class="line">    color: #0077cc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 背景和边框 */</span><br><span class="line">.box &#123;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 布局 */</span><br><span class="line">.flex-container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 响应式设计 */</span><br><span class="line">@media screen and (max-width: 600px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="3-盒模型"   >
+          <a href="#3-盒模型" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-盒模型" class="headerlink" title="3. 盒模型"></a>3. 盒模型</h3>
+      <ul>
+<li><p>内边距：padding</p>
+</li>
+<li><p>边框：border</p>
+</li>
+<li><p>外边距：margin</p>
+</li>
+<li><p>position:relative相对定位</p>
+<p>top: 10px;向下移动10个像素</p>
+<p>left: 100px 自左边距100像素开始</p>
+<p>position:absolute绝对定位</p>
+<p>position:fixed固定定位 一直显示在页面</p>
+</li>
+</ul>
+
+        <h3 id="4-Flex布局"   >
+          <a href="#4-Flex布局" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-Flex布局" class="headerlink" title="4. Flex布局"></a>4. Flex布局</h3>
+      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">css.container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>z - index:10;重叠元素 数字大的显示在上层</p>
+<p>float浮动元素 float: right;</p>
+<p>width: 275px;</p>
+<p>margin: 5px;外边距5像素</p>
+<p>margin:10px auto自动 居中</p>
+<p>padding: 5px;内容与边框之间的距离</p>
+<p>padding-top:20px;上内边距</p>
+<p>padding-right:30px;右内边距</p>
+<p>padding-bottom:30px;下内边距</p>
+<p>padding-left:20px;左内边距</p>
+<p>padding:1px四边统一内边距</p>
+<p>padding:1px1px上下,左右内边距</p>
+<p>padding:1px1px1px上,左右,下内边距</p>
+<p>padding:1px1px1px1px上,右,下,左内边距</p>
+<p>.clear{clear:left&#x2F;right&#x2F;both&#x2F;none}清除浮动</p>
+<p>border:1px(线1像素) solid #665544;}</p>
+<p>1.none:表示没 </p>
+<p>2.solid：表示单线 </p>
+<p>3.double：表示双线 </p>
+<p>4.groove：表示凹槽 </p>
+<p>5.redge:表示皱纹 </p>
+<p>6.dotted:点线</p>
+<p>7.dashed:虚线</p>
+<p>8.dotted 方型点框</p>
+<p>9.ridge &#x2F;outset 表示凸出</p>
+<p>overflow:auto：在必需时对象内容才会被裁切或显示 滚动条；</p>
+<p>hidden：不显示超过对象尺寸的内容；</p>
+<p>scroll：总是显示滚动条。</p>
 ]]></content>
   </entry>
   <entry>
