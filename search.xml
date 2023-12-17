@@ -30,8 +30,8 @@
 </li>
 </ul>
 
-        <h6 id="基本的-PHP-语法"   >
-          <a href="#基本的-PHP-语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h6>
+        <h2 id="基本的-PHP-语法"   >
+          <a href="#基本的-PHP-语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h2>
       <p>PHP 脚本可以放在文档中的任何位置。</p>
 <p>PHP 脚本以 <strong><?php** 开始，以 **?></strong> 结束：</p>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// PHP 代码</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></div></figure>
@@ -39,8 +39,8 @@
 <p>在 PHP 中，只有一个字符串运算符并置运算符 (.) 用于把两个字符串值连接起来。</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091106682.png" alt="image-20231217091106682"></p>
 
-        <h6 id="PHP-赋值运算符"   >
-          <a href="#PHP-赋值运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#PHP-赋值运算符" class="headerlink" title="PHP 赋值运算符"></a>PHP 赋值运算符</h6>
+        <h2 id="PHP-赋值运算符"   >
+          <a href="#PHP-赋值运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#PHP-赋值运算符" class="headerlink" title="PHP 赋值运算符"></a>PHP 赋值运算符</h2>
       <p>x &#x3D; y左操作数被设置为右侧表达式的值</p>
 
         <h1 id="2-用PHP实现数据交互"   >
@@ -73,7 +73,7 @@
 <hr>
 <p>– Records of emails</p>
 <hr>
-<p>INSERT INTO <code>emails</code> VALUES (1, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#x6d;&#x62;&#x40;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#99;&#x6f;&#109;" >&#68;&#x75;&#x6d;&#x62;&#x40;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#99;&#x6f;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (2, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#65;&#110;&#x67;&#x65;&#x6c;&#64;&#105;&#x6c;&#111;&#x76;&#x65;&#117;&#x2e;&#99;&#x6f;&#109;" >&#65;&#110;&#x67;&#x65;&#x6c;&#64;&#105;&#x6c;&#111;&#x76;&#x65;&#117;&#x2e;&#99;&#x6f;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (3, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x44;&#117;&#x6d;&#109;&#x79;&#64;&#x64;&#104;&#97;&#x6b;&#107;&#x61;&#x6e;&#46;&#x6c;&#x6f;&#99;&#x61;&#108;" >&#x44;&#117;&#x6d;&#109;&#x79;&#64;&#x64;&#104;&#97;&#x6b;&#107;&#x61;&#x6e;&#46;&#x6c;&#x6f;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (4, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#101;&#99;&#117;&#114;&#101;&#64;&#100;&#104;&#x61;&#107;&#107;&#x61;&#110;&#46;&#108;&#x6f;&#99;&#97;&#108;" >&#x73;&#101;&#99;&#117;&#114;&#101;&#64;&#100;&#104;&#x61;&#107;&#107;&#x61;&#110;&#46;&#108;&#x6f;&#99;&#97;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (5, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#x74;&#x75;&#112;&#105;&#100;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#99;&#x61;&#x6c;" >&#x73;&#x74;&#x75;&#112;&#105;&#100;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#99;&#x61;&#x6c;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (6, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#117;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#x40;&#x64;&#104;&#97;&#107;&#107;&#x61;&#110;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;" >&#115;&#117;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#x40;&#x64;&#104;&#97;&#107;&#107;&#x61;&#110;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (7, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x62;&#97;&#x74;&#109;&#97;&#110;&#64;&#100;&#x68;&#97;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#x63;&#x61;&#x6c;" >&#x62;&#97;&#x74;&#109;&#97;&#110;&#64;&#100;&#x68;&#97;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#108;&#111;&#x63;&#x61;&#x6c;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (8, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x61;&#x64;&#109;&#105;&#x6e;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#97;&#110;&#46;&#99;&#111;&#x6d;" >&#x61;&#x64;&#109;&#105;&#x6e;&#64;&#x64;&#x68;&#97;&#107;&#x6b;&#97;&#110;&#46;&#99;&#111;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);</p>
+<p>INSERT INTO <code>emails</code> VALUES (1, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#109;&#98;&#64;&#x64;&#x68;&#97;&#x6b;&#107;&#x61;&#110;&#46;&#x63;&#111;&#109;" >&#68;&#x75;&#109;&#98;&#64;&#x64;&#x68;&#97;&#x6b;&#107;&#x61;&#110;&#46;&#x63;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (2, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x41;&#x6e;&#103;&#x65;&#108;&#x40;&#x69;&#108;&#111;&#118;&#101;&#117;&#x2e;&#99;&#111;&#x6d;" >&#x41;&#x6e;&#103;&#x65;&#108;&#x40;&#x69;&#108;&#111;&#118;&#101;&#117;&#x2e;&#99;&#111;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (3, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#x6d;&#x6d;&#x79;&#64;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#x6c;&#111;&#99;&#x61;&#108;" >&#68;&#x75;&#x6d;&#x6d;&#x79;&#64;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#x6c;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (4, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#101;&#99;&#x75;&#114;&#x65;&#x40;&#100;&#104;&#97;&#x6b;&#x6b;&#x61;&#110;&#46;&#x6c;&#x6f;&#99;&#97;&#108;" >&#x73;&#101;&#99;&#x75;&#114;&#x65;&#x40;&#100;&#104;&#97;&#x6b;&#x6b;&#x61;&#110;&#46;&#x6c;&#x6f;&#99;&#97;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (5, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#116;&#x75;&#x70;&#105;&#x64;&#64;&#x64;&#104;&#97;&#107;&#x6b;&#97;&#x6e;&#46;&#x6c;&#111;&#99;&#x61;&#108;" >&#115;&#116;&#x75;&#x70;&#105;&#x64;&#64;&#x64;&#104;&#97;&#107;&#x6b;&#97;&#x6e;&#46;&#x6c;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (6, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#x75;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#64;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#99;&#x61;&#108;" >&#115;&#x75;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#64;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (7, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#98;&#x61;&#116;&#109;&#x61;&#110;&#x40;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#x63;&#x61;&#108;" >&#98;&#x61;&#116;&#109;&#x61;&#110;&#x40;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#x63;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (8, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#97;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x64;&#x68;&#97;&#x6b;&#x6b;&#97;&#110;&#46;&#99;&#111;&#109;" >&#97;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x64;&#x68;&#97;&#x6b;&#x6b;&#97;&#110;&#46;&#99;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);</p>
 <hr>
 <p>– Table structure for referers</p>
 <hr>
@@ -124,19 +124,19 @@
     <title>Vue3</title>
     <url>/2023/12/11/text13/</url>
     <content><![CDATA[
-        <h3 id="1-安装-Node-js-和-npm"   >
-          <a href="#1-安装-Node-js-和-npm" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-安装-Node-js-和-npm" class="headerlink" title="1. 安装 Node.js 和 npm"></a>1. 安装 Node.js 和 npm</h3>
+        <h1 id="1-安装-Node-js-和-npm"   >
+          <a href="#1-安装-Node-js-和-npm" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-安装-Node-js-和-npm" class="headerlink" title="1. 安装 Node.js 和 npm"></a>1. 安装 Node.js 和 npm</h1>
       <p>Vue 3 需要使用 Node.js 和 npm（Node 包管理器）进行开发。你可以从 <span class="exturl"><a class="exturl__link"   href="https://nodejs.org/" >Node.js 官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 下载并安装 Node.js，它自带了 npm。</p>
 
-        <h3 id="2-创建Vue3项目"   >
-          <a href="#2-创建Vue3项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-创建Vue3项目" class="headerlink" title="2. 创建Vue3项目"></a>2. 创建Vue3项目</h3>
+        <h1 id="2-创建Vue3项目"   >
+          <a href="#2-创建Vue3项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-创建Vue3项目" class="headerlink" title="2. 创建Vue3项目"></a>2. 创建Vue3项目</h1>
       <p>打开cmd输入：npm create vue@latest</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203303662.png" alt="image-20231211203303662"></p>
 <p>在这个过程中，你会被要求选择一些配置选项，也可以全部否。</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203505764.png" alt="image-20231211203505764"></p>
 
-        <h3 id="3-运行-Vue-3-项目"   >
-          <a href="#3-运行-Vue-3-项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-运行-Vue-3-项目" class="headerlink" title="3. 运行 Vue 3 项目"></a>3. 运行 Vue 3 项目</h3>
+        <h1 id="3-运行-Vue-3-项目"   >
+          <a href="#3-运行-Vue-3-项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-运行-Vue-3-项目" class="headerlink" title="3. 运行 Vue 3 项目"></a>3. 运行 Vue 3 项目</h1>
       <p>进入项目目录：cd my-vue3-project</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203648100.png" alt="image-20231211203648100"></p>
 <p>安装element-plus服务：npm install element-plus –save<br>                                          npm install -D unplugin-vue-components unplugin-auto-import</p>
@@ -146,8 +146,8 @@
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204442485.png" alt="image-20231211204442485"></p>
 <p>这将启动一个开发服务器，并在浏览器中打开项目。你会看到一个页面，表示 Vue 3 项目已经成功运行。<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204521686.png" alt="image-20231211204521686"></p>
 
-        <h3 id="4-项目结构"   >
-          <a href="#4-项目结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-项目结构" class="headerlink" title="4. 项目结构"></a>4. 项目结构</h3>
+        <h1 id="4-项目结构"   >
+          <a href="#4-项目结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-项目结构" class="headerlink" title="4. 项目结构"></a>4. 项目结构</h1>
       <p>Vue 3 项目的主要目录结构：</p>
 <ul>
 <li><code>src</code>: 包含项目的源代码</li>
@@ -161,14 +161,14 @@
 <li><code>src/views</code>: 存放视图组件的目录</li>
 </ul>
 
-        <h3 id="5-在main-js中导入内容"   >
-          <a href="#5-在main-js中导入内容" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-在main-js中导入内容" class="headerlink" title="5.在main.js中导入内容"></a>5.在main.js中导入内容</h3>
+        <h1 id="5-在main-js中导入内容"   >
+          <a href="#5-在main-js中导入内容" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-在main-js中导入内容" class="headerlink" title="5.在main.js中导入内容"></a>5.在main.js中导入内容</h1>
       <p>import { createApp } from ‘vue’<br>import App from ‘.&#x2F;App.vue’<br>import ElementPlus from ‘element-plus’;<br>import ‘element-plus&#x2F;dist&#x2F;index.css’</p>
 <p>createApp(App).mount(‘#app’)</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210145215.png" alt="image-20231211210145215"></p>
 
-        <h3 id="6-vue简单编辑使用"   >
-          <a href="#6-vue简单编辑使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-vue简单编辑使用" class="headerlink" title="6.vue简单编辑使用"></a>6.vue简单编辑使用</h3>
+        <h1 id="6-vue简单编辑使用"   >
+          <a href="#6-vue简单编辑使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-vue简单编辑使用" class="headerlink" title="6.vue简单编辑使用"></a>6.vue简单编辑使用</h1>
       <p>vue页面主要组成</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210448817.png" alt="image-20231211210448817"></p>
 <p>可以从<span class="exturl"><a class="exturl__link"   href="https://element-plus.org/zh-CN/component/%E4%B8%8B%E8%BD%BD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6" >https://element-plus.org/zh-CN/component/下载使用组件</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
