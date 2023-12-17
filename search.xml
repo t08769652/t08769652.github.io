@@ -172,6 +172,8 @@
       <p>vue页面主要组成</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210448817.png" alt="image-20231211210448817"></p>
 <p>可以从<span class="exturl"><a class="exturl__link"   href="https://element-plus.org/zh-CN/component/%E4%B8%8B%E8%BD%BD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6" >https://element-plus.org/zh-CN/component/下载使用组件</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>一般引用如button按钮等等组件会有多个部分都需要放到对应位置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217094056142.png" alt="image-20231217094056142"></p>
 <p>结合Container 布局容器，menu菜单侧栏，buttto按钮，switch开关等等可以写出下面</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092600009.png" alt="image-20231217092600009"></p>
 <p>对应内容都要放到想要的容器布局里面</p>
