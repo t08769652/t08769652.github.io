@@ -1630,7 +1630,7 @@
       <p><strong>1.nmap -sn 192.168.56.101 （执行 Ping 扫描，而不进行端口扫描。确定主机是否在线。）</strong></p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104200323708.png" alt="image-20240104200323708"></p>
 <p><strong>2.nmap -p 1-10000 192.168.56.101（扫描的端口范围是从 1 到 10000）</strong></p>
-<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20240104200720683.png" alt="image-20240104200720683"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104200720683.png" alt="image-20240104200720683"></p>
 <p><strong>3.发现只有3个端口，nmap -p 21,22,80 -sC 192.168.56.101（扫描目标主机上的 21（FTP）、22（SSH）和80（HTTP）端口，并启用默认的脚本扫描以获取更多关于这些端口和服务的信息。）</strong></p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240104201132163.png" alt="image-20240104201132163"></p>
 <p><strong>4.dirsearch -u “<span class="exturl"><a class="exturl__link"   href="http://192.168.56.101/" >http://192.168.56.101</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>“ -x401,403,404（使用 <code>dirsearch</code> 工具对目标网站 “<span class="exturl"><a class="exturl__link"   href="http://192.168.56.101/" >http://192.168.56.101</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>“ 进行目录和文件的枚举，并排除了未授权、禁止访问和未找到的状态码。）</strong></p>
