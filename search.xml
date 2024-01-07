@@ -80,6 +80,10 @@
 <p><span class="exturl"><a class="exturl__link"   href="https://www.t1h2ua.cn/tools/" >https://www.t1h2ua.cn/tools/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	子域名扫描<br><span class="exturl"><a class="exturl__link"   href="https://dnsdumpster.com/" >https://dnsdumpster.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	dnsdumpster<br><span class="exturl"><a class="exturl__link"   href="http://dns.aizhan.com/" >http://dns.aizhan.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>	爱站<br>     <strong>（5）子域名爆破工具</strong></p>
 <p><span class="exturl"><a class="exturl__link"   href="https://github.com/euphrat1ca/LayerDomainFinder" >https://github.com/euphrat1ca/LayerDomainFinder</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>    layer子域名挖掘机</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240103205203033.png" alt="image-20240103205203033"></p>
+<p><strong>（6）web finder小米范（目录扫描器）</strong></p>
+<p><span class="exturl"><a class="exturl__link"   href="http://pan.baidu.com/s/1pLjaQKF" >http://pan.baidu.com/s/1pLjaQKF</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>到Java1.8的bin目录下面运行（web finder也放到该目录）java -jar  web_finder_2.9.jar</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240105151653739.png" alt="image-20240105151653739"></p>
 
         <h3 id="3-绕过CDN寻找真实IP"   >
           <a href="#3-绕过CDN寻找真实IP" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-绕过CDN寻找真实IP" class="headerlink" title="3.绕过CDN寻找真实IP"></a><strong>3.绕过CDN寻找真实IP</strong></h3>
@@ -269,8 +273,11 @@
 <p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231231213208084.png" alt="image-20231231213208084"></p>
 <p>5.点击FUZZ，可以进去构造请求包，可注入的位置各有不同</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/1703646436446-c1a73188-5dbf-4e40-8290-d9050ff10927.png" alt="image.png"></p>
-<p>6.右键功能菜单可以帮助构建请求包</p>
+<p>6.右键功能菜单可以帮助构建请求包，插入字典爆破密码</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240105150455782.png" alt="image-20240105150455782"></p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231231213510950.png" alt="image-20231231213510950"></p>
+<p>7.可以手动劫持请求，比如要爆破密码但要每次刷新验证码，输入一个正确的验证码然后劫持爆破出正确的密码再放行</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240105150226965.png" alt="image-20240105150226965"></p>
 
         <h1 id="burp"   >
           <a href="#burp" class="heading-link"><i class="fas fa-link"></i></a><a href="#burp" class="headerlink" title="burp"></a>burp</h1>
@@ -294,8 +301,8 @@
 <p>9.发送到Repeater（重放器）可以和yakit一样单次发送</p>
 <p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231231214826319.png" alt="image-20231231214826319"></p>
 
-        <h1 id="waf-过狗"   >
-          <a href="#waf-过狗" class="heading-link"><i class="fas fa-link"></i></a><a href="#waf-过狗" class="headerlink" title="waf:过狗"></a>waf:过狗</h1>
+        <h1 id="waf-绕狗"   >
+          <a href="#waf-绕狗" class="heading-link"><i class="fas fa-link"></i></a><a href="#waf-绕狗" class="headerlink" title="waf:绕狗"></a>waf:绕狗</h1>
       <p>注意：当某种安全设备的绕过方式在公网上可以大量搜索到，那大概率这种方式已经无法绕过了（因为WAF规则库一直在更新），这里介绍的绕过方式是给初学者提供一个思路。<br>WAF绕过实质：让WAF的检测规则，识别不到所输入的敏感字符，既利用WAF规则漏洞进行绕过。<br>1.数据方面：<br>（1）大小写绕过 如：union select 改为 UniON SeLeCt<br>（2）参数加解密绕过 如：database()使用base64加密为 ZGF0YWJhc2UoKQ&#x3D;&#x3D;。<br>（3）参数编码解码绕过 针对WAF过滤的字符编码，如使用URL编码，Unicode编码，十六进制编码，Hex编码等。<br>（4）使用特殊符号绕过<br>（5）反序列化绕过<br>（6）使用等价函数、同义符号绕过 如：and 等价于&amp;&amp;<br>（7）注释符混用绕过</p>
 <p>（8）内联注释绕过 如：安全狗对database()函数进行拦截，因此，可以改写为database&#x2F;* &#x2F;( ) 或 union selecte &#x3D;&#x2F;!union*&#x2F; select，注释符里感叹号后面的内容会被mysql执行。<br>（9）双关键字绕过 如：script 写为 ScscriptRipt<br>（10）HTTP参污染 对目标发送多个参数，如果目标没有多参数进行多次过滤，那么WAF对多个参数只会识别其中的一个。如：?id&#x3D;1&#x2F;**&amp;id&#x3D;2&amp;id&#x3D;3 或 ?id&#x3D;1&#x2F;**&amp;id&#x3D;-1%20union%20select%201,2,3%23*&#x2F;<br>（11）换行（\N）绕过</p>
 <p>2.数据提交方式方面：<br>（1）更改数据提交方式 如：get提交方式 改为 post提交方式</p>
@@ -954,9 +961,7 @@
 
 <p><cite>引用表现为斜体，html5不可用于人名</p>
 <p><dfn>定义</p>
-<address>地址
-<ins>文字带有下划线
-
+<p>&lt;address&gt;地址<br><ins>文字带有下划线</p>
 <p><del>文字带有删除线</p>
 <p><s>文字中下方有横线穿过</p>
 <p>&lt;<h1>—-<h6>标题由大到小</p>
@@ -968,7 +973,7 @@
 <p>网页链接文本</p>
 <p>&lt;a href＝”<span class="exturl"><a class="exturl__link"   href="http://www.baidu.com" >百度">http://www.baidu.com&quot;&gt;百度</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></a></p>
 <p>email链接</p>
-<p>&lt;a href ＝”mailto:<span class="exturl"><a class="exturl__link"   href="mailto:&#x31;&#50;&#49;&#x30;&#51;&#57;&#x36;&#x31;&#52;&#x32;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;" >&#x31;&#50;&#49;&#x30;&#51;&#57;&#x36;&#x31;&#52;&#x32;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>&gt;孙邮箱</a></p>
+<p>&lt;a href ＝”mailto:<span class="exturl"><a class="exturl__link"   href="mailto:&#49;&#x32;&#x31;&#x30;&#51;&#x39;&#54;&#49;&#52;&#x32;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;" >&#49;&#x32;&#x31;&#x30;&#51;&#x39;&#54;&#49;&#52;&#x32;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>&gt;邮箱</a></p>
 <p>在新窗口中打开链接target</p>
 <p>&lt;a href&#x3D;”<span class="exturl"><a class="exturl__link"   href="http://www.baidu.com" target＝"_blank">百度">http://www.baidu.com&quot;target＝&quot;_blank&quot;&gt;百度</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></a></p>
 <p>链接到其他页面的某个地方</p>
@@ -1011,9 +1016,7 @@
 <p>value</p>
 <p>checked</p>
 <p>下拉列表框</p>
-<form action="">
-&lt;<select name="devices">
-
+<p>&lt;form action&#x3D;””&gt;<br>&lt;<select name="devices"></p>
 <option value="ipod">ipod</>
 
 <option value="ipod">ipod</>
@@ -1221,15 +1224,64 @@
 ]]></content>
   </entry>
   <entry>
-    <title>简单介绍上网流程，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
+    <title>内网上网，三次握手四次挥手，Proxifier代理设置，VMware桥接和nat模式，Wireshark</title>
     <url>/2023/12/05/text8/</url>
     <content><![CDATA[
-        <h1 id="简单介绍上网流程"   >
-          <a href="#简单介绍上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简单介绍上网流程" class="headerlink" title="简单介绍上网流程"></a>简单介绍上网流程</h1>
+        <h1 id="n上网流程"   >
+          <a href="#n上网流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#n上网流程" class="headerlink" title="n上网流程"></a>n上网流程</h1>
+      
+        <h1 id="内网上网"   >
+          <a href="#内网上网" class="heading-link"><i class="fas fa-link"></i></a><a href="#内网上网" class="headerlink" title="内网上网"></a>内网上网</h1>
       <p>1.通过dhcp（Dynamic Host Configuration Protocol，动态主机配置协议）获得私网的IP地址，使用　NAT（Network Address Translation，网络地址转换）多个私网IP通过一个公网ip进行上网。</p>
-<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205191559642.png" alt="image-20231205191559642"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/v2-7736353d1437abb340cec1311fce0409_720w.webp" alt="v2-7736353d1437abb340cec1311fce0409_720w"></p>
 <p>补充：私网地址范围（ A类地址:10.0.0.0<del>10.255.255.255 B类地址:172.16.0.0</del>172.31.255.255 C类地址:192.168.0.0~192.168.255.255）</p>
 <p>2.路由器里面有路由表分为静态路由，默认路由，动态路由，根据路由表来选择下一跳地址进行数据传输上网。</p>
+
+        <h1 id="三次握手，四次挥手"   >
+          <a href="#三次握手，四次挥手" class="heading-link"><i class="fas fa-link"></i></a><a href="#三次握手，四次挥手" class="headerlink" title="三次握手，四次挥手"></a>三次握手，四次挥手</h1>
+      <p><strong>三次握手</strong></p>
+<p>三次握手的目的是在客户端和服务器之间建立一个可靠的、全双工的通信通道。整个过程包括以下步骤：</p>
+<ol>
+<li><strong>客户端向服务器发送SYN请求报文（SYN&#x3D;1，ACK&#x3D;0）：</strong><ul>
+<li>客户端告诉服务器，它想要建立连接。</li>
+<li>客户端选择一个初始序列号（ISN，Initial Sequence Number）。</li>
+</ul>
+</li>
+<li><strong>服务器收到SYN请求报文，回应一个SYN和ACK的组合（SYN&#x3D;1，ACK&#x3D;1）：</strong><ul>
+<li>服务器表示同意建立连接。</li>
+<li>服务器也选择一个初始序列号。</li>
+</ul>
+</li>
+<li><strong>客户端接收到服务器的响应后，再发送一个ACK报文给服务器（SYN&#x3D;0，ACK&#x3D;1）：</strong><ul>
+<li>客户端告诉服务器，它已经收到了服务器的确认，连接建立完成。</li>
+</ul>
+</li>
+</ol>
+<p>在这个过程中，两端都向对方发送了确认信息，确保了双方都能够收到对方的确认，建立了可靠的连接。</p>
+<p><strong>四次挥手</strong></p>
+<p>四次挥手的目的是在客户端和服务器之间断开连接，整个过程包括以下步骤：</p>
+<ol>
+<li><strong>客户端发送一个带有FIN标志的报文给服务器（FIN&#x3D;1，ACK&#x3D;0）：</strong><ul>
+<li>客户端不再发送数据，但仍然可以接收数据。</li>
+<li>客户端选择一个序列号。</li>
+</ul>
+</li>
+<li><strong>服务器收到客户端的FIN报文，回应一个ACK报文（FIN&#x3D;0，ACK&#x3D;1）：</strong><ul>
+<li>服务器告诉客户端，它已经收到了客户端的断开请求。</li>
+</ul>
+</li>
+<li><strong>服务器发送一个带有FIN标志的报文给客户端（FIN&#x3D;1，ACK&#x3D;1）：</strong><ul>
+<li>服务器表示自己也准备好断开连接。</li>
+<li>服务器选择一个序列号。</li>
+</ul>
+</li>
+<li><strong>客户端收到服务器的FIN报文后，回应一个ACK报文（FIN&#x3D;0，ACK&#x3D;1）：</strong><ul>
+<li>客户端告诉服务器，它已经收到了服务器的断开请求。</li>
+<li>此时，连接正式断开。</li>
+</ul>
+</li>
+</ol>
+<p>在四次挥手中，由于TCP是全双工的，每一方都需要单独发起断开请求，确保双方都能安全地关闭连接。</p>
 
         <h1 id="Proxifier代理设置"   >
           <a href="#Proxifier代理设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#Proxifier代理设置" class="headerlink" title="Proxifier代理设置"></a>Proxifier代理设置</h1>
@@ -1243,7 +1295,12 @@
 
         <h1 id="VMware桥接和nat模式"   >
           <a href="#VMware桥接和nat模式" class="heading-link"><i class="fas fa-link"></i></a><a href="#VMware桥接和nat模式" class="headerlink" title="VMware桥接和nat模式"></a>VMware桥接和nat模式</h1>
-      <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
+      <p><strong>桥接： 通过使用物理机网卡 具有单独ip</strong></p>
+<p>在bridged模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，它可以访问网内任何一台机器。主机网卡和虚拟网卡的IP地址处于同一个网段，子网掩码、网关、DNS等参数都相同。</p>
+<p>这种方式简单，直接将虚拟网卡桥接到一个物理网卡上面，和linux下一个网卡 绑定两个不同地址类似，实际上是将网卡设置为混杂模式，从而达到侦听多个IP的能力。在此种模式下，虚拟机内部的网卡（例如linux下的eth0)直接连到了物理网卡所在的网络上，可以想象为虚拟机和host机处于对等的地位，在网络关系上是平等的，没有谁在谁后面的问题。</p>
+<p><strong>NAT ：把物理机为路由器进行上网</strong></p>
+<p>使用NAT模式可以实现在虚拟系统里访问互联网。就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231205192852447.png" alt="image-20231205192852447"></p>
 
         <h1 id="Wireshark"   >
           <a href="#Wireshark" class="heading-link"><i class="fas fa-link"></i></a><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1>
