@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="简单介绍Linux的1目录结构和一些命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件与目录，创建新用户">
+<meta property="og:title" content="Linux基本操作">
 <meta property="og:url" content="http://example.com/2023/12/03/text4/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="简单介绍Linux的1目录结构和一些命令">
@@ -14,15 +14,18 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153414399.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153604813.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153747054.png">
-<meta property="og:image" content="c:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231203153921825.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153921825.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240108160620350.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154159832.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154252280.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240108160840144.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240108160956561.png">
 <meta property="article:published_time" content="2023-12-03T07:01:56.000Z">
-<meta property="article:modified_time" content="2023-12-03T09:16:01.099Z">
+<meta property="article:modified_time" content="2024-01-08T08:18:53.172Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/4_20.png"><title>Linux文件与目录，创建新用户 | Hexo</title><link ref="canonical" href="http://example.com/2023/12/03/text4/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="https://raw.githubusercontent.com/t08769652/photo/main/img/4_20.png"><title>Linux基本操作 | Hexo</title><link ref="canonical" href="http://example.com/2023/12/03/text4/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -46,7 +49,7 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Linux文件与目录，创建新用户</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-12-03</span></span></div></header><div class="post-body">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Linux基本操作</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-01-08</span></span></div></header><div class="post-body">
         <h1 id="1-Linux-系统目录结构"   >
           <a href="#1-Linux-系统目录结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-Linux-系统目录结构" class="headerlink" title="1.Linux 系统目录结构"></a>1.Linux 系统目录结构</h1>
       <p>登录系统后，在当前命令窗口下输入命令：</p>
@@ -82,9 +85,10 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </li>
 </ul>
 
-        <h1 id="2-Linux-文件与目录管理和创建新用户"   >
-          <a href="#2-Linux-文件与目录管理和创建新用户" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-Linux-文件与目录管理和创建新用户" class="headerlink" title="2.Linux 文件与目录管理和创建新用户"></a>2.Linux 文件与目录管理和创建新用户</h1>
-      <p>ls: 列出目录及文件名</p>
+        <h1 id="2-Linux-命令"   >
+          <a href="#2-Linux-命令" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-Linux-命令" class="headerlink" title="2.Linux 命令"></a>2.Linux 命令</h1>
+      <p><strong>文件操作</strong></p>
+<p>ls: 列出目录及文件名</p>
 <ul>
 <li>a ：全部的文件，连同隐藏文件( 开头为 . 的文件) 一起列出来(常用)</li>
 <li>-d ：仅列出目录本身，而不是列出目录内的文件数据(常用)</li>
@@ -100,8 +104,8 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 <p>mkdir：创建一个新的目录</p>
 <p>   <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203152027323.png" alt="image-20231203152027323"></p>
 <ul>
-<li>-m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</li>
-<li>-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</li>
+<li>-m ：配置文件的权限</li>
+<li>-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来</li>
 </ul>
 <p>rmdir：删除一个空的目录</p>
 <p>​    <img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203152125159.png" alt="image-20231203152125159"></p>
@@ -110,23 +114,62 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </ul>
 <p>touch: 创建一个新的文件</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153414399.png"></p>
+<p>cp :复制文件或目录</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# cp [-adfilprsu] 来源档(source) 目标档(destination)</span><br><span class="line">[root@www ~]# cp [options] source1 source2 source3 .... directory</span><br></pre></td></tr></table></div></figure>
+
+<p>rm :移除文件或目录</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm  [-fir] 文件或目录</span><br></pre></td></tr></table></div></figure>
+
+<p>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</p>
+<p>-i ：互动模式，在删除前会询问使用者是否动作</p>
+<p>-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</p>
+<p>mv:移动文件与目录，或修改名称</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# mv [-fiu] source destination</span><br><span class="line">[root@www ~]# mv [options] source1 source2 source3 .... directory</span><br></pre></td></tr></table></div></figure>
+
+<p>-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</p>
+<p>-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</p>
+<p>-u ：若目标文件已经存在，且 source 比较新，才会升级 (update)</p>
 <p>vi&#x2F;vim的使用</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153604813.png" alt="image-20231203153604813"></p>
 <p>按下 <strong>i</strong> 就进入了输入模式，使用 <strong>Esc</strong> 键可以返回到普通模式。</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153747054.png" alt="image-20231203153747054"></p>
 <p>在普通模式下按下 **:**（英文冒号）就进入了底行命令模式。</p>
-<p><img src="C:/Users/15386/AppData/Roaming/Typora/typora-user-images/image-20231203153921825.png" alt="image-20231203153921825"></p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203153921825.png" alt="image-20231203153921825"></p>
 <p>在底线命令模式中，基本的命令有</p>
-<ul>
-<li><code>:w</code>：保存文件。</li>
-<li><code>:q</code>：退出 Vim 编辑器。</li>
-<li><code>:wq</code>：保存文件并退出 Vim 编辑器。</li>
-<li><code>:q!</code>：强制退出Vim编辑器，不保存修改。</li>
-</ul>
+<p>w：保存文件。</p>
+<p>q：退出 Vim 编辑器。</p>
+<p>wq：保存文件并退出 Vim 编辑器。</p>
+<p>q!：强制退出Vim编辑器，不保存修改。</p>
+<p><strong>Linux 文件内容查看</strong></p>
+<p>cat 由第一行开始显示文件内容</p>
+<p>tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！</p>
+<p>nl  显示的时候，顺道输出行号！</p>
+<p>more 一页一页的显示文件内容</p>
+<p>less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</p>
+<p>head 只看头几行</p>
+<p>tail 只看尾巴几行</p>
+<p><strong>更改文件属性</strong></p>
+<p>1、chgrp：更改文件属组</p>
+<p>语法：</p>
+<p>chgrp [-R] 属组名 文件名</p>
+<p>参数选项</p>
+<p>-R：递归更改文件属组，就是在更改某个目录文件的属组时，如果加上 -R 的参数，那么该目录下的所有文件的属组都会更改。</p>
+<p>2、chown：更改文件所有者（owner），也可以同时更改文件所属组。</p>
+<p>语法：</p>
+<p>chown [–R] 所有者 文件名</p>
+<p>chown [-R] 所有者:属组名 文件名</p>
+<p>3、chmod：更改文件9个属性</p>
+<p>Linux文件属性有两种设置方法，一种是数字，一种是符号。</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240108160620350.png" alt="image-20240108160620350"></p>
+<p><strong>用户管理</strong></p>
 <p>useradd：创建新用户</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154159832.png" alt="image-20231203154159832"></p>
 <p>passwd：给用户设定更新密码</p>
 <p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20231203154252280.png" alt="image-20231203154252280"></p>
+<p>userdel：删除用户</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240108160840144.png" alt="image-20240108160840144"></p>
+<p>usermod：修改已有用户的信息</p>
+<p><img src="https://raw.githubusercontent.com/t08769652/photo/main/img/image-20240108160956561.png" alt="image-20240108160956561"></p>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/Linux/">Linux</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/12/03/text5/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">python安装与基础语法</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/12/02/text3/"><span class="paginator-prev__text">用Github部署图床</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Linux-%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">
-          1.Linux 系统目录结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86%E5%92%8C%E5%88%9B%E5%BB%BA%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-number">2.</span> <span class="toc-text">
-          2.Linux 文件与目录管理和创建新用户</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Never Give you up</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">25</div><div class="sidebar-ov-state-item__name">归档</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
+          1.Linux 系统目录结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Linux-%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">
+          2.Linux 命令</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Never Give you up</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">25</div><div class="sidebar-ov-state-item__name">归档</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
